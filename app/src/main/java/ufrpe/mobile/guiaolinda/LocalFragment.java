@@ -1,0 +1,76 @@
+package ufrpe.mobile.guiaolinda;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+
+import java.util.UUID;
+
+public class LocalFragment extends Fragment {
+    private static final String ARG_LOCAL_ID = "crime_id";
+
+    private Local mLocal;
+    private TextView mNameField;
+    private TextView mAddressField;
+    private TextView mFoneField;
+    private TextView mFaxField;
+    private TextView mSiteField;
+    private TextView mEmailField;
+    private Button goToMaps;
+
+
+    public static LocalFragment newInstance(UUID crimeId) {
+        Bundle args = new Bundle();
+        args.putSerializable(ARG_LOCAL_ID, crimeId);
+
+        LocalFragment fragment = new LocalFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        UUID localId = (UUID) getArguments().getSerializable(ARG_LOCAL_ID);
+        mLocal = LocalLab.get(getActivity()).getLocal(localId);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_local, container, false);
+
+        mNameField = (TextView)v.findViewById(R.id.local_name);
+        mNameField.setText(mLocal.get_nome_local());
+
+        mAddressField = (TextView)v.findViewById(R.id.local_endereco);
+        mAddressField.setText(mLocal.getEndereco());
+
+        mFoneField = (TextView)v.findViewById(R.id.local_fone);
+        mFoneField.setText(mLocal.getTelefone());
+
+        mFaxField = (TextView)v.findViewById(R.id.local_fax);
+        mFaxField.setText(mLocal.get_Fax());
+
+        mSiteField = (TextView)v.findViewById(R.id.local_site);
+        mSiteField.setText(mLocal.getSite());
+
+        mEmailField = (TextView)v.findViewById(R.id.local_email);
+        mEmailField.setText(mLocal.getEmail());
+
+        goToMaps = (Button)v.findViewById(R.id.go_to_maps);
+        goToMaps.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LocalFragment.this.getActivity(), MapsActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        return  v;
+    }
+}
