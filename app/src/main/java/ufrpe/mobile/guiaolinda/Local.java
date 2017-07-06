@@ -4,23 +4,16 @@ import java.util.UUID;
 
 public class Local {
     private UUID mId;
+    private String email;
+    private String horario;
     private String nome_local;
+    private String tipo;
     private String endereco;
     private String telefone;
-    private String fax;
     private String site;
-    private String email;
 
     public Local(){
         mId = (UUID.randomUUID());
-    }
-
-    public String get_Fax() {
-        return fax;
-    }
-
-    public void setFax(String fax) {
-        this.fax = fax;
     }
 
     public String getSite() {
@@ -65,5 +58,21 @@ public class Local {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public String getHorario() {
+        return horario;
+    }
+
+    public void setHorario(String horario) {
+        this.horario = horario;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 }

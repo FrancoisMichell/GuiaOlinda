@@ -54,7 +54,7 @@ public class LocalFragment extends Fragment {
         mFoneField.setText(mLocal.getTelefone());
 
         mFaxField = (TextView)v.findViewById(R.id.local_fax);
-        mFaxField.setText(mLocal.get_Fax());
+        mFaxField.setText(mLocal.getHorario());
 
         mSiteField = (TextView)v.findViewById(R.id.local_site);
         mSiteField.setText(mLocal.getSite());
