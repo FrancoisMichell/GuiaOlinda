@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+
+        android:id="@+id/bt_gastronomia"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:background="@drawable/gastronomia"
+        android:text="Gastronomia"
+        android:textColor="#FFF"
+        android:textSize="30sp" />
+
+    <Button
+
+        android:id="@+id/bt_hotelaria"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:background="@drawable/turismoehotelaria"
+        android:text="Hotelaria"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp" />
+
+    <Button
+
+        android:id="@+id/bt_igrejas"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:background="@drawable/igrejas"
+        android:text="Igrejas"
+        android:textColor="#FFF"
+        android:textSize="30sp" />
+
+    <Button
+
+        android:id="@+id/bt_monumentos"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:background="@drawable/forte"
+        android:text="Monumentos"
+        android:textColor="#FFF"
+        android:textSize="30sp" />
+
+</LinearLayout>

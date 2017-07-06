@@ -14,30 +14,51 @@ import java.util.UUID;
 
 public class LocalPagerActivity extends AppCompatActivity {
     private static final String EXTRA_LOCAL_ID = "com.bignerdranch.android.criminanintent.crime_id";
+    private static final String CATEGORIA_ITENS = "categoria";
     private ViewPager mViewPager;
     private List<Local> mLocais;
+    private String categoria;
 
-    public static Intent newIntent(Context packageContext, UUID localId){
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public static Intent newIntent(Context packageContext, UUID localId, String categoria){
         Intent intent = new Intent(packageContext, LocalPagerActivity.class);
         intent.putExtra(EXTRA_LOCAL_ID, localId);
+        intent.putExtra(CATEGORIA_ITENS, categoria);
         return intent;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_local_pager);
 
         UUID localId = (UUID) getIntent().getSerializableExtra(EXTRA_LOCAL_ID);
 
+        setCategoria(getIntent().getExtras().getString(CATEGORIA_ITENS));
+
         mViewPager = (ViewPager) findViewById(R.id.local_view_pager);
-        mLocais = LocalLab.get(this).getLocais();
+        if (categoria.equals("gastro")) {
+            mLocais = LocalLab.get(this).getGastronomicos();
+        }else if(categoria.equals("hosped")) {
+            mLocais = LocalLab.get(this).getHospedagens();
+        }else if (categoria.equals("igrejas")) {
+            mLocais = LocalLab.get(this).getIgrejas();
+        }else if(categoria.equals("monumentos")){
+            mLocais = LocalLab.get(this).getMonumentos();
+        }else {
+            mLocais = LocalLab.get(this).getLocais();
+        }
         FragmentManager fragmentManager = getSupportFragmentManager();
         mViewPager.setAdapter(new FragmentStatePagerAdapter(fragmentManager) {
             @Override
             public Fragment getItem(int position) {
                 Local local = mLocais.get(position);
-                return LocalFragment.newInstance(local.getId());
+                    return LocalFragment.newInstance(local.getId());
             }
 
             @Override

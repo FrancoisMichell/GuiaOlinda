@@ -13,13 +13,24 @@ import android.widget.TextView;
 
 import java.util.List;
 
+
 public class LocalListFragment extends Fragment {
     private RecyclerView mLocalRecyclerView;
     private LocalAdapter mAdapter;
+    private TextView v;
+
+    private String categoria;
+
+    public LocalListFragment(String s) {
+        setCategoria(s);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_local_list, container, false);
+
+        v = (TextView)view.findViewById(R.id.categoria);
+        v.setText(String.format("Exibindo %s", getCategoria()));
 
         mLocalRecyclerView = (RecyclerView) view.findViewById(R.id.local_recycler_view);
         mLocalRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -37,7 +48,19 @@ public class LocalListFragment extends Fragment {
 
     private void updateUI() {
         LocalLab localLab = LocalLab.get(getActivity());
-        List<Local> locais = localLab.getLocais();
+        List<Local> locais;
+
+        if (getCategoria().equals("gastro")) {
+            locais = localLab.getGastronomicos();
+        }else if(getCategoria().equals("hosped")) {
+            locais = localLab.getHospedagens();
+        }else if (getCategoria().equals("igrejas")) {
+            locais = localLab.getIgrejas();
+        }else if(getCategoria().equals("monumentos")){
+            locais = localLab.getMonumentos();
+        }else {
+            locais = localLab.getLocais();
+        }
         if (mAdapter == null) {
             mAdapter = new LocalAdapter(locais);
             mLocalRecyclerView.setAdapter(mAdapter);
@@ -45,6 +68,11 @@ public class LocalListFragment extends Fragment {
             mAdapter.notifyDataSetChanged();
         }
     }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+    public String getCategoria() { return categoria;}
 
     private class LocalHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
@@ -72,7 +100,7 @@ public class LocalListFragment extends Fragment {
 
         @Override
         public void onClick(View view) {
-            Intent intent = LocalPagerActivity.newIntent(getActivity(), mLocal.getId());
+            Intent intent = LocalPagerActivity.newIntent(getActivity(), mLocal.getId(), getCategoria());
             startActivity(intent);
         }
     }

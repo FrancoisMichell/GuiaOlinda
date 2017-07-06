@@ -45,22 +45,47 @@ public class LocalFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_local, container, false);
 
         mNameField = (TextView)v.findViewById(R.id.local_name);
-        mNameField.setText(mLocal.get_nome_local());
+        if(!mLocal.get_nome_local().equals("")){
+            mNameField.setText(mLocal.get_nome_local());
+        }else {
+            mNameField.setVisibility(getView().GONE);
+        }
 
         mAddressField = (TextView)v.findViewById(R.id.local_endereco);
-        mAddressField.setText(mLocal.getEndereco());
+        if(!mLocal.getEndereco().equals("")){
+            mAddressField.setText(mLocal.getEndereco());
+        }else {
+            mAddressField.setVisibility(getView().GONE);
+        }
 
         mFoneField = (TextView)v.findViewById(R.id.local_fone);
-        mFoneField.setText(mLocal.getTelefone());
+        if(!mLocal.getTelefone().equals("")){
+            mFoneField.setText(mLocal.getTelefone());
+        }else {
+            mFoneField.setVisibility(getView().GONE);
+        }
 
         mFaxField = (TextView)v.findViewById(R.id.local_fax);
-        mFaxField.setText(mLocal.getHorario());
+        if(!mLocal.getHorario().equals("")){
+            mFaxField.setText(mLocal.getHorario());
+        }else {
+            mFaxField.setVisibility(getView().GONE);
+        }
 
         mSiteField = (TextView)v.findViewById(R.id.local_site);
-        mSiteField.setText(mLocal.getSite());
+        if (!mLocal.getSite().equals("")){
+            mSiteField.setText(mLocal.getSite());
+        }else {
+            mSiteField.setVisibility(getView().GONE);
+        }
 
         mEmailField = (TextView)v.findViewById(R.id.local_email);
-        mEmailField.setText(mLocal.getEmail());
+        if(!mLocal.getEmail().equals("")){
+            mEmailField.setText(mLocal.getEmail());
+        }else {
+            mSiteField.setVisibility(getView().GONE);
+        }
+
 
         goToMaps = (Button)v.findViewById(R.id.go_to_maps);
         goToMaps.setOnClickListener(new View.OnClickListener() {
