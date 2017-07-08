@@ -6,7 +6,6 @@
     android:layout_height="match_parent">
 
     <Button
-
         android:id="@+id/bt_gastronomia"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -17,7 +16,6 @@
         android:textSize="30sp" />
 
     <Button
-
         android:id="@+id/bt_hotelaria"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -28,7 +26,6 @@
         android:textSize="30sp" />
 
     <Button
-
         android:id="@+id/bt_igrejas"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -39,7 +36,6 @@
         android:textSize="30sp" />
 
     <Button
-
         android:id="@+id/bt_monumentos"
         android:layout_width="match_parent"
         android:layout_height="0dp"
