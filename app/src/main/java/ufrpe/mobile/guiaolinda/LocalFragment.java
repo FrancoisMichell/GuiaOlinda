@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.UUID;
@@ -22,6 +23,7 @@ public class LocalFragment extends Fragment {
     private TextView mSiteField;
     private TextView mEmailField;
     private Button goToMaps;
+    private ImageView mImgLocal;
 
 
     public static LocalFragment newInstance(UUID crimeId) {
@@ -43,6 +45,9 @@ public class LocalFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_local, container, false);
+
+        mImgLocal = (ImageView)v.findViewById(R.id.local_image);
+        mImgLocal.setImageResource(mLocal.getImagem());
 
         mNameField = (TextView)v.findViewById(R.id.local_name);
         if(!mLocal.get_nome_local().equals("")){

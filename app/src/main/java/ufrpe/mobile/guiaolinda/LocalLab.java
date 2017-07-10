@@ -35,6 +35,7 @@ public class LocalLab {
         l1.setEndereco("Rua São João, 345 – Carmo");
         l1.setTelefone("(81) 9999.4722");
         l1.setSite("");
+        l1.setImagem(R.drawable.igrejas);
         mLocais.add(l1);
 
         Local l2 = new Local();

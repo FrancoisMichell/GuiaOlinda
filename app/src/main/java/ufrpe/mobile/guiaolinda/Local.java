@@ -12,6 +12,16 @@ public class Local {
     private String telefone;
     private String site;
 
+    public int getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(int imagem) {
+        this.imagem = imagem;
+    }
+
+    private int imagem;
+
     public Local(){
         mId = (UUID.randomUUID());
     }
