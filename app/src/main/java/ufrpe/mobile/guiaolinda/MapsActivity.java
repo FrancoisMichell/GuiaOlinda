@@ -13,9 +13,12 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.ArrayList;
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback{
 
     private GoogleMap mMap;
+
 
 
     @Override
@@ -40,11 +43,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LocalLab localLab = LocalLab.get(getBaseContext());
+        ArrayList<Local> locais = localLab.getLocais();
+
+        for (int i = 0; i < locais.size(); i++){
+            Local local = locais.get(i);
+            mMap = googleMap;
+            // Add a marker in Sydney and move the camera
+            LatLng sydney = new LatLng(local.getLatitude(),local.getLongitude());
+            mMap.addMarker(new MarkerOptions().position(sydney).title(local.get_nome_local()));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        }
+
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(locais.get(1).getLatitude(),
+                locais.get(1).getLongitude()),20.0f));
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {

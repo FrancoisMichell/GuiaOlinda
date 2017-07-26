@@ -30,7 +30,7 @@ public class LocalListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_local_list, container, false);
 
         v = (TextView)view.findViewById(R.id.categoria);
-        v.setText(String.format("Exibindo %s", getCategoria()));
+        v.setText(String.format("%s", getCategoria()));
 
         mLocalRecyclerView = (RecyclerView) view.findViewById(R.id.local_recycler_view);
         mLocalRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -50,16 +50,22 @@ public class LocalListFragment extends Fragment {
         LocalLab localLab = LocalLab.get(getActivity());
         List<Local> locais;
 
-        if (getCategoria().equals("gastro")) {
-            locais = localLab.getGastronomicos();
-        }else if(getCategoria().equals("hosped")) {
-            locais = localLab.getHospedagens();
-        }else if (getCategoria().equals("igrejas")) {
-            locais = localLab.getIgrejas();
-        }else if(getCategoria().equals("monumentos")){
-            locais = localLab.getMonumentos();
-        }else {
-            locais = localLab.getLocais();
+        switch (getCategoria()) {
+            case "gastronomia":
+                locais = localLab.getGastronomicos();
+                break;
+            case "hospedagem":
+                locais = localLab.getHospedagens();
+                break;
+            case "igrejas":
+                locais = localLab.getIgrejas();
+                break;
+            case "monumentos":
+                locais = localLab.getMonumentos();
+                break;
+            default:
+                locais = localLab.getLocais();
+                break;
         }
         if (mAdapter == null) {
             mAdapter = new LocalAdapter(locais);
