@@ -3,6 +3,7 @@ package ufrpe.mobile.guiaolinda;
 import android.content.Context;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.UUID;
 
 public class LocalLab {
@@ -24,8 +25,8 @@ public class LocalLab {
         return mLocais;
     }
 
-    public ArrayList<Local> createLocais() {
-        mLocais = new ArrayList<Local>();
+    private ArrayList<Local> createLocais() {
+        mLocais = new ArrayList<>();
 
         Local l1 = new Local();
         l1.setEmail("sol_rayasilva@hotmail.com");
@@ -35,6 +36,8 @@ public class LocalLab {
         l1.setEndereco("Rua São João, 345 – Carmo");
         l1.setTelefone("(81) 9999.4722");
         l1.setSite("");
+        l1.setLatitude(-8.0109760);
+        l1.setLongitude(-34.8543760);
         l1.setImagem(R.drawable.igrejas);
         mLocais.add(l1);
 
@@ -46,17 +49,9 @@ public class LocalLab {
         l2.setEndereco("Rua Saldanha Marinho, s/n (ao lado da Igreja da Misericórdia) – Amparo");
         l2.setTelefone("(81) 3439.6691 / 9734.1144");
         l2.setSite("");
+        l2.setLatitude(-8.0129999);
+        l2.setLongitude(-34.8527842);
         mLocais.add(l2);
-
-        Local l3 = new Local();
-        l3.setEmail("bluesbar@hotmail.com");
-        l3.setHorario("ter a dom, das 18h às 1h");
-        l3.set_nome_local("Blues Bar Restaurante e Pizzaria");
-        l3.setTipo("gastronomia");
-        l3.setEndereco("Rua do Bonfim, 66 – Carmo");
-        l3.setTelefone("(81) 3429.8272");
-        l3.setSite("www.bluespizzaria.com.br");
-        mLocais.add(l3);
 
         Local l4 = new Local();
         l4.setEmail("");
@@ -66,6 +61,8 @@ public class LocalLab {
         l4.setEndereco("Rua do Amparo, 212 – Amparo");
         l4.setTelefone("(81) 3429.0185");
         l4.setSite("");
+        l4.setLatitude(-8.0128140);
+        l4.setLongitude(-34.8532530);
         mLocais.add(l4);
 
         Local l5 = new Local();
@@ -76,6 +73,8 @@ public class LocalLab {
         l5.setEndereco("Praça do Carmo, loja 5A");
         l5.setTelefone("(81) 3439.7449");
         l5.setSite("");
+        l5.setLatitude(-8.0166130);
+        l5.setLongitude(-34.8483060);
         mLocais.add(l5);
 
         Local l6 = new Local();
@@ -86,6 +85,8 @@ public class LocalLab {
         l6.setEndereco("Rua do Sol, 233 – Carmo");
         l6.setTelefone("(81) 3429.1592 / (81) 3439.1913");
         l6.setSite("www.alberguedeolinda.com.br");
+        l6.setLatitude(-8.0153200);
+        l6.setLongitude(-34.8465250);
         mLocais.add(l6);
 
         Local l7 = new Local();
@@ -96,6 +97,8 @@ public class LocalLab {
         l7.setEndereco("Rua Justino Gonçalves, 75 – Carmo");
         l7.setTelefone("(81) 3429.2567 / 9206.4473");
         l7.setSite("www.sitiodocarmo.com.br");
+        l7.setLatitude(-8.0180590);
+        l7.setLongitude(-34.8493630);
         mLocais.add(l7);
 
         Local l8 = new Local();
@@ -106,6 +109,8 @@ public class LocalLab {
         l8.setEndereco("Rua do Sol, 151 – Carmo");
         l8.setTelefone("(81) 3439.7124 / (81) 3326.9572");
         l8.setSite("www.pousadadofortim.com.br");
+        l8.setLatitude(-8.0158340);
+        l8.setLongitude(-34.8470590);
         mLocais.add(l8);
 
         Local l9 = new Local();
@@ -116,6 +121,8 @@ public class LocalLab {
         l9.setEndereco("Rua do Sol, 127 – Carmo");
         l9.setTelefone("(81) 3429.2109 / (81) 3429.1418");
         l9.setSite("www.pousadasaofrancisco.com.br");
+        l9.setLatitude(-8.0160060);
+        l9.setLongitude(-34.8473190);
         mLocais.add(l9);
 
         Local l10 = new Local();
@@ -126,6 +133,8 @@ public class LocalLab {
         l10.setEndereco("Ladeira de São Francisco, 307 – Carmo");
         l10.setTelefone("(81) 3493.7766");
         l10.setSite("www.hotel7colinas.com.br");
+        l10.setLatitude(-8.0146000);
+        l10.setLongitude(-34.8476570);
         mLocais.add(l10);
 
         Local l11 = new Local();
@@ -136,6 +145,8 @@ public class LocalLab {
         l11.setEndereco("Rua do Amparo, s/n – Amparo");
         l11.setTelefone("(81) 3429-7339 / 3305-1045");
         l11.setSite("");
+        l11.setLatitude(-8.0118936);
+        l11.setLongitude(-34.8535799);
         mLocais.add(l11);
 
         Local l12 = new Local();
@@ -146,6 +157,8 @@ public class LocalLab {
         l12.setEndereco("Praça Miguel Canuto, s/n – Guadalupe");
         l12.setTelefone("(81) 3429.1914");
         l12.setSite("");
+        l12.setLatitude(-8.0087020);
+        l12.setLongitude(-34.8568900);
         mLocais.add(l12);
 
         Local l13 = new Local();
@@ -156,6 +169,8 @@ public class LocalLab {
         l13.setEndereco("Rua Bispo Coutinho, s/n, Alto da Sé");
         l13.setTelefone("(81) 3494.9100");
         l13.setSite("");
+        l13.setLatitude(-7.9882390);
+        l13.setLongitude(-34.8406200);
         mLocais.add(l13);
 
         Local l14 = new Local();
@@ -166,6 +181,8 @@ public class LocalLab {
         l14.setEndereco("Rua de São Francisco, 280 – Carmo");
         l14.setTelefone("(81) 3429.0517");
         l14.setSite("");
+        l14.setLatitude(-8.0138376);
+        l14.setLongitude(-34.8475987);
         mLocais.add(l14);
 
         Local l15 = new Local();
@@ -176,6 +193,8 @@ public class LocalLab {
         l15.setEndereco("Rua da Boa Hora, s/n – Amparo");
         l15.setTelefone("");
         l15.setSite("");
+        l15.setLatitude(-8.0158964);
+        l15.setLongitude(-34.8543525);
         mLocais.add(l15);
 
         Local l16 = new Local();
@@ -186,6 +205,8 @@ public class LocalLab {
         l16.setEndereco("Rua de São Bento, 153 – Varadouro");
         l16.setTelefone("");
         l16.setSite("");
+        l16.setLatitude(-8.0179050);
+        l16.setLongitude(-34.8523210);
         mLocais.add(l16);
 
         Local l17 = new Local();
@@ -196,8 +217,11 @@ public class LocalLab {
         l17.setEndereco("Av. Liberdade, s/n – Carmo");
         l17.setTelefone("(81) 3305-1157");
         l17.setSite("");
+        l17.setLatitude(-8.0164310);
+        l17.setLongitude(-34.8488630);
         mLocais.add(l17);
 
+       /* NÃO LOCALIZADO!
         Local l18 = new Local();
         l18.setEmail("");
         l18.setHorario("todos os dias, das 14h às 17h");
@@ -206,7 +230,10 @@ public class LocalLab {
         l18.setEndereco("Rua Bispo Coutinho, s/n – Alto da Sé");
         l18.setTelefone("");
         l18.setSite("");
+        l18.setLatitude();
+        l18.setLongitude();
         mLocais.add(l18);
+
 
         Local l19 = new Local();
         l19.setEmail("");
@@ -216,16 +243,21 @@ public class LocalLab {
         l19.setEndereco("Rua de São Bento, s/n – Varadouro");
         l19.setTelefone("");
         l19.setSite("");
+        l19.setLatitude();
+        l19.setLongitude();
         mLocais.add(l19);
+        */
 
         Local l20 = new Local();
         l20.setEmail("");
         l20.setHorario("");
         l20.set_nome_local("CEMO (Centro de Educação Musical de Olinda)");
         l20.setTipo("monumento");
-        l20.setEndereco("Complexo Rodoviário de Salgadinho – Santa Tereza");
+        l20.setEndereco("Av. Pan Nordestina, s/n - Salgadinho");
         l20.setTelefone("(81) 3241.5065");
         l20.setSite("");
+        l20.setLatitude(-8.0257900);
+        l20.setLongitude(-34.8644270);
         mLocais.add(l20);
 
         return mLocais;
@@ -233,10 +265,10 @@ public class LocalLab {
     }
 
     public ArrayList<Local> getGastronomicos() {
-        ArrayList<Local> gastronomicos = new ArrayList<Local>();
+        ArrayList<Local> gastronomicos = new ArrayList<>();
         for (int i = 0; i < mLocais.size(); i++) {
             Local l = new Local();
-            if ( mLocais.get(i).getTipo() == "gastronomia" ) {
+            if (Objects.equals(mLocais.get(i).getTipo(), "gastronomia")) {
                 gastronomicos.add( mLocais.get(i) );
             }
         }
@@ -244,10 +276,10 @@ public class LocalLab {
     }
 
     public ArrayList<Local> getHospedagens() {
-        ArrayList<Local> hospedagens = new ArrayList<Local>();
+        ArrayList<Local> hospedagens = new ArrayList<>();
         for (int i = 0; i < mLocais.size(); i++) {
             Local l = new Local();
-            if ( mLocais.get(i).getTipo() == "hospedagem" ) {
+            if (Objects.equals(mLocais.get(i).getTipo(), "hospedagem")) {
                 hospedagens.add( mLocais.get(i) );
             }
         }
@@ -258,7 +290,7 @@ public class LocalLab {
         ArrayList<Local> igrejas = new ArrayList<Local>();
         for (int i = 0; i < mLocais.size(); i++) {
             Local l = new Local();
-            if ( mLocais.get(i).getTipo() == "igreja" ) {
+            if (Objects.equals(mLocais.get(i).getTipo(), "igreja")) {
                 igrejas.add( mLocais.get(i) );
             }
         }
@@ -266,10 +298,10 @@ public class LocalLab {
     }
 
     public ArrayList<Local> getMonumentos() {
-        ArrayList<Local> monumentos = new ArrayList<Local>();
+        ArrayList<Local> monumentos = new ArrayList<>();
         for (int i = 0; i < mLocais.size(); i++) {
             Local l = new Local();
-            if ( mLocais.get(i).getTipo() == "monumento" ) {
+            if (Objects.equals(mLocais.get(i).getTipo(), "monumento")) {
                 monumentos.add( mLocais.get(i) );
             }
         }

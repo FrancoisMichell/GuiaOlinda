@@ -42,16 +42,22 @@ public class LocalPagerActivity extends AppCompatActivity {
         setCategoria(getIntent().getExtras().getString(CATEGORIA_ITENS));
 
         mViewPager = (ViewPager) findViewById(R.id.local_view_pager);
-        if (categoria.equals("gastro")) {
-            mLocais = LocalLab.get(this).getGastronomicos();
-        }else if(categoria.equals("hosped")) {
-            mLocais = LocalLab.get(this).getHospedagens();
-        }else if (categoria.equals("igrejas")) {
-            mLocais = LocalLab.get(this).getIgrejas();
-        }else if(categoria.equals("monumentos")){
-            mLocais = LocalLab.get(this).getMonumentos();
-        }else {
-            mLocais = LocalLab.get(this).getLocais();
+        switch (categoria) {
+            case "gastronomia":
+                mLocais = LocalLab.get(this).getGastronomicos();
+                break;
+            case "hospedagem":
+                mLocais = LocalLab.get(this).getHospedagens();
+                break;
+            case "igrejas":
+                mLocais = LocalLab.get(this).getIgrejas();
+                break;
+            case "monumentos":
+                mLocais = LocalLab.get(this).getMonumentos();
+                break;
+            default:
+                mLocais = LocalLab.get(this).getLocais();
+                break;
         }
         FragmentManager fragmentManager = getSupportFragmentManager();
         mViewPager.setAdapter(new FragmentStatePagerAdapter(fragmentManager) {

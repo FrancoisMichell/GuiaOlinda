@@ -24,7 +24,7 @@ public class Inicio extends Activity {
         bt_gastronomia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                criaIntent("gastro");
+                criaIntent("gastronomia");
             }
         });
 
@@ -32,7 +32,7 @@ public class Inicio extends Activity {
         bt_hotelaria.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                criaIntent("hosped");
+                criaIntent("hospedagem");
             }
         });
 
