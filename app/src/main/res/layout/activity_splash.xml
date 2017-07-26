@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000"
-    android:orientation="vertical">
+    android:background="#ffffff">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:src="@drawable/apresentacao"
-        android:layout_gravity="center" />
-</LinearLayout>
+        android:id="@+id/imageView"
+        android:layout_width="250dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/apresentacao" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView"
+        android:layout_centerHorizontal="true"
+        android:text="Guia de Olinda"
+        android:textColor="@color/colorPrimary"
+        android:textSize="40sp"
+        android:visibility="gone"/>
+
+</RelativeLayout>
