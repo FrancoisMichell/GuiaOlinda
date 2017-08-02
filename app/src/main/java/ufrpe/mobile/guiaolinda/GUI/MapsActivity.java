@@ -10,25 +10,30 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 import ufrpe.mobile.guiaolinda.DB.LocalLab;
 import ufrpe.mobile.guiaolinda.R;
 import ufrpe.mobile.guiaolinda.Services.Local;
 
+import static ufrpe.mobile.guiaolinda.Services.LocalFragment.ARG_LOCAL_ID;
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback{
 
     private GoogleMap mMap;
-
-
+    private UUID localId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+        localId = (UUID) getIntent().getSerializableExtra(ARG_LOCAL_ID);
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -55,16 +60,35 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mMap = googleMap;
             // Add a marker in newLocal and move the camera
             LatLng newLocal = new LatLng(local.getLatitude(),local.getLongitude());
-            mMap.addMarker(new MarkerOptions().position(newLocal).title(local.get_nome_local()));
+            mMap.addMarker(new MarkerOptions().position(newLocal).title(local.get_nome_local())
+                    .icon(BitmapDescriptorFactory.defaultMarker(getColor(local))));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(newLocal));
         }
-
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(locais.get(1).getLatitude(),
-                locais.get(1).getLongitude()),20.0f));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(localLab.getLocal(localId).getLatitude(),
+                localLab.getLocal(localId).getLongitude()),20.0f));
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
             mMap.setMyLocationEnabled(true);
         }
+    }
+
+    private float getColor(Local local) {
+        float color = 0;
+        switch (local.getTipo()){
+            case "Gastronomia":
+                color = BitmapDescriptorFactory.HUE_RED;
+                break;
+            case "Hospedagem":
+                color = BitmapDescriptorFactory.HUE_AZURE;
+                break;
+            case "Igreja":
+                color = BitmapDescriptorFactory.HUE_ROSE;
+                break;
+            case "Monumento":
+                color = BitmapDescriptorFactory.HUE_ORANGE;
+                break;
+        }
+        return color;
     }
 }

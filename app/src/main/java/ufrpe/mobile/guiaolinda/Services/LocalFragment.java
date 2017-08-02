@@ -17,7 +17,7 @@ import ufrpe.mobile.guiaolinda.GUI.MapsActivity;
 import ufrpe.mobile.guiaolinda.R;
 
 public class LocalFragment extends Fragment {
-    private static final String ARG_LOCAL_ID = "crime_id";
+    public static final String ARG_LOCAL_ID = "crime_id";
 
     private Local mLocal;
     private TextView mNameField;
@@ -95,12 +95,12 @@ public class LocalFragment extends Fragment {
             mSiteField.setVisibility(getView().GONE);
         }
 
-
         goToMaps = (Button)v.findViewById(R.id.go_to_maps);
         goToMaps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LocalFragment.this.getActivity(), MapsActivity.class);
+                intent.putExtra(ARG_LOCAL_ID, mLocal.getId());
                 startActivity(intent);
             }
         });
