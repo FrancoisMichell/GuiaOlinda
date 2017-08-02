@@ -11,8 +11,12 @@
         android:layout_height="300dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+<<<<<<< HEAD
         android:src="@drawable/apresentacao"
         android:contentDescription="@string/imglogo" />
+=======
+        android:src="@drawable/apresentacao" />
+>>>>>>> origin/cuscuz
 
     <TextView
         android:id="@+id/textView2"
@@ -20,7 +24,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/imageView"
         android:layout_centerHorizontal="true"
+<<<<<<< HEAD
         android:text="@string/app_name"
+=======
+        android:text="Guia de Olinda"
+>>>>>>> origin/cuscuz
         android:textColor="@color/colorPrimary"
         android:textSize="40sp"
         android:visibility="gone"/>

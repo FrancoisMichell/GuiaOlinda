@@ -22,7 +22,7 @@ public class Inicio extends Activity {
         bt_gastronomia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                criaIntent("gastronomia");
+                criaIntent("Gastronomia");
             }
         });
 
@@ -30,7 +30,7 @@ public class Inicio extends Activity {
         bt_hotelaria.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                criaIntent("hospedagem");
+                criaIntent("Hospedagem");
             }
         });
 
@@ -38,7 +38,7 @@ public class Inicio extends Activity {
         bt_igrejas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                criaIntent("igrejas");
+                criaIntent("Igrejas");
             }
         });
 
@@ -46,7 +46,7 @@ public class Inicio extends Activity {
         bt_monumentos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                criaIntent("monumentos");
+                criaIntent("Monumentos");
             }
         });
 
