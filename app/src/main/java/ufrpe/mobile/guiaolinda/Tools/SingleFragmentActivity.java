@@ -1,9 +1,11 @@
-package ufrpe.mobile.guiaolinda;
+package ufrpe.mobile.guiaolinda.Tools;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+
+import ufrpe.mobile.guiaolinda.R;
 
 
 public abstract class SingleFragmentActivity extends AppCompatActivity {

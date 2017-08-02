@@ -1,7 +1,9 @@
-package ufrpe.mobile.guiaolinda;
+package ufrpe.mobile.guiaolinda.GUI;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+import ufrpe.mobile.guiaolinda.R;
 
 public class SobreActivity extends AppCompatActivity {
 

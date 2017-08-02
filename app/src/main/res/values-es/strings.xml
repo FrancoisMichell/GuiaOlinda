@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Guia Olinda</string>
+    <string name="local_name_hint">Nombre del sitio</string>
+    <string name="local_title">Lugares</string>
+    <string name="title_activity_maps">Maps</string>
+    <string name="nome_lugar">Nombre del lugar</string>
+    <string name="telefone">Teléfono</string>
+    <string name="endereco">Dirección</string>
+    <string name="funcionamento">Funcionamiento</string>
+    <string name="site">Site</string>
+    <string name="email">e-mail</string>
+    <string name="go_maps">Ver en el mapa</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="confira_no_mapa">Ver en el mapa</string>
+    <string name="imgsobre">ImgSobre</string>
+    <string name="imglogo">ImgLogo</string>
+    <string name="imglocal">imglocal</string>
+    <string name="txt_gastronomia">Gastronomia</string>
+    <string name="txt_hotelaria">Hotelería</string>
+    <string name="txt_igrejas">Iglesias</string>
+    <string name="txt_monumentos">Monumentos</string>
+    <string name="txt_eventos">Eventos</string>
+</resources>

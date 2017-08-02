@@ -1,10 +1,13 @@
-package ufrpe.mobile.guiaolinda;
+package ufrpe.mobile.guiaolinda.DB;
 
 import android.content.Context;
 
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.UUID;
+
+import ufrpe.mobile.guiaolinda.R;
+import ufrpe.mobile.guiaolinda.Services.Local;
 
 public class LocalLab {
     private static LocalLab sLocalLab;

@@ -11,7 +11,7 @@
         android:layout_height="0dp"
         android:layout_weight="0.5"
         android:background="@drawable/gastronomia"
-        android:text="Gastronomia"
+        android:text="@string/txt_gastronomia"
         android:textColor="#FFF"
         android:textSize="30sp" />
 
@@ -21,7 +21,7 @@
         android:layout_height="0dp"
         android:layout_weight="0.5"
         android:background="@drawable/turismoehotelaria"
-        android:text="Hotelaria"
+        android:text="@string/txt_hotelaria"
         android:textColor="#FFFFFF"
         android:textSize="30sp" />
 
@@ -31,7 +31,7 @@
         android:layout_height="0dp"
         android:layout_weight="0.5"
         android:background="@drawable/igrejas"
-        android:text="Igrejas"
+        android:text="@string/txt_igrejas"
         android:textColor="#FFF"
         android:textSize="30sp" />
 
@@ -41,7 +41,15 @@
         android:layout_height="0dp"
         android:layout_weight="0.5"
         android:background="@drawable/forte"
-        android:text="Monumentos"
+        android:text="@string/txt_monumentos"
+        android:textColor="#FFF"
+        android:textSize="30sp" />
+    <Button
+        android:id="@+id/bt_eventos"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:text="@string/txt_eventos"
         android:textColor="#FFF"
         android:textSize="30sp" />
 

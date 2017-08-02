@@ -1,4 +1,4 @@
-package ufrpe.mobile.guiaolinda;
+package ufrpe.mobile.guiaolinda.GUI;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +11,11 @@ import android.support.v7.app.AppCompatActivity;
 
 import java.util.List;
 import java.util.UUID;
+
+import ufrpe.mobile.guiaolinda.DB.LocalLab;
+import ufrpe.mobile.guiaolinda.R;
+import ufrpe.mobile.guiaolinda.Services.Local;
+import ufrpe.mobile.guiaolinda.Services.LocalFragment;
 
 public class LocalPagerActivity extends AppCompatActivity {
     private static final String EXTRA_LOCAL_ID = "com.bignerdranch.android.criminanintent.crime_id";

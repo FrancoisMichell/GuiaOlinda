@@ -1,4 +1,4 @@
-package ufrpe.mobile.guiaolinda;
+package ufrpe.mobile.guiaolinda.GUI;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,11 +13,14 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import ufrpe.mobile.guiaolinda.DB.LocalLab;
+import ufrpe.mobile.guiaolinda.R;
+import ufrpe.mobile.guiaolinda.Services.Local;
+
 
 public class LocalListFragment extends Fragment {
     private RecyclerView mLocalRecyclerView;
     private LocalAdapter mAdapter;
-    private TextView v;
 
     private String categoria;
 
@@ -29,8 +32,8 @@ public class LocalListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_local_list, container, false);
 
-        v = (TextView)view.findViewById(R.id.categoria);
-        v.setText(String.format("%s", getCategoria()));
+        TextView v = (TextView) view.findViewById(R.id.categoria);
+        v.setText(String.format("%s", getNomeCategoria(getCategoria())));
 
         mLocalRecyclerView = (RecyclerView) view.findViewById(R.id.local_recycler_view);
         mLocalRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -38,6 +41,27 @@ public class LocalListFragment extends Fragment {
         updateUI();
 
         return view;
+    }
+    private String getNomeCategoria(String categoria){
+        String cat;
+        switch (categoria) {
+            case "gastronomia":
+                cat = getString(R.string.txt_gastronomia);
+                break;
+            case "hospedagem":
+                cat = getString(R.string.txt_hotelaria);
+                break;
+            case "igrejas":
+                cat = getString(R.string.txt_igrejas);
+                break;
+            case "monumentos":
+                cat = getString(R.string.txt_monumentos);
+                break;
+            default:
+                cat = getString(R.string.txt_gastronomia);
+                break;
+        }
+        return cat;
     }
 
     @Override
@@ -88,7 +112,7 @@ public class LocalListFragment extends Fragment {
 
         private Local mLocal;
 
-        public LocalHolder(LayoutInflater inflater, ViewGroup parent){
+        LocalHolder(LayoutInflater inflater, ViewGroup parent){
             super(inflater.inflate(R.layout.list_item_local, parent, false));
             itemView.setOnClickListener(this);
 
@@ -97,7 +121,7 @@ public class LocalListFragment extends Fragment {
             mLocalImageView = (ImageView) itemView.findViewById(R.id.imagem_lugar);
         }
 
-        public void bind(Local local){
+        void bind(Local local){
             mLocal = local;
             mNomeTextView.setText(mLocal.get_nome_local());
             mFoneTextView.setText(mLocal.getTelefone());
@@ -114,7 +138,7 @@ public class LocalListFragment extends Fragment {
     private class LocalAdapter extends RecyclerView.Adapter<LocalHolder> {
         private List<Local> mLocais;
 
-        public LocalAdapter(List<Local> locais){
+        LocalAdapter(List<Local> locais){
             mLocais = locais;
         }
 

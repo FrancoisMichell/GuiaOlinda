@@ -1,10 +1,12 @@
-package ufrpe.mobile.guiaolinda;
+package ufrpe.mobile.guiaolinda.GUI;
 
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import ufrpe.mobile.guiaolinda.R;
 
 public class SplashActivity extends Activity {
 

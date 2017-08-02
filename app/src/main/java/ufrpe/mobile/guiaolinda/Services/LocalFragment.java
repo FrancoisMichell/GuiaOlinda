@@ -1,4 +1,4 @@
-package ufrpe.mobile.guiaolinda;
+package ufrpe.mobile.guiaolinda.Services;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.UUID;
+
+import ufrpe.mobile.guiaolinda.DB.LocalLab;
+import ufrpe.mobile.guiaolinda.GUI.MapsActivity;
+import ufrpe.mobile.guiaolinda.R;
 
 public class LocalFragment extends Fragment {
     private static final String ARG_LOCAL_ID = "crime_id";

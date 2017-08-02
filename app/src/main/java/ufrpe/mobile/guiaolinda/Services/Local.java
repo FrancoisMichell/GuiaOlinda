@@ -1,4 +1,4 @@
-package ufrpe.mobile.guiaolinda;
+package ufrpe.mobile.guiaolinda.Services;
 
 import java.util.UUID;
 
@@ -30,7 +30,7 @@ public class Local {
         this.longitude = longitude;
     }
 
-    public int getImagem() {
+    int getImagem() {
         return imagem;
     }
 
@@ -44,7 +44,7 @@ public class Local {
         mId = (UUID.randomUUID());
     }
 
-    public String getSite() {
+    String getSite() {
         return site;
     }
 
@@ -52,7 +52,7 @@ public class Local {
         this.site = site;
     }
 
-    public String getEmail() {
+    String getEmail() {
         return email;
     }
 
@@ -72,7 +72,7 @@ public class Local {
         this.nome_local = nome_local;
     }
 
-    public String getEndereco() {
+    String getEndereco() {
         return endereco;
     }
 
@@ -88,7 +88,7 @@ public class Local {
         this.telefone = telefone;
     }
 
-    public String getHorario() {
+    String getHorario() {
         return horario;
     }
 

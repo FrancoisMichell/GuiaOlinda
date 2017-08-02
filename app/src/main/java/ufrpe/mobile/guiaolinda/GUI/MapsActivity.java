@@ -1,4 +1,4 @@
-package ufrpe.mobile.guiaolinda;
+package ufrpe.mobile.guiaolinda.GUI;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -14,6 +14,10 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
+
+import ufrpe.mobile.guiaolinda.DB.LocalLab;
+import ufrpe.mobile.guiaolinda.R;
+import ufrpe.mobile.guiaolinda.Services.Local;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback{
 
