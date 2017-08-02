@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name" translatable="false">Guia Olinda</string>
-    <string name="local_name_hint">Nome do local</string>
+    <string name="local_name_hint">Nome</string>
     <string name="local_title">Locais</string>
     <string name="title_activity_maps">Maps</string>
-    <string name="nome_lugar">Nome do lugar</string>
+    <string name="nome_lugar">Nome</string>
     <string name="telefone">Telefone</string>
     <string name="endereco">Endereço</string>
     <string name="funcionamento">Funcionamento</string>
