@@ -30,7 +30,7 @@ public class Local {
         this.longitude = longitude;
     }
 
-    int getImagem() {
+    public int getImagem() {
         return imagem;
     }
 
