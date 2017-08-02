@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -74,7 +75,10 @@ public class LocalListFragment extends Fragment {
         LocalLab localLab = LocalLab.get(getActivity());
         List<Local> locais;
 
-        switch (getCategoria()) {
+        Toast t = Toast.makeText(getContext(), getCategoria(), Toast.LENGTH_SHORT);
+        t.show();
+
+        switch (getCategoria().toLowerCase()) {
             case "gastronomia":
                 locais = localLab.getGastronomicos();
                 break;
@@ -125,7 +129,7 @@ public class LocalListFragment extends Fragment {
             mLocal = local;
             mNomeTextView.setText(mLocal.get_nome_local());
             mFoneTextView.setText(mLocal.getTelefone());
-            mLocalImageView.setImageResource(R.drawable.ic_solved);
+            mLocalImageView.setImageResource(mLocal.getImagem());
         }
 
         @Override
