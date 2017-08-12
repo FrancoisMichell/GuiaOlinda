@@ -1,11 +1,15 @@
 package ufrpe.mobile.guiaolinda.GUI;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -18,14 +22,15 @@ import ufrpe.mobile.guiaolinda.R;
 import ufrpe.mobile.guiaolinda.Services.Local;
 
 
+@SuppressLint("ValidFragment")
 public class LocalListFragment extends Fragment {
     private RecyclerView mLocalRecyclerView;
     private LocalAdapter mAdapter;
 
     private String categoria;
 
-    public LocalListFragment(String s) {
-        setCategoria(s);
+    public LocalListFragment(String tipo) {
+        setCategoria(tipo);
     }
 
     @Override
@@ -47,6 +52,29 @@ public class LocalListFragment extends Fragment {
     public void onResume() {
         super.onResume();
         updateUI();
+    }
+
+    public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater){
+        super.onCreateOptionsMenu(menu, menuInflater);
+        menuInflater.inflate(R.menu.fragment_local_list, menu);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch(item.getItemId()){
+            case R.id.sobre:
+                Intent intent = new Intent(getActivity(), SobreActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
     }
 
     private void updateUI() {
