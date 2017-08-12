@@ -50,7 +50,7 @@
         android:layout_height="0dp"
         android:layout_weight="0.5"
         android:text="@string/txt_eventos"
-        android:background="@drawable/eventosImg"
+        android:background="@drawable/eventosimg"
         android:textColor="#FFF"
         android:textSize="30sp" />
 

@@ -21,7 +21,7 @@
     <string name="imglogo" translatable="false">ImgLogo</string>
     <string name="imglocal" translatable="false">imglocal</string>
     <string name="txt_gastronomia">Gastronomia</string>
-    <string name="txt_hotelaria">Hotelaria</string>
+    <string name="txt_hotelaria">Hospedagem</string>
     <string name="txt_igrejas">Igrejas</string>
     <string name="txt_monumentos">Monumentos</string>
     <string name="txt_eventos">Eventos</string>

@@ -48,16 +48,16 @@ public class LocalPagerActivity extends AppCompatActivity {
 
         mViewPager = (ViewPager) findViewById(R.id.local_view_pager);
         switch (categoria) {
-            case "gastronomia":
+            case "Gastronomia":
                 mLocais = LocalLab.get(this).getGastronomicos();
                 break;
-            case "hospedagem":
+            case "Hospedagem":
                 mLocais = LocalLab.get(this).getHospedagens();
                 break;
-            case "igrejas":
+            case "Igrejas":
                 mLocais = LocalLab.get(this).getIgrejas();
                 break;
-            case "monumentos":
+            case "Monumentos":
                 mLocais = LocalLab.get(this).getMonumentos();
                 break;
             default:

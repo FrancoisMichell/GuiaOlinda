@@ -33,7 +33,7 @@ public class LocalListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_local_list, container, false);
 
         TextView v = (TextView) view.findViewById(R.id.categoria);
-        v.setText(String.format("%s", getNomeCategoria(getCategoria())));
+        v.setText(String.format("%s", getCategoria()));
 
         mLocalRecyclerView = (RecyclerView) view.findViewById(R.id.local_recycler_view);
         mLocalRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -41,27 +41,6 @@ public class LocalListFragment extends Fragment {
         updateUI();
 
         return view;
-    }
-    private String getNomeCategoria(String categoria){
-        String cat;
-        switch (categoria) {
-            case "gastronomia":
-                cat = getString(R.string.txt_gastronomia);
-                break;
-            case "hospedagem":
-                cat = getString(R.string.txt_hotelaria);
-                break;
-            case "igrejas":
-                cat = getString(R.string.txt_igrejas);
-                break;
-            case "monumentos":
-                cat = getString(R.string.txt_monumentos);
-                break;
-            default:
-                cat = getString(R.string.txt_gastronomia);
-                break;
-        }
-        return cat;
     }
 
     @Override
@@ -74,17 +53,17 @@ public class LocalListFragment extends Fragment {
         LocalLab localLab = LocalLab.get(getActivity());
         List<Local> locais;
 
-        switch (getCategoria().toLowerCase()) {
-            case "gastronomia":
+        switch (getCategoria()) {
+            case "Gastronomia":
                 locais = localLab.getGastronomicos();
                 break;
-            case "hospedagem":
+            case "Hospedagem":
                 locais = localLab.getHospedagens();
                 break;
-            case "igrejas":
+            case "Igrejas":
                 locais = localLab.getIgrejas();
                 break;
-            case "monumentos":
+            case "Monumentos":
                 locais = localLab.getMonumentos();
                 break;
             default:

@@ -284,10 +284,9 @@ public class LocalLab {
 
     public ArrayList<Local> getGastronomicos() {
         ArrayList<Local> gastronomicos = new ArrayList<>();
-        for (int i = 0; i < mLocais.size(); i++) {
-            Local l = new Local();
-            if (Objects.equals(mLocais.get(i).getTipo(), "Gastronomia")) {
-                gastronomicos.add( mLocais.get(i) );
+        for (Local local: mLocais) {
+            if (Objects.equals(local.getTipo(), "Gastronomia")) {
+                gastronomicos.add( local );
             }
         }
         return gastronomicos;
