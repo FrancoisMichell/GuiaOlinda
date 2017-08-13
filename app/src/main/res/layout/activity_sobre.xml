@@ -1,20 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.LinearLayoutCompat
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="ufrpe.mobile.guiaolinda.GUI.SobreActivity">
+    android:layout_height="match_parent">
 
-    <ImageView
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:contentDescription="@string/imgsobre"
-        android:scaleType="fitXY"
-        android:src="@drawable/sobre"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp" />
+        android:background="@android:color/white">
 
-</android.support.v7.widget.LinearLayoutCompat>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp">
 
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="40dp"
+                android:layout_height="180dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:cropToPadding="false"
+                app:srcCompat="@drawable/apresentacao" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="60dp">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Guia Olinda"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textSize="36sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Aplicativo desenvolvido na disciplica de Desenvolvimento Mobile - UFRPE  "
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="17sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="Equipe: François Michel, Guilherme Araújo, Raissa Brizeno"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="17sp" />
+        </TableRow>
+    </TableLayout>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</LinearLayout>

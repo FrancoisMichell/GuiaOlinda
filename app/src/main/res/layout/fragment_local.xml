@@ -81,6 +81,14 @@
             android:layout_height="0dp"
             android:layout_weight="0.5"
             android:text="@string/email" />
+
+        <TextView
+            android:id="@+id/textView"
+            style="?android:listSeparatorTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:text="@string/confira_no_mapa" />
     </LinearLayout>
 
     <LinearLayout
@@ -88,12 +96,6 @@
         android:layout_height="0dp"
         android:layout_weight="0.5"
         android:orientation="vertical">
-        <TextView
-            android:id="@+id/textView"
-            style="?android:listSeparatorTextViewStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/confira_no_mapa" />
 
         <Button
             android:id="@+id/go_to_maps"
@@ -107,6 +109,7 @@
         android:id="@+id/expanded_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone" />
+        android:visibility="gone"
+        android:background="@null"/>
 
 </LinearLayout>
