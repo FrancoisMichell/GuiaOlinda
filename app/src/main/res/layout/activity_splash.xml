@@ -7,12 +7,12 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="250dp"
-        android:layout_height="300dp"
+        android:layout_width="200dp"
+        android:layout_height="250dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:src="@drawable/apresentacao"
-        android:contentDescription="@string/imglogo" />
+        android:contentDescription="@string/imglogo"
+        android:src="@drawable/apresentacao" />
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
