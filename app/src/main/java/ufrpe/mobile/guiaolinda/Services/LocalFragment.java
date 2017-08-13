@@ -81,37 +81,42 @@ public class LocalFragment extends Fragment {
 
         mAddressField = (TextView)v.findViewById(R.id.local_endereco);
         if(!mLocal.getEndereco().equals("")){
-            mAddressField.setText(mLocal.getEndereco());
+            mAddressField.setText("     "+mLocal.getEndereco());
+            mAddressField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.address,0,0,0);
         }else {
             mAddressField.setVisibility(getView().GONE);
         }
 
         mFoneField = (TextView)v.findViewById(R.id.local_fone);
         if(!mLocal.getTelefone().equals("")){
-            mFoneField.setText(mLocal.getTelefone());
+            mFoneField.setText("    "+mLocal.getTelefone());
+            mFoneField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.phone,0,0,0);
         }else {
             mFoneField.setVisibility(getView().GONE);
         }
 
         mFaxField = (TextView)v.findViewById(R.id.local_fax);
         if(!mLocal.getHorario().equals("")){
-            mFaxField.setText(mLocal.getHorario());
+            mFaxField.setText("    "+mLocal.getHorario());
+            mFaxField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.time,0,0,0);
         }else {
             mFaxField.setVisibility(getView().GONE);
         }
 
         mSiteField = (TextView)v.findViewById(R.id.local_site);
         if (!mLocal.getSite().equals("")){
-            mSiteField.setText(mLocal.getSite());
+            mSiteField.setText("    "+mLocal.getSite());
+            mSiteField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.site,0,0,0);
         }else {
             mSiteField.setVisibility(getView().GONE);
         }
 
         mEmailField = (TextView)v.findViewById(R.id.local_email);
         if(!mLocal.getEmail().equals("")){
-            mEmailField.setText(mLocal.getEmail());
+            mEmailField.setText("   "+mLocal.getEmail());
+            mEmailField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.email,0,0,0);
         }else {
-            mSiteField.setVisibility(getView().GONE);
+            mEmailField.setVisibility(getView().GONE);
         }
 
         goToMaps = (Button)v.findViewById(R.id.go_to_maps);
