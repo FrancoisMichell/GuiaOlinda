@@ -16,7 +16,9 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.UUID;
 
@@ -36,6 +38,7 @@ public class LocalFragment extends Fragment {
     private TextView mEmailField;
     private Button goToMaps;
     private ImageButton mImgLocal;
+    private LinearLayout mLocalImgWrapper;
 
     private Animator mCurrentAnimator;
     private int mShortAnimationDuration;
@@ -61,14 +64,19 @@ public class LocalFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View v = inflater.inflate(R.layout.fragment_local, container, false);
 
-        mImgLocal = (ImageButton)v.findViewById(R.id.local_image);
-        mImgLocal.setImageResource(mLocal.getImagem());
-        mImgLocal.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                zoomImageFromThumb(v, mImgLocal, mLocal.getImagem());
-            }
-        });
+        if (mLocal.getImagem() != R.drawable.semfoto) {
+            mImgLocal = (ImageButton)v.findViewById(R.id.local_image);
+            mImgLocal.setImageResource(mLocal.getImagem());
+            mImgLocal.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view) {
+                    zoomImageFromThumb(v, mImgLocal, mLocal.getImagem());
+                }
+            });
+        } else {
+            mLocalImgWrapper = (LinearLayout)v.findViewById(R.id.local_image_wrapper);
+            mLocalImgWrapper.setVisibility(getView().GONE);
+        }
 
         mShortAnimationDuration = getResources().getInteger( android.R.integer.config_shortAnimTime );
 
