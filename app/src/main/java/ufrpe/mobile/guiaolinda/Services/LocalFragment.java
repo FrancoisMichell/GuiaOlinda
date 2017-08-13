@@ -1,12 +1,20 @@
 package ufrpe.mobile.guiaolinda.Services;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.graphics.Point;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,7 +35,10 @@ public class LocalFragment extends Fragment {
     private TextView mSiteField;
     private TextView mEmailField;
     private Button goToMaps;
-    private ImageView mImgLocal;
+    private ImageButton mImgLocal;
+
+    private Animator mCurrentAnimator;
+    private int mShortAnimationDuration;
 
 
     public static LocalFragment newInstance(UUID crimeId) {
@@ -48,10 +59,18 @@ public class LocalFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_local, container, false);
+        final View v = inflater.inflate(R.layout.fragment_local, container, false);
 
-        mImgLocal = (ImageView)v.findViewById(R.id.local_image);
+        mImgLocal = (ImageButton)v.findViewById(R.id.local_image);
         mImgLocal.setImageResource(mLocal.getImagem());
+        mImgLocal.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                zoomImageFromThumb(v, mImgLocal, mLocal.getImagem());
+            }
+        });
+
+        mShortAnimationDuration = getResources().getInteger( android.R.integer.config_shortAnimTime );
 
         mNameField = (TextView)v.findViewById(R.id.local_name);
         if(!mLocal.get_nome_local().equals("")){
@@ -106,5 +125,114 @@ public class LocalFragment extends Fragment {
         });
 
         return  v;
+    }
+
+    private void zoomImageFromThumb(View v, final ImageButton mImgLocal, int imagem) {
+        if (mCurrentAnimator != null) { mCurrentAnimator.cancel(); }
+        final ImageView expandedImageView = (ImageView) v.findViewById(R.id.expanded_image);
+        expandedImageView.setImageResource(imagem);
+
+        final Rect startBounds = new Rect();
+        final Rect finalBounds = new Rect();
+        final Point globalOffset = new Point();
+
+        mImgLocal.getGlobalVisibleRect(startBounds);
+        v.getGlobalVisibleRect(finalBounds,globalOffset);
+        startBounds.offset(-globalOffset.x,-globalOffset.y);
+        finalBounds.offset(-globalOffset.x,-globalOffset.y);
+
+        float startScale;
+        if ((float) finalBounds.width() / finalBounds.height()
+                > (float) startBounds.width() / startBounds.height()) {
+            // Extend start bounds horizontally
+            startScale = (float) startBounds.height() / finalBounds.height();
+            float startWidth = startScale * finalBounds.width();
+            float deltaWidth = (startWidth - startBounds.width()) / 2;
+            startBounds.left -= deltaWidth;
+            startBounds.right += deltaWidth;
+        } else {
+            // Extend start bounds vertically
+            startScale = (float) startBounds.width() / finalBounds.width();
+            float startHeight = startScale * finalBounds.height();
+            float deltaHeight = (startHeight - startBounds.height()) / 2;
+            startBounds.top -= deltaHeight;
+            startBounds.bottom += deltaHeight;
+        }
+
+        mImgLocal.setAlpha(0f);
+        expandedImageView.setVisibility(View.VISIBLE);
+
+        expandedImageView.setPivotX(0f);
+        expandedImageView.setPivotY(0f);
+
+        AnimatorSet set = new AnimatorSet();
+        set
+                .play(ObjectAnimator.ofFloat(expandedImageView, View.X,
+                        startBounds.left, finalBounds.left))
+                .with(ObjectAnimator.ofFloat(expandedImageView, View.Y,
+                        startBounds.top, finalBounds.top))
+                .with(ObjectAnimator.ofFloat(expandedImageView, View.SCALE_X,
+                        startScale, 1f)).with(ObjectAnimator.ofFloat(expandedImageView,
+                View.SCALE_Y, startScale, 1f));
+        set.setDuration(mShortAnimationDuration);
+        set.setInterpolator(new DecelerateInterpolator());
+        set.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                mCurrentAnimator = null;
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+                mCurrentAnimator = null;
+            }
+        });
+        set.start();
+
+
+        final float startScaleFinal = startScale;
+        expandedImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mCurrentAnimator != null) {
+                    mCurrentAnimator.cancel();
+                }
+
+                // Animate the four positioning/sizing properties in parallel,
+                // back to their original values.
+                AnimatorSet set = new AnimatorSet();
+                set.play(ObjectAnimator
+                        .ofFloat(expandedImageView, View.X, startBounds.left))
+                        .with(ObjectAnimator
+                                .ofFloat(expandedImageView,
+                                        View.Y,startBounds.top))
+                        .with(ObjectAnimator
+                                .ofFloat(expandedImageView,
+                                        View.SCALE_X, startScaleFinal))
+                        .with(ObjectAnimator
+                                .ofFloat(expandedImageView,
+                                        View.SCALE_Y, startScaleFinal));
+                set.setDuration(mShortAnimationDuration);
+                set.setInterpolator(new DecelerateInterpolator());
+                set.addListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        mImgLocal.setAlpha(1f);
+                        expandedImageView.setVisibility(View.GONE);
+                        mCurrentAnimator = null;
+                    }
+
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
+                        mImgLocal.setAlpha(1f);
+                        expandedImageView.setVisibility(View.GONE);
+                        mCurrentAnimator = null;
+                    }
+                });
+                set.start();
+                mCurrentAnimator = set;
+            }
+        });
+
     }
 }

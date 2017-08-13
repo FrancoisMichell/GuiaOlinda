@@ -24,7 +24,8 @@
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:orientation="horizontal">
-            <ImageView
+
+            <ImageButton
                 android:id="@+id/local_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -101,5 +102,11 @@
             android:background="@drawable/ic_solved2" />
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/expanded_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
 
 </LinearLayout>
