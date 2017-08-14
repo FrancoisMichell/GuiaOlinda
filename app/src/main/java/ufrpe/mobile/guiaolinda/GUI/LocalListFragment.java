@@ -15,14 +15,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
-
 import java.util.List;
 
 import ufrpe.mobile.guiaolinda.DB.LocalLab;
 import ufrpe.mobile.guiaolinda.R;
 import ufrpe.mobile.guiaolinda.Services.Local;
-
 
 @SuppressLint("ValidFragment")
 public class LocalListFragment extends Fragment {
@@ -77,6 +74,7 @@ public class LocalListFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+
     }
 
     private void updateUI() {
@@ -111,6 +109,7 @@ public class LocalListFragment extends Fragment {
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
+
     public String getCategoria() { return categoria;}
 
     private class LocalHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

@@ -20,7 +20,6 @@ import ufrpe.mobile.guiaolinda.Services.LocalFragment;
 public class LocalPagerActivity extends AppCompatActivity {
     private static final String EXTRA_LOCAL_ID = "com.bignerdranch.android.criminanintent.crime_id";
     private static final String CATEGORIA_ITENS = "categoria";
-    private ViewPager mViewPager;
     private List<Local> mLocais;
     private String categoria;
 
@@ -46,7 +45,7 @@ public class LocalPagerActivity extends AppCompatActivity {
 
         setCategoria(getIntent().getExtras().getString(CATEGORIA_ITENS));
 
-        mViewPager = (ViewPager) findViewById(R.id.local_view_pager);
+        ViewPager mViewPager = (ViewPager) findViewById(R.id.local_view_pager);
         switch (categoria) {
             case "Gastronomia":
                 mLocais = LocalLab.get(this).getGastronomicos();
@@ -60,6 +59,8 @@ public class LocalPagerActivity extends AppCompatActivity {
             case "Monumentos":
                 mLocais = LocalLab.get(this).getMonumentos();
                 break;
+            case "Eventos":
+                mLocais = LocalLab.get(this).getLocais();
             default:
                 mLocais = LocalLab.get(this).getLocais();
                 break;

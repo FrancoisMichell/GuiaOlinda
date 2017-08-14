@@ -18,7 +18,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.UUID;
 
@@ -84,7 +83,7 @@ public class LocalFragment extends Fragment {
         if(!mLocal.get_nome_local().equals("")){
             mNameField.setText(mLocal.get_nome_local());
         }else {
-            mNameField.setVisibility(getView().GONE);
+            mNameField.setVisibility(View.GONE);
         }
 
         mAddressField = (TextView)v.findViewById(R.id.local_endereco);

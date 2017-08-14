@@ -25,4 +25,8 @@
     <string name="txt_igrejas">Iglesias</string>
     <string name="txt_monumentos">Monumentos</string>
     <string name="txt_eventos">Eventos</string>
+    <string name="nome_evento">Nome do evento</string>
+    <string name="Local_do_evento">local do evento</string>
+    <string name="atracoes_evento">Atracoes do evento</string>
+    <string name="horario_evento">horario_evento</string>
 </resources>

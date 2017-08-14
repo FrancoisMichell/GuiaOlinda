@@ -4,6 +4,7 @@ import java.util.UUID;
 
 public class Local {
     private UUID mId;
+    private int imagem;
     private String email;
     private String horario;
     private String nome_local;
@@ -38,7 +39,6 @@ public class Local {
         this.imagem = imagem;
     }
 
-    private int imagem;
 
     public Local(){
         mId = (UUID.randomUUID());

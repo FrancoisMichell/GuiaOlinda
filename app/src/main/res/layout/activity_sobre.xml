@@ -54,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="Aplicativo desenvolvido na disciplica de Desenvolvimento Mobile - UFRPE  "
+                android:text="Aplicativo desenvolvido na disciplina de Desenvolvimento Mobile - UFRPE  "
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textSize="17sp" />
         </TableRow>
@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="Equipe: François Michel, Guilherme Araújo, Raissa Brizeno"
+                android:text="Equipe: François Michell, Guilherme Araújo, Raissa Brizeno"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textSize="17sp" />
         </TableRow>

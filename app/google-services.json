@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "902891095472",
+    "firebase_url": "https://ufrpe-20171.firebaseio.com",
+    "project_id": "ufrpe-20171",
+    "storage_bucket": "ufrpe-20171.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:902891095472:android:7d95ca1a520b8d19",
+        "android_client_info": {
+          "package_name": "ufrpe.mobile.guiaolinda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "902891095472-qo92ulnsmeii65vdo1ri8hdikhvkje99.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ufrpe.mobile.guiaolinda",
+            "certificate_hash": "f7a88c1dc02509760833fa691ceb51651d5a6f5f"
+          }
+        },
+        {
+          "client_id": "902891095472-b585nuumqoc4c6aqc9vp3j6bic4p2g24.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBIytiOaeuqKtWkxv0G0icgKbjBh_EBmM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "902891095472-b585nuumqoc4c6aqc9vp3j6bic4p2g24.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

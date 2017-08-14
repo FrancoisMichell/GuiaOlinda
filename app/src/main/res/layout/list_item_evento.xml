@@ -34,7 +34,7 @@
                 android:visibility="visible">
 
                 <ImageView
-                    android:id="@+id/imagem_lugar"
+                    android:id="@+id/imagem_evento"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
@@ -46,24 +46,43 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/nome_lugar"
+                android:id="@+id/nome_evento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:text="@string/nome_lugar"
+                android:text="@string/nome_evento"
                 android:textColor="@android:color/holo_orange_dark"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/fone_lugar"
+                android:id="@+id/local_evento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:text="@string/telefone"
+                android:text="@string/Local_do_evento"
                 android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/horario_evento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text="@string/horario_evento"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/atracoes_evento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text="@string/atracoes_evento"
+                android:textSize="15dp" />
+
 
         </LinearLayout>
 

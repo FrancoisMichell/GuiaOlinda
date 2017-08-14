@@ -7,11 +7,13 @@ import java.util.Objects;
 import java.util.UUID;
 
 import ufrpe.mobile.guiaolinda.R;
+import ufrpe.mobile.guiaolinda.Services.Evento;
 import ufrpe.mobile.guiaolinda.Services.Local;
 
 public class LocalLab {
     private static LocalLab sLocalLab;
     private ArrayList<Local> mLocais;
+    private ArrayList<Evento> mEventos = new ArrayList<Evento>();
 
     private LocalLab(Context context) {
         createLocais();
@@ -331,6 +333,25 @@ public class LocalLab {
                 return l;
         }
         return null;
+    }
+
+    public void createEvent(int imagem, String nome,  String local, String horario, String atracoes){
+
+        Evento evento = new Evento();
+        evento.setImagem(imagem);
+        evento.setNomeEvento(nome);
+        evento.setLocal(local);
+        evento.setHorário(horario);
+        evento.setAtracoes(atracoes);
+        mEventos.add(evento);
+    }
+
+    public ArrayList<Evento> getEventos(){
+        return mEventos;
+    }
+
+    public void flushEvents(){
+        this.mEventos.clear();
     }
 
 }
