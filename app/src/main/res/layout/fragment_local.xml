@@ -4,12 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:divider="@null"
+    android:dividerHeight="0dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:divider="@null"
+        android:dividerHeight="0dp">
 
         <LinearLayout
             android:id="@+id/local_image_wrapper"
@@ -17,7 +21,9 @@
             android:layout_height="120dp"
             android:layout_marginTop="5dp"
             android:orientation="horizontal"
-            android:visibility="visible">
+            android:visibility="visible"
+            android:divider="@null"
+            android:dividerHeight="0dp">
 
             <ImageButton
                 android:id="@+id/local_image"
@@ -48,7 +54,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.5"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:divider="@null"
+        android:dividerHeight="0dp">
 
         <TextView
             android:id="@+id/local_endereco"
@@ -56,7 +64,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.5"
-            android:text="@string/endereco" />
+            android:text="@string/endereco"
+            android:divider="@null"
+            android:dividerHeight="0dp"/>
 
         <TextView
             android:id="@+id/local_fone"
@@ -64,7 +74,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.5"
-            android:text="@string/telefone" />
+            android:text="@string/telefone"
+            android:divider="@null"
+            android:dividerHeight="0dp"/>
 
         <TextView
             android:id="@+id/local_fax"
@@ -72,7 +84,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.5"
-            android:text="@string/funcionamento" />
+            android:text="@string/funcionamento"
+            android:divider="@null"
+            android:dividerHeight="0dp"/>
 
         <TextView
             android:id="@+id/local_site"
@@ -80,7 +94,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.5"
-            android:text="@string/site" />
+            android:text="@string/site"
+            android:divider="@null"
+            android:dividerHeight="0dp"/>
 
         <TextView
             android:id="@+id/local_email"
@@ -88,7 +104,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.5"
-            android:text="@string/email" />
+            android:text="@string/email"
+            android:divider="@null"
+            android:dividerHeight="0dp"/>
 
         <TextView
             android:id="@+id/textView"
@@ -96,7 +114,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.5"
-            android:text="@string/confira_no_mapa" />
+            android:text="@string/confira_no_mapa"
+            android:divider="@null"
+            android:dividerHeight="0dp"/>
     </LinearLayout>
 
     <LinearLayout
