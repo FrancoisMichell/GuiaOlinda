@@ -15,6 +15,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
+
 import java.util.List;
 
 import ufrpe.mobile.guiaolinda.DB.LocalLab;
@@ -54,7 +56,7 @@ public class LocalListFragment extends Fragment {
         updateUI();
     }
 
-    public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater){
+   public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater){
         super.onCreateOptionsMenu(menu, menuInflater);
         menuInflater.inflate(R.menu.fragment_local_list, menu);
     }

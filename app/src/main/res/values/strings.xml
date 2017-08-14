@@ -26,4 +26,6 @@
     <string name="txt_monumentos">Monumentos</string>
     <string name="txt_eventos">Eventos</string>
     <string name="title_activity_drawer">DrawerActivity</string>
+
+    <string name="menu_sobre">Sobre</string>
 </resources>

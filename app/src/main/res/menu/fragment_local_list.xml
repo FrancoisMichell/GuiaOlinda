@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/sobre"
-        android:icon="@android:drawable/ic_menu_info_details"
-        android:title="Sobre"
-        app:showAsAction="ifRoom|withText"/>
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".GUI.Inicio">
+
+
+    <item android:id="@+id/sobre"
+        android:title="@string/menu_sobre"
+        android:orderInCategory="100"
+        app:showAsAction="never"/>
 
 </menu>
