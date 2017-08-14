@@ -2,24 +2,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
     <android.support.v7.widget.CardView
         android:id="@+id/local_card_view"
-        android:layout_width="350dp"
+        android:layout_width="368dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:layout_marginTop="10dp"
-        app:cardBackgroundColor="#eee"
+        app:cardBackgroundColor="#f5f5f5"
         app:cardCornerRadius="5dp"
-        app:contentPadding="3dp"
-        app:contentPaddingBottom="5dp"
+        app:contentPadding="5dp"
+        tools:layout_conversion_absoluteHeight="200dp"
+        tools:layout_conversion_absoluteWidth="344dp"
+        tools:layout_conversion_absoluteX="20dp"
+        tools:layout_conversion_absoluteY="5dp"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="0dp">
+        tools:layout_editor_absoluteY="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,47 +27,42 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/imagem_lugar_wrapper"
+                android:id="@+id/card_image_wrapper"
                 android:layout_width="match_parent"
-                android:layout_height="125dp"
+                android:layout_height="120dp"
                 android:orientation="horizontal"
                 android:visibility="visible">
 
                 <ImageView
-                    android:id="@+id/imagem_lugar"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="false"
                     android:cropToPadding="false"
                     android:scaleType="centerCrop"
                     app:srcCompat="@drawable/semfoto" />
+
             </LinearLayout>
 
             <TextView
-                android:id="@+id/nome_lugar"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:text="@string/nome_lugar"
-                android:textColor="@android:color/holo_orange_dark"
-                android:textSize="18sp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Name of place"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/fone_lugar"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:text="@string/telefone"
-                android:textSize="15dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/imagem_lugar"
-                app:layout_constraintTop_toBottomOf="@+id/nome_lugar" />
-
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="(81)0000-0000"
+                android:textSize="15dp" />
         </LinearLayout>
 
     </android.support.v7.widget.CardView>
