@@ -1,8 +1,10 @@
 package ufrpe.mobile.guiaolinda.GUI;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -50,8 +52,19 @@ public class EventListFragment extends Fragment {
         mEventRecyclerView = (RecyclerView) view.findViewById(R.id.event_recycler_view);
         mEventRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        updateUI();
-
+        if(localLab.getEventos().size() == 0) {
+            geraEventos();
+            final ProgressDialog dialog = ProgressDialog.show(getContext(), "",
+                    "Loading...", true);
+            dialog.show();
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                public void run() {
+                    updateUI();
+                    dialog.dismiss();
+                }
+            }, 3000);
+        }
         return view;
     }
 

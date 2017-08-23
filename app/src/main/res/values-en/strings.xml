@@ -30,4 +30,5 @@
     <string name="Local_do_evento">local do evento</string>
     <string name="atracoes_evento">Atracoes do evento</string>
     <string name="horario_evento">horario_evento</string>
+    <string name="txt_carregando">Loading</string>
 </resources>
