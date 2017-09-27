@@ -121,7 +121,7 @@ public class LocalLab {
         l8.setSite("www.pousadadofortim.com.br");
         l8.setLatitude(-8.0158340);
         l8.setLongitude(-34.8470590);
-        l8.setImagem(R.drawable.semfoto);
+        l8.setImagem(R.drawable.casarao_fortim_olinda);
         mLocais.add(l8);
 
         Local l9 = new Local();
@@ -212,7 +212,7 @@ public class LocalLab {
         l15.setSite("");
         l15.setLatitude(-8.0158964);
         l15.setLongitude(-34.8543525);
-        l15.setImagem(R.drawable.semfoto);
+        l15.setImagem(R.drawable.igreja_nossa_senhora_boa_hora);
         mLocais.add(l15);
 
         Local l16 = new Local();
@@ -278,7 +278,7 @@ public class LocalLab {
         l20.setSite("");
         l20.setLatitude(-8.0257900);
         l20.setLongitude(-34.8644270);
-        l20.setImagem(R.drawable.semfoto);
+        l20.setImagem(R.drawable.cemo);
         mLocais.add(l20);
 
         Local l21 = new Local();
@@ -291,7 +291,7 @@ public class LocalLab {
         l21.setSite("");
         l21.setLatitude(-8.0257900);
         l21.setLongitude(-34.8644270);
-        l21.setImagem(R.drawable.semfoto);
+        l21.setImagem(R.drawable.casa_de_noca);
         mLocais.add(l21);
 
         Local l22 = new Local();
@@ -304,7 +304,7 @@ public class LocalLab {
         l22.setSite("");
         l22.setLatitude(-8.0257900);
         l22.setLongitude(-34.8644270);
-        l22.setImagem(R.drawable.semfoto);
+        l22.setImagem(R.drawable.casamaloca);
         mLocais.add(l22);
 
         Local l23 = new Local();
@@ -317,7 +317,7 @@ public class LocalLab {
         l23.setSite("");
         l23.setLatitude(-8.0257900);
         l23.setLongitude(-34.8644270);
-        l23.setImagem(R.drawable.semfoto);
+        l23.setImagem(R.drawable.creperia_de_olinda);
         mLocais.add(l23);
 
         Local l24 = new Local();
@@ -331,7 +331,7 @@ public class LocalLab {
         l24.setSite("");
         l24.setLatitude(-8.0257900);
         l24.setLongitude(-34.8644270);
-        l24.setImagem(R.drawable.semfoto);
+        l24.setImagem(R.drawable.restaurante_due);
         mLocais.add(l24);
 
         Local l25 = new Local();
@@ -345,7 +345,7 @@ public class LocalLab {
         l25.setSite("");
         l25.setLatitude(-8.0257900);
         l25.setLongitude(-34.8644270);
-        l25.setImagem(R.drawable.semfoto);
+        l25.setImagem(R.drawable.estacao_quatro_cantos);
         mLocais.add(l25);
 
         Local l26 = new Local();
@@ -358,7 +358,7 @@ public class LocalLab {
         l26.setSite("");
         l26.setLatitude(-8.0257900);
         l26.setLongitude(-34.8644270);
-        l26.setImagem(R.drawable.semfoto);
+        l26.setImagem(R.drawable.pousada_alquimia);
         mLocais.add(l26);
 
         Local l27 = new Local();
@@ -371,7 +371,7 @@ public class LocalLab {
         l27.setSite("");
         l27.setLatitude(-8.0257900);
         l27.setLongitude(-34.8644270);
-        l27.setImagem(R.drawable.semfoto);
+        l27.setImagem(R.drawable.pousada_alto_astral);
         mLocais.add(l27);
 
         Local l28 = new Local();
@@ -384,7 +384,7 @@ public class LocalLab {
         l28.setSite("");
         l28.setLatitude(-8.0257900);
         l28.setLongitude(-34.8644270);
-        l28.setImagem(R.drawable.semfoto);
+        l28.setImagem(R.drawable.pousada_baoba);
         mLocais.add(l28);
 
         Local l29 = new Local();
@@ -397,7 +397,7 @@ public class LocalLab {
         l29.setSite("");
         l29.setLatitude(-8.0257900);
         l29.setLongitude(-34.8644270);
-        l29.setImagem(R.drawable.semfoto);
+        l29.setImagem(R.drawable.pousada_casa_chica);
         mLocais.add(l29);
 
         Local l30 = new Local();
@@ -410,7 +410,7 @@ public class LocalLab {
         l30.setSite("");
         l30.setLatitude(-8.0257900);
         l30.setLongitude(-34.8644270);
-        l30.setImagem(R.drawable.semfoto);
+        l30.setImagem(R.drawable.hotel_castelo_real);
         mLocais.add(l30);
 
         Local l31 = new Local();
@@ -423,7 +423,7 @@ public class LocalLab {
         l31.setSite("");
         l31.setLatitude(-8.0257900);
         l31.setLongitude(-34.8644270);
-        l31.setImagem(R.drawable.semfoto);
+        l31.setImagem(R.drawable.igreja_rosario_homens_pretos);
         mLocais.add(l31);
 
         Local l32 = new Local();
@@ -436,7 +436,7 @@ public class LocalLab {
         l32.setSite("");
         l32.setLatitude(-8.0257900);
         l32.setLongitude(-34.8644270);
-        l32.setImagem(R.drawable.semfoto);
+        l32.setImagem(R.drawable.igreja_santa_cruz_milagres);
         mLocais.add(l32);
 
         Local l33 = new Local();
@@ -449,7 +449,7 @@ public class LocalLab {
         l33.setSite("");
         l33.setLatitude(-8.0257900);
         l33.setLongitude(-34.8644270);
-        l33.setImagem(R.drawable.semfoto);
+        l33.setImagem(R.drawable.igreja_sao_joao_batista_militares);
         mLocais.add(l33);
 
         Local l34 = new Local();
@@ -462,7 +462,7 @@ public class LocalLab {
         l34.setSite("");
         l34.setLatitude(-8.0257900);
         l34.setLongitude(-34.8644270);
-        l34.setImagem(R.drawable.semfoto);
+        l34.setImagem(R.drawable.igreja_sao_jose_pescadores_ribamar);
         mLocais.add(l34);
 
         Local l35 = new Local();
@@ -475,7 +475,7 @@ public class LocalLab {
         l35.setSite("");
         l35.setLatitude(-8.0257900);
         l35.setLongitude(-34.8644270);
-        l35.setImagem(R.drawable.semfoto);
+        l35.setImagem(R.drawable.igreja_sao_pedro_apostolo);
         mLocais.add(l35);
 
         Local l36 = new Local();
@@ -488,7 +488,7 @@ public class LocalLab {
         l36.setSite("");
         l36.setLatitude(-8.0257900);
         l36.setLongitude(-34.8644270);
-        l36.setImagem(R.drawable.semfoto);
+        l36.setImagem(R.drawable.igreja_sao_sebastiao);
         mLocais.add(l36);
 
         Local l37 = new Local();
@@ -501,7 +501,7 @@ public class LocalLab {
         l37.setSite("");
         l37.setLatitude(-8.0257900);
         l37.setLongitude(-34.8644270);
-        l37.setImagem(R.drawable.semfoto);
+        l37.setImagem(R.drawable.igreja_bom_jesus_bonfim);
         mLocais.add(l37);
 
         Local l38 = new Local();
@@ -514,7 +514,7 @@ public class LocalLab {
         l38.setSite("");
         l38.setLatitude(-8.0257900);
         l38.setLongitude(-34.8644270);
-        l38.setImagem(R.drawable.semfoto);
+        l38.setImagem(R.drawable.igreja_do_carmo);
         mLocais.add(l38);
 
         Local l39 = new Local();
@@ -527,7 +527,7 @@ public class LocalLab {
         l39.setSite("");
         l39.setLatitude(-8.0257900);
         l39.setLongitude(-34.8644270);
-        l39.setImagem(R.drawable.semfoto);
+        l39.setImagem(R.drawable.igreja_sao_jose_pescadores_ribamar);
         mLocais.add(l39);
 
         Local l40 = new Local();
@@ -540,7 +540,7 @@ public class LocalLab {
         l40.setSite("");
         l40.setLatitude(-8.0257900);
         l40.setLongitude(-34.8644270);
-        l40.setImagem(R.drawable.semfoto);
+        l40.setImagem(R.drawable.coreto_praca_preguica);
         mLocais.add(l40);
 
         Local l41 = new Local();
@@ -553,7 +553,7 @@ public class LocalLab {
         l41.setSite("");
         l41.setLatitude(-8.0257900);
         l41.setLongitude(-34.8644270);
-        l41.setImagem(R.drawable.semfoto);
+        l41.setImagem(R.drawable.farol);
         mLocais.add(l41);
 
 
@@ -567,7 +567,7 @@ public class LocalLab {
         l42.setSite("");
         l42.setLatitude(-8.0257900);
         l42.setLongitude(-34.8644270);
-        l42.setImagem(R.drawable.semfoto);
+        l42.setImagem(R.drawable.forte_sao_francisco);
         mLocais.add(l42);
 
 
@@ -582,7 +582,7 @@ public class LocalLab {
         l43.setSite("");
         l43.setLatitude(-8.0257900);
         l43.setLongitude(-34.8644270);
-        l43.setImagem(R.drawable.semfoto);
+        l43.setImagem(R.drawable.estacao_maxambomba);
         mLocais.add(l43);
 
         Local l44 = new Local();
@@ -595,7 +595,7 @@ public class LocalLab {
         l44.setSite("");
         l44.setLatitude(-8.0257900);
         l44.setLongitude(-34.8644270);
-        l44.setImagem(R.drawable.semfoto);
+        l44.setImagem(R.drawable.mercado_eufrasio);
         mLocais.add(l44);
 
         Local l45 = new Local();
@@ -608,7 +608,7 @@ public class LocalLab {
         l45.setSite("");
         l45.setLatitude(-8.0257900);
         l45.setLongitude(-34.8644270);
-        l45.setImagem(R.drawable.semfoto);
+        l45.setImagem(R.drawable.mercado_ribeira);
         mLocais.add(l45);
 
         Local l46 = new Local();
@@ -621,7 +621,7 @@ public class LocalLab {
         l46.setSite("");
         l46.setLatitude(-8.0257900);
         l46.setLongitude(-34.8644270);
-        l46.setImagem(R.drawable.semfoto);
+        l46.setImagem(R.drawable.observatorio);
         mLocais.add(l46);
 
 
@@ -635,7 +635,7 @@ public class LocalLab {
         l47.setSite("");
         l47.setLatitude(-8.0257900);
         l47.setLongitude(-34.8644270);
-        l47.setImagem(R.drawable.semfoto);
+        l47.setImagem(R.drawable.estacao_quatro_cantos);
         mLocais.add(l47);
 
         Local l48 = new Local();
@@ -648,20 +648,20 @@ public class LocalLab {
         l48.setSite("");
         l48.setLatitude(-8.0257900);
         l48.setLongitude(-34.8644270);
-        l48.setImagem(R.drawable.semfoto);
+        l48.setImagem(R.drawable.pousada_amparo_fachada);
         mLocais.add(l48);
 
         Local l49 = new Local();
         l49.setEmail("");
         l49.setHorario("dom a seg, das 12h às 20h / sáb, das 12h às 16h");
-        l49.set_nome_local("CEMO (CEMO (Iaça)");
+        l49.set_nome_local("CEMO (CEMO (Casa Iaça)");
         l49.setTipo("Gastronomia");
         l49.setEndereco("Rua Prudente de Morais, 351 – Carmo");
         l49.setTelefone("(");
         l49.setSite("");
         l49.setLatitude(-8.0257900);
         l49.setLongitude(-34.8644270);
-        l49.setImagem(R.drawable.semfoto);
+        l49.setImagem(R.drawable.casa_iaca);
         mLocais.add(l49);
 
         return mLocais;
