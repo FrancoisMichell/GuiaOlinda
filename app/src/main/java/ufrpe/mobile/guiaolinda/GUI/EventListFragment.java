@@ -61,9 +61,10 @@ public class EventListFragment extends Fragment {
             handler.postDelayed(new Runnable() {
                 public void run() {
                     updateUI();
+                    updateUI();
                     dialog.dismiss();
                 }
-            }, 3000);
+            }, 5000);
         }
         return view;
     }

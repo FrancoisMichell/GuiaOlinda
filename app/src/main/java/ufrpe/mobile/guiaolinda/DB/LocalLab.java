@@ -158,8 +158,8 @@ public class LocalLab {
         l11.setEndereco("Rua do Amparo, s/n – Amparo");
         l11.setTelefone("(81) 3429-7339 / 3305-1045");
         l11.setSite("");
-        l11.setLatitude(-8.0118936);
-        l11.setLongitude(-34.8535799);
+        l11.setLatitude(-8.0119006);
+        l11.setLongitude(-34.8535775);
         l11.setImagem(R.drawable.igreja_nossa_senhora_do_amparo);
         mLocais.add(l11);
 
@@ -171,21 +171,21 @@ public class LocalLab {
         l12.setEndereco("Praça Miguel Canuto, s/n – Guadalupe");
         l12.setTelefone("(81) 3429.1914");
         l12.setSite("");
-        l12.setLatitude(-8.0087020);
-        l12.setLongitude(-34.8568900);
+        l12.setLatitude(-8.0085230);
+        l12.setLongitude(-34.8568720);
         l12.setImagem(R.drawable.igreja_nossa_senhora_de_guadalupe);
         mLocais.add(l12);
 
         Local l13 = new Local();
         l13.setEmail("");
         l13.setHorario("");
-        l13.set_nome_local("Igreja da Misericórdia");
+        l13.set_nome_local("Igreja de Nossa Senhora da Misericórdia");
         l13.setTipo("Igreja");
         l13.setEndereco("Rua Bispo Coutinho, s/n, Alto da Sé");
         l13.setTelefone("(81) 3494.9100");
         l13.setSite("");
-        l13.setLatitude(-7.9882390);
-        l13.setLongitude(-34.8406200);
+        l13.setLatitude(-8.0129702);
+        l13.setLongitude(-34.8522564);
         l13.setImagem(R.drawable.igreja_da_misericodia);
         mLocais.add(l13);
 
@@ -210,8 +210,8 @@ public class LocalLab {
         l15.setEndereco("Rua da Boa Hora, s/n – Amparo");
         l15.setTelefone("");
         l15.setSite("");
-        l15.setLatitude(-8.0158964);
-        l15.setLongitude(-34.8543525);
+        l15.setLatitude(-8.0158805);
+        l15.setLongitude(-34.8543575);
         l15.setImagem(R.drawable.igreja_nossa_senhora_boa_hora);
         mLocais.add(l15);
 
@@ -284,7 +284,7 @@ public class LocalLab {
         Local l21 = new Local();
         l21.setEmail("casadenoca@terra.com.br");
         l21.setHorario("todos os dias, das 11h às 0h");
-        l21.set_nome_local("CEMO (Casa de noca )");
+        l21.set_nome_local("Casa de noca");
         l21.setTipo("Gastronomia");
         l21.setEndereco("Rua Bertioga, 243 – Cidade Alta");
         l21.setTelefone("(81) 3249.1040");
@@ -297,7 +297,7 @@ public class LocalLab {
         Local l22 = new Local();
         l22.setEmail("casamaloca@casamaloca.com.br");
         l22.setHorario("todos os dias, das 8h às 23h");
-        l22.set_nome_local("CEMO (Casa Maloca )");
+        l22.set_nome_local("Casa Maloca ");
         l22.setTipo("Gastronomia");
         l22.setEndereco("Rua do Amparo, 183 – Amparo");
         l22.setTelefone("(81) 3242.7811");
@@ -310,7 +310,7 @@ public class LocalLab {
         Local l23 = new Local();
         l23.setEmail("leonardosleal@hotmail.com");
         l23.setHorario("todos os dias, das 11h às 23h");
-        l23.set_nome_local("CEMO (Creperia de Olinda )");
+        l23.set_nome_local("Creperia de Olinda ");
         l23.setTipo("Gastronomia");
         l23.setEndereco("Praça Conselheiro João Alfredo, 168 – Carmo");
         l23.setTelefone("(81) 3229.2935");
@@ -324,7 +324,7 @@ public class LocalLab {
         l24.setEmail("kamillarangel@hotmail.com ");
         l24.setHorario("ter a qui, das 12h30 às 16h;" +
             "sex e sáb 12h30 às 16h e 19h30 às 0h / dom, das 12h às 17h");
-        l24.set_nome_local("CEMO (Due )");
+        l24.set_nome_local("Due");
         l24.setTipo("Gastronomia");
         l24.setEndereco("Rua Manoel Borba, 350 – Varadouro");
         l24.setTelefone("(81) 3229.2956");
@@ -338,7 +338,7 @@ public class LocalLab {
         l25.setEmail("galeria@estacao4cantos.com.br");
         l25.setHorario("seg a qui, das 11h às 21h;" +
             "sex e sáb, das 11h às 22h / dom, das 15h às 20h");
-        l25.set_nome_local("CEMO (Estação Quatro Cantos (Café) )");
+        l25.set_nome_local("Estação Quatro Cantos (Café)");
         l25.setTipo("Gastronomia");
         l25.setEndereco("Rua Prudente de Morais, 440 – Carmo");
         l25.setTelefone("(81) 3429.7575");
@@ -351,7 +351,7 @@ public class LocalLab {
         Local l26 = new Local();
         l26.setEmail("");
         l26.setHorario("");
-        l26.set_nome_local("CEMO (Pousada Alquimia )");
+        l26.set_nome_local("Pousada Alquimia");
         l26.setTipo("Hospedagem");
         l26.setEndereco("Rua Prudente de Morais, 292 – Carmo");
         l26.setTelefone("(81) 3429.1457");
@@ -364,7 +364,7 @@ public class LocalLab {
         Local l27 = new Local();
         l27.setEmail("info@pousadaaltoastral.com");
         l27.setHorario("");
-        l27.set_nome_local("CEMO (Pousada Alto Astral)");
+        l27.set_nome_local("Pousada Alto Astral");
         l27.setTipo("Hospedagem");
         l27.setEndereco("Rua 13 de Maio, 305 – Varadouro");
         l27.setTelefone("(81) 3439.3453");
@@ -377,7 +377,7 @@ public class LocalLab {
         Local l28 = new Local();
         l28.setEmail("contato@pousadabaobadeolinda.com.br");
         l28.setHorario("");
-        l28.set_nome_local("CEMO (Pousada Baoba)");
+        l28.set_nome_local("Pousada Baoba");
         l28.setTipo("Hospedagem");
         l28.setEndereco("Rua do Sol, 147 – Carmo");
         l28.setTelefone("(81) 3429.0459");
@@ -390,7 +390,7 @@ public class LocalLab {
         Local l29 = new Local();
         l29.setEmail("casadechica@gmail.com");
         l29.setHorario("");
-        l29.set_nome_local("CEMO (Pousada de Chica)");
+        l29.set_nome_local("Pousada de Chica");
         l29.setTipo("Hospedagem");
         l29.setEndereco("Rua 27 de janeiro,43 – Carmo");
         l29.setTelefone("(81) 3429.1698");
@@ -416,111 +416,111 @@ public class LocalLab {
         Local l31 = new Local();
         l31.setEmail("");
         l31.setHorario("de segunda a sexta-feira, das 8h às 11h, e das 13h às 17h.");
-        l31.set_nome_local("CEMO (Igreja de Nossa Senhora do Rosário dos Homens Pretos)");
+        l31.set_nome_local("Igreja de Nossa Senhora do Rosário dos Homens Pretos");
         l31.setTipo("Igreja");
         l31.setEndereco("Largo do Bonsucesso, 45 – Bonsucesso.");
         l31.setTelefone("(81) 3439.2495");
         l31.setSite("");
-        l31.setLatitude(-8.0257900);
-        l31.setLongitude(-34.8644270);
+        l31.setLatitude(-8.0101981);
+        l31.setLongitude(-34.8536060);
         l31.setImagem(R.drawable.igreja_rosario_homens_pretos);
         mLocais.add(l31);
 
         Local l32 = new Local();
         l32.setEmail("");
         l32.setHorario("de segunda a sexta-feira, das 7h às 22h.");
-        l32.set_nome_local("CEMO (Igreja de Santa Cruz dos Milagres)");
+        l32.set_nome_local("Igreja de Santa Cruz dos Milagres");
         l32.setTipo("Igreja");
-        l32.setEndereco(" Praça dos Milagres, s/n.");
+        l32.setEndereco("Praça dos Milagres, s/n.");
         l32.setTelefone("(81)3439.0406");
         l32.setSite("");
-        l32.setLatitude(-8.0257900);
-        l32.setLongitude(-34.8644270);
+        l32.setLatitude(-8.0222770);
+        l32.setLongitude(-34.8524407);
         l32.setImagem(R.drawable.igreja_santa_cruz_milagres);
         mLocais.add(l32);
 
         Local l33 = new Local();
         l33.setEmail("");
         l33.setHorario("");
-        l33.set_nome_local("CEMO (Igreja de São João Batista dos Militares)");
+        l33.set_nome_local("Igreja de São João Batista dos Militares");
         l33.setTipo("Igreja");
         l33.setEndereco(" Avenida da Saudade, s/n – Amparo.");
         l33.setTelefone("(81) 3429.9349");
         l33.setSite("");
-        l33.setLatitude(-8.0257900);
-        l33.setLongitude(-34.8644270);
+        l33.setLatitude(-8.0102572);
+        l33.setLongitude(-34.8549066);
         l33.setImagem(R.drawable.igreja_sao_joao_batista_militares);
         mLocais.add(l33);
 
         Local l34 = new Local();
         l34.setEmail("");
         l34.setHorario(" todos os dias, das 9h às 11h");
-        l34.set_nome_local("CEMO (Igreja de São José dos Pescadores ou Ribamar)");
+        l34.set_nome_local("Igreja de São José dos Pescadores ou Ribamar");
         l34.setTipo("Igreja");
         l34.setEndereco("Rua do sol s/n carmo.");
         l34.setTelefone("(81)3429.3156");
         l34.setSite("");
-        l34.setLatitude(-8.0257900);
-        l34.setLongitude(-34.8644270);
+        l34.setLatitude(-8.0148504  );
+        l34.setLongitude(-34.8458823);
         l34.setImagem(R.drawable.igreja_sao_jose_pescadores_ribamar);
         mLocais.add(l34);
 
         Local l35 = new Local();
         l35.setEmail("");
-        l35.setHorario("quinta-feira, das 9h às 12h.");
-        l35.set_nome_local("CEMO (Igreja de São Pedro Apóstolo)");
+        l35.setHorario("Igreja em restauração");
+        l35.set_nome_local("Igreja de São Pedro Apóstolo");
         l35.setTipo("Igreja");
-        l35.setEndereco("Rua do sol s/n carmo.");
-        l35.setTelefone("(81)3429.3156");
+        l35.setEndereco("Praça Conselheiro João Alfredo - Carmo");
+        l35.setTelefone("(81)3493-1874");
         l35.setSite("");
-        l35.setLatitude(-8.0257900);
-        l35.setLongitude(-34.8644270);
+        l35.setLatitude(-8.0167253);
+        l35.setLongitude(-34.8511471);
         l35.setImagem(R.drawable.igreja_sao_pedro_apostolo);
         mLocais.add(l35);
 
         Local l36 = new Local();
         l36.setEmail("");
         l36.setHorario("sábado, das 15h às 18h");
-        l36.set_nome_local("CEMO (Igreja de São Sebastião)");
+        l36.set_nome_local("Igreja de São Sebastião");
         l36.setTipo("Igreja");
         l36.setEndereco("Rua XV de Novembro, s/n – Varadouro.");
         l36.setTelefone("");
         l36.setSite("");
-        l36.setLatitude(-8.0257900);
-        l36.setLongitude(-34.8644270);
+        l36.setLatitude(-8.0192431);
+        l36.setLongitude(-34.8537508);
         l36.setImagem(R.drawable.igreja_sao_sebastiao);
         mLocais.add(l36);
 
         Local l37 = new Local();
         l37.setEmail("");
         l37.setHorario(" segunda-feira, das 15h às 18h; terça-feira, das 6h às 9h e das 15h às 18h; e domingo, das 7h às 11h.");
-        l37.set_nome_local("CEMO (Igreja do Bom Jesus do Bonfim)");
+        l37.set_nome_local("Igreja do Bom Jesus do Bonfim");
         l37.setTipo("Igreja");
-        l37.setEndereco("Travessa do Bonfim, s/n – Carmo.");
+        l37.setEndereco("R. Pedro Monteiro, s/n - Carmo");
         l37.setTelefone("(");
         l37.setSite("");
-        l37.setLatitude(-8.0257900);
-        l37.setLongitude(-34.8644270);
+        l37.setLatitude(-8.0144788);
+        l37.setLongitude(-34.8514418);
         l37.setImagem(R.drawable.igreja_bom_jesus_bonfim);
         mLocais.add(l37);
 
         Local l38 = new Local();
         l38.setEmail("");
-        l38.setHorario(" terça a sábado, das 9h às 17h.");
-        l38.set_nome_local("CEMO (Igreja do Carmo)");
+        l38.setHorario("Terça à sábado das 9h às 12h. Sábado das 14h às 17h. Domingo das 10h às 18h.");
+        l38.set_nome_local("Igreja do Carmo");
         l38.setTipo("Igreja");
         l38.setEndereco("Praça do Carmo, s/n – Carmo.");
         l38.setTelefone("(81)3494.7573");
         l38.setSite("");
-        l38.setLatitude(-8.0257900);
-        l38.setLongitude(-34.8644270);
+        l38.setLatitude(-8.0171635);
+        l38.setLongitude(-34.8492111);
         l38.setImagem(R.drawable.igreja_do_carmo);
         mLocais.add(l38);
 
         Local l39 = new Local();
         l39.setEmail("");
         l39.setHorario(" todos os dias, das 9h às 11h");
-        l39.set_nome_local("CEMO (Igreja de São José dos Pescadores ou Ribamar)");
+        l39.set_nome_local("Igreja de São José dos Pescadores ou Ribamar");
         l39.setTipo("Hospedagem");
         l39.setEndereco("Rua do sol s/n carmo.");
         l39.setTelefone("(81)3429.3156");
@@ -533,7 +533,7 @@ public class LocalLab {
         Local l40 = new Local();
         l40.setEmail("");
         l40.setHorario("");
-        l40.set_nome_local("CEMO (CEMO (Coreto da Praça da Preguiça)");
+        l40.set_nome_local("CEMO (Coreto da Praça da Preguiça)");
         l40.setTipo("Monumentos");
         l40.setEndereco(" Avenida Liberdade, s/n – Carmo.");
         l40.setTelefone("(");
@@ -546,7 +546,7 @@ public class LocalLab {
         Local l41 = new Local();
         l41.setEmail("");
         l41.setHorario("");
-        l41.set_nome_local("CEMO (CEMO (Farol de Olinda)");
+        l41.set_nome_local("Farol de Olinda");
         l41.setTipo("Monumentos");
         l41.setEndereco("Amaro Branco..");
         l41.setTelefone("(");
@@ -560,7 +560,7 @@ public class LocalLab {
         Local l42 = new Local();
         l42.setEmail("");
         l42.setHorario("");
-        l42.set_nome_local("CEMO (CEMO (Fortim de São Francisco (Fortim do Queijo))");
+        l42.set_nome_local("Fortim de São Francisco (Fortim do Queijo)");
         l42.setTipo("Monumentos");
         l42.setEndereco(" Rua do Sol – Carmo.");
         l42.setTelefone("(");
@@ -575,7 +575,7 @@ public class LocalLab {
         Local l43 = new Local();
         l43.setEmail("");
         l43.setHorario("");
-        l43.set_nome_local("CEMO (CEMO (Conjunto da Maxambomba)");
+        l43.set_nome_local("Conjunto da Maxambomba");
         l43.setTipo("Monumentos");
         l43.setEndereco("Praça do Carmo, s/n – Carmo.");
         l43.setTelefone("(");
@@ -588,7 +588,7 @@ public class LocalLab {
         Local l44 = new Local();
         l44.setEmail("");
         l44.setHorario("");
-        l44.set_nome_local("CEMO (CEMO (Mercado Eufrásio Barbosa)");
+        l44.set_nome_local("Mercado Eufrásio Barbosa");
         l44.setTipo("Monumentos");
         l44.setEndereco("Av. Joaquim Nabuco, s/n – Varadouro.");
         l44.setTelefone("( (81) 3429-3599");
@@ -601,7 +601,7 @@ public class LocalLab {
         Local l45 = new Local();
         l45.setEmail("");
         l45.setHorario("");
-        l45.set_nome_local("CEMO (CEMO (Mercado da Ribeira)");
+        l45.set_nome_local("Mercado da Ribeira");
         l45.setTipo("Monumentos");
         l45.setEndereco("Rua Bernardo Vieira de Melo, s/n – Ribeira.");
         l45.setTelefone("(");
@@ -614,7 +614,7 @@ public class LocalLab {
         Local l46 = new Local();
         l46.setEmail("");
         l46.setHorario("de terça-feira a domingo, das 16h às 20h.");
-        l46.set_nome_local("CEMO (CEMO (Observatório Astronômico)");
+        l46.set_nome_local("Observatório Astronômico");
         l46.setTipo("Monumentos");
         l46.setEndereco(" Rua Bispo Coutinho, s/n – Alto da Sé.");
         l46.setTelefone("(");
@@ -628,7 +628,7 @@ public class LocalLab {
         Local l47 = new Local();
         l47.setEmail("galeria@estacao4cantos.com.br");
         l47.setHorario("");
-        l47.set_nome_local("CEMO (CEMO (Estação Quatro Cantos (Café))");
+        l47.set_nome_local("Estação Quatro Cantos (Café)");
         l47.setTipo("Gastromia");
         l47.setEndereco("Rua Prudente de Morais, 440 – Carmo");
         l47.setTelefone("((81) 3429.7575");
@@ -641,7 +641,7 @@ public class LocalLab {
         Local l48 = new Local();
         l48.setEmail("reserva@pousadadoamparo.com.br");
         l48.setHorario(" seg a sex, das 18h às 23h30;sáb e dom, das 12h às 17h e das 18h às 23h30");
-        l48.set_nome_local("CEMO (CEMO (Flor do Coco Pousada do Amparo)");
+        l48.set_nome_local("Flor do Coco Pousada do Amparo");
         l48.setTipo("Gastronomia");
         l48.setEndereco("Rua do Amparo, 199 – Amparo.");
         l48.setTelefone("((81) 3439.1749");
@@ -654,7 +654,7 @@ public class LocalLab {
         Local l49 = new Local();
         l49.setEmail("");
         l49.setHorario("dom a seg, das 12h às 20h / sáb, das 12h às 16h");
-        l49.set_nome_local("CEMO (CEMO (Casa Iaça)");
+        l49.set_nome_local("Casa Iaça");
         l49.setTipo("Gastronomia");
         l49.setEndereco("Rua Prudente de Morais, 351 – Carmo");
         l49.setTelefone("(");
@@ -681,7 +681,7 @@ public class LocalLab {
     public ArrayList<Local> getHospedagens() {
         ArrayList<Local> hospedagens = new ArrayList<>();
         for (int i = 0; i < mLocais.size(); i++) {
-            Local l = new Local();
+            new Local();
             if (Objects.equals(mLocais.get(i).getTipo(), "Hospedagem")) {
                 hospedagens.add( mLocais.get(i) );
             }
@@ -692,7 +692,7 @@ public class LocalLab {
     public ArrayList<Local> getIgrejas() {
         ArrayList<Local> Igrejas = new ArrayList<Local>();
         for (int i = 0; i < mLocais.size(); i++) {
-            Local l = new Local();
+            new Local();
             if (Objects.equals(mLocais.get(i).getTipo(), "Igreja")) {
                 Igrejas.add( mLocais.get(i) );
             }
@@ -703,7 +703,7 @@ public class LocalLab {
     public ArrayList<Local> getMonumentos() {
         ArrayList<Local> Monumentos = new ArrayList<>();
         for (int i = 0; i < mLocais.size(); i++) {
-            Local l = new Local();
+            new Local();
             if (Objects.equals(mLocais.get(i).getTipo(), "Monumento")) {
                 Monumentos.add( mLocais.get(i) );
             }
