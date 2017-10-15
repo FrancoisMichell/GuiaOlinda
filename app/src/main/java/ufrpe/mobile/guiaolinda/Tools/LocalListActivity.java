@@ -12,7 +12,7 @@ public class LocalListActivity extends SingleFragmentActivity {
 
         String tipo = getIntent().getExtras().getString(CATEGORIA_ITENS);
 
-        if(tipo.equals("Eventos"))
+        if(tipo != null && tipo.equals("Eventos"))
             return new EventListFragment();
         else
             return new LocalListFragment(tipo);

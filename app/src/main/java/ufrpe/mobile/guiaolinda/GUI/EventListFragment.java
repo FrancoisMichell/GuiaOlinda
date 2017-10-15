@@ -35,7 +35,6 @@ public class EventListFragment extends Fragment {
     private RecyclerView mEventRecyclerView;
     private EventAdapter mAdapter;
     private LocalLab localLab;
-    private boolean inicio;
 
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference myRef = database.getReference("masterSheet");

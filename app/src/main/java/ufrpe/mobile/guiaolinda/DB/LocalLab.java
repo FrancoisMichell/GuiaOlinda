@@ -953,7 +953,7 @@ public class LocalLab {
         l72.set_nome_local("CAIXA D’ÁGUA E ELEVADOR PANOR MICO DA SÉ");
         l72.setTipo("Monumento");
         l72.setEndereco("RUA BISPO COUTINHO, ALTO DA SÉ, S/ N");
-                l72.setTelefone("(81) 3439-4595");
+        l72.setTelefone("(81) 3439-4595");
         l72.setSite("");
         l72.setLatitude(-8.0134266);
         l72.setLongitude(-34.8499292);
@@ -1059,18 +1059,6 @@ public class LocalLab {
         mLocais.add(l79);
 
 //------------------------------------------------------------------------------------------------//
-        Local l80 = new Local();
-        l80.set_nome_local("Pousada do Amparo");
-        l80.setTipo("Hospedagem");
-        l80.setEndereco("Rua do Amparo, 199 – Amparo");
-        l80.setHorario("");
-        l80.setTelefone("(81) 3439.1749");
-        l80.setSite("www.pousadadoamparo.com.br");
-        l80.setEmail("reserva@pousadadoamparo.com.br");
-        l80.setImagem(R.drawable.semfoto);
-        l80.setLatitude(-8.0155582);
-        l80.setLongitude(-34.8523396);
-        mLocais.add(l80);
 
         Local l81 = new Local();
         l81.set_nome_local("Pousada dos Quatro Cantos");
@@ -1444,47 +1432,6 @@ public class LocalLab {
         m09.setLongitude(-34.8523396);
         mLocais.add(m09);
 
-        Local m10 = new Local();
-        m10.set_nome_local("Estação Quatro Cantos (Café)");
-        m10.setTipo("Gastronomia");
-        m10.setEndereco("Rua Prudente de Morais, 440 – Carmo");
-        m10.setTelefone("(81) 3429.7575");
-        m10.setHorario("Funcionamento: seg a qui, das 11h às 21h;");
-        m10.setHorario("sex e sáb, das 11h às 22h / dom, das 15h às 20h");
-        m10.setSite("www.estacao4cantos.com.br");
-        m10.setEmail("e-mail: galeria@estacao4cantos.com.br");
-        m10.setImagem(R.drawable.semfoto);
-        m10.setSite("");
-        m10.setLatitude(-8.0155582);
-        m10.setLongitude(-34.8523396);
-        mLocais.add(m10);
-
-        Local m11 = new Local();
-        m11.set_nome_local("Flor do Coco (Pousada do Amparo)");
-        m11.setTipo("Gastronomia");
-        m11.setEndereco("Rua do Amparo, 199 – Amparo");
-        m11.setTelefone("(81) 3439.1749");
-        m11.setHorario("Funcionamento: seg a sex, ;das 18h às 23h30;");
-        m11.setHorario("sáb e dom, das 12h às 17h e das 18h às 23h30");
-        m11.setSite("www.pousadadoamparo.com.br");
-        m11.setEmail("e-mail: reserva@pousadadoamparo.com.br");
-        m11.setImagem(R.drawable.semfoto);
-        m11.setSite("");
-        m11.setLatitude(-8.0155582);
-        m11.setLongitude(-34.8523396);
-        mLocais.add(m11);
-
-        Local m12 = new Local();
-        m12.set_nome_local("Iaça");
-        m12.setTipo("Gastronomia");
-        m12.setEmail("");
-        m12.setEndereco("Rua Prudente de Morais, 351 – Carmo");
-        m12.setHorario("Funcionamento: dom a seg, das 12h às 20h / sáb, das 12h");
-        m12.setImagem(R.drawable.semfoto);
-        m12.setSite("");
-        m12.setLatitude(-8.0155582);
-        m12.setLongitude(-34.8523396);
-        mLocais.add(m12);
 
         Local m13 = new Local();
         m13.set_nome_local("Le Monde");

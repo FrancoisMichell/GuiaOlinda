@@ -16,7 +16,7 @@ public class Local {
     private double latitude;
     private double longitude;
 
-    public String getPreco() {
+    String getPreco() {
         return preco;
     }
 

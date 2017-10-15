@@ -87,7 +87,7 @@ public class LocalFragment extends Fragment {
 
         TextView mAddressField = (TextView) v.findViewById(R.id.local_endereco);
         if(!mLocal.getEndereco().equals("")){
-            mAddressField.setText("     "+mLocal.getEndereco());
+            mAddressField.setText(String.format("     %s", mLocal.getEndereco()));
             mAddressField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.address,0,0,0);
         }else {
             mAddressField.setVisibility(View.GONE);
@@ -98,12 +98,12 @@ public class LocalFragment extends Fragment {
         if(mLocal.getPreco() == null || mLocal.getPreco().equals("")){
             mTaxField.setText("     Gratuito");
         }else{
-            mTaxField.setText("     "+mLocal.getPreco());
+            mTaxField.setText(String.format("     %s", mLocal.getPreco()));
         }
 
         TextView mFoneField = (TextView) v.findViewById(R.id.local_fone);
         if(!mLocal.getTelefone().equals("")){
-            mFoneField.setText("    "+mLocal.getTelefone());
+            mFoneField.setText(String.format("    %s", mLocal.getTelefone()));
             mFoneField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.phone,0,0,0);
         }else {
             mFoneField.setVisibility(View.GONE);
@@ -111,7 +111,7 @@ public class LocalFragment extends Fragment {
 
         TextView mFaxField = (TextView) v.findViewById(R.id.local_funcionamento);
         if(!mLocal.getHorario().equals("")){
-            mFaxField.setText("    "+mLocal.getHorario());
+            mFaxField.setText(String.format("    %s", mLocal.getHorario()));
             mFaxField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.time,0,0,0);
         }else {
             mFaxField.setVisibility(View.GONE);
@@ -119,7 +119,7 @@ public class LocalFragment extends Fragment {
 
         TextView mSiteField = (TextView) v.findViewById(R.id.local_site);
         if (!mLocal.getSite().equals("")){
-            mSiteField.setText("    "+mLocal.getSite());
+            mSiteField.setText(String.format("    %s", mLocal.getSite()));
             mSiteField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.site,0,0,0);
         }else {
             mSiteField.setVisibility(View.GONE);
@@ -127,7 +127,7 @@ public class LocalFragment extends Fragment {
 
         TextView mEmailField = (TextView) v.findViewById(R.id.local_email);
         if(!mLocal.getEmail().equals("")){
-            mEmailField.setText("   "+mLocal.getEmail());
+            mEmailField.setText(String.format("   %s", mLocal.getEmail()));
             mEmailField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.email,0,0,0);
         }else {
             mEmailField.setVisibility(View.GONE);
