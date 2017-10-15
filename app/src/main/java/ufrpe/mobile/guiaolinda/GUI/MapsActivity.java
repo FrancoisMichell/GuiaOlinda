@@ -77,16 +77,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         float color = 0;
         switch (local.getTipo()){
             case "Gastronomia":
-                color = BitmapDescriptorFactory.HUE_RED;
+                color = BitmapDescriptorFactory.HUE_ORANGE;
                 break;
             case "Hospedagem":
-                color = BitmapDescriptorFactory.HUE_AZURE;
+                color = BitmapDescriptorFactory.HUE_VIOLET;
                 break;
             case "Igreja":
-                color = BitmapDescriptorFactory.HUE_ROSE;
+                color = BitmapDescriptorFactory.HUE_YELLOW;
                 break;
             case "Monumento":
-                color = BitmapDescriptorFactory.HUE_ORANGE;
+                color = BitmapDescriptorFactory.HUE_AZURE;
                 break;
         }
         return color;
