@@ -29,15 +29,7 @@ public class LocalFragment extends Fragment {
     public static final String ARG_LOCAL_ID = "crime_id";
 
     private Local mLocal;
-    private TextView mNameField;
-    private TextView mAddressField;
-    private TextView mFoneField;
-    private TextView mFaxField;
-    private TextView mSiteField;
-    private TextView mEmailField;
-    private Button goToMaps;
     private ImageButton mImgLocal;
-    private LinearLayout mLocalImgWrapper;
 
     private Animator mCurrentAnimator;
     private int mShortAnimationDuration;
@@ -56,7 +48,7 @@ public class LocalFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         UUID localId = (UUID) getArguments().getSerializable(ARG_LOCAL_ID);
-        mLocal = LocalLab.get(getActivity()).getLocal(localId);
+        mLocal = LocalLab.get().getLocal(localId);
     }
 
     @Override
@@ -73,60 +65,75 @@ public class LocalFragment extends Fragment {
                 }
             });
         } else {
-            mLocalImgWrapper = (LinearLayout)v.findViewById(R.id.local_image_wrapper);
-            mLocalImgWrapper.setVisibility(getView().GONE);
+            LinearLayout mLocalImgWrapper = (LinearLayout) v.findViewById(R.id.local_image_wrapper);
+            mLocalImgWrapper.setVisibility(View.GONE);
         }
 
         mShortAnimationDuration = getResources().getInteger( android.R.integer.config_shortAnimTime );
 
-        mNameField = (TextView)v.findViewById(R.id.local_name);
+        TextView mNameField = (TextView) v.findViewById(R.id.local_name);
         if(!mLocal.get_nome_local().equals("")){
             mNameField.setText(mLocal.get_nome_local());
         }else {
             mNameField.setVisibility(View.GONE);
         }
 
-        mAddressField = (TextView)v.findViewById(R.id.local_endereco);
+/*        TextView mDescriptionField = (TextView) v.findViewById(R.id.descricao);
+        if(!mLocal.getEndereco().equals("") || mLocal){
+            mDescriptionField.setText("Descrição");
+        }else {
+            mDescriptionField.setVisibility(View.GONE);
+        }*/
+
+        TextView mAddressField = (TextView) v.findViewById(R.id.local_endereco);
         if(!mLocal.getEndereco().equals("")){
             mAddressField.setText("     "+mLocal.getEndereco());
             mAddressField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.address,0,0,0);
         }else {
-            mAddressField.setVisibility(getView().GONE);
+            mAddressField.setVisibility(View.GONE);
         }
 
-        mFoneField = (TextView)v.findViewById(R.id.local_fone);
+        TextView mTaxField = (TextView) v.findViewById(R.id.local_entrada);
+        mTaxField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.cash,0,0,0);
+        if(mLocal.getPreco() == null || mLocal.getPreco().equals("")){
+            mTaxField.setText("     Gratuito");
+        }else{
+            mTaxField.setText("     "+mLocal.getPreco());
+        }
+
+        TextView mFoneField = (TextView) v.findViewById(R.id.local_fone);
         if(!mLocal.getTelefone().equals("")){
             mFoneField.setText("    "+mLocal.getTelefone());
             mFoneField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.phone,0,0,0);
         }else {
-            mFoneField.setVisibility(getView().GONE);
+            mFoneField.setVisibility(View.GONE);
         }
 
-        mFaxField = (TextView)v.findViewById(R.id.local_fax);
+        TextView mFaxField = (TextView) v.findViewById(R.id.local_funcionamento);
         if(!mLocal.getHorario().equals("")){
             mFaxField.setText("    "+mLocal.getHorario());
             mFaxField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.time,0,0,0);
         }else {
-            mFaxField.setVisibility(getView().GONE);
+            mFaxField.setVisibility(View.GONE);
         }
 
-        mSiteField = (TextView)v.findViewById(R.id.local_site);
+        TextView mSiteField = (TextView) v.findViewById(R.id.local_site);
         if (!mLocal.getSite().equals("")){
             mSiteField.setText("    "+mLocal.getSite());
             mSiteField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.site,0,0,0);
         }else {
-            mSiteField.setVisibility(getView().GONE);
+            mSiteField.setVisibility(View.GONE);
         }
 
-        mEmailField = (TextView)v.findViewById(R.id.local_email);
+        TextView mEmailField = (TextView) v.findViewById(R.id.local_email);
         if(!mLocal.getEmail().equals("")){
             mEmailField.setText("   "+mLocal.getEmail());
             mEmailField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.email,0,0,0);
         }else {
-            mEmailField.setVisibility(getView().GONE);
+            mEmailField.setVisibility(View.GONE);
         }
 
-        goToMaps = (Button)v.findViewById(R.id.go_to_maps);
+        Button goToMaps = (Button) v.findViewById(R.id.go_to_maps);
         goToMaps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

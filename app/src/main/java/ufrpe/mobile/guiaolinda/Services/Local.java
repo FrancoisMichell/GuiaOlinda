@@ -7,6 +7,7 @@ public class Local {
     private int imagem;
     private String email;
     private String horario;
+    private String descricao;
     private String nome_local;
     private String tipo;
     private String endereco;
@@ -14,6 +15,16 @@ public class Local {
     private String site;
     private double latitude;
     private double longitude;
+
+    public String getPreco() {
+        return preco;
+    }
+
+    public void setPreco(String preco) {
+        this.preco = preco;
+    }
+
+    private String preco;
 
     public double getLatitude() {
         return latitude;

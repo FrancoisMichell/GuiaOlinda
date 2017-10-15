@@ -78,7 +78,7 @@ public class LocalListFragment extends Fragment {
     }
 
     private void updateUI() {
-        LocalLab localLab = LocalLab.get(getActivity());
+        LocalLab localLab = LocalLab.get();
         List<Local> locais;
 
         switch (getCategoria()) {

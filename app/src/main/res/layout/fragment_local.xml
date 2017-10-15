@@ -79,12 +79,22 @@
             android:dividerHeight="0dp"/>
 
         <TextView
-            android:id="@+id/local_fax"
+            android:id="@+id/local_funcionamento"
             style="?android:listSeparatorTextViewStyle"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.5"
             android:text="@string/funcionamento"
+            android:divider="@null"
+            android:dividerHeight="0dp"/>
+
+        <TextView
+            android:id="@+id/local_entrada"
+            style="?android:listSeparatorTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:text="valor entrada"
             android:divider="@null"
             android:dividerHeight="0dp"/>
 

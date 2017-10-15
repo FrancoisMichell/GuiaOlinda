@@ -94,7 +94,7 @@ public class EventListFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.localLab = LocalLab.get(getActivity());
+        this.localLab = LocalLab.get();
 
         setHasOptionsMenu(true);
     }

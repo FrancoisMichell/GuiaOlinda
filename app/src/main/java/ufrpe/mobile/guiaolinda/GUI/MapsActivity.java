@@ -52,7 +52,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        LocalLab localLab = LocalLab.get(getBaseContext());
+        LocalLab localLab = LocalLab.get();
         ArrayList<Local> locais = localLab.getLocais();
 
         for (int i = 0; i < locais.size(); i++){
