@@ -132,7 +132,7 @@ public class LocalLab {
         l9.setSite("www.pousadasaofrancisco.com.br");
         l9.setLatitude(-8.0160060);
         l9.setLongitude(-34.8473190);
-        l9.setImagem(R.drawable.semfoto);
+        l9.setImagem(R.drawable.hotel_pousada_sao_francisco);
         mLocais.add(l9);
 
         Local l10 = new Local();
@@ -343,7 +343,7 @@ public class LocalLab {
         l25.setSite("");
         l25.setLatitude(-8.0257900);
         l25.setLongitude(-34.8644270);
-        l25.setImagem(R.drawable.semfoto);
+        l25.setImagem(R.drawable.estacao_quatro_cantos_cafe);
         mLocais.add(l25);
 
         Local l26 = new Local();
@@ -565,7 +565,7 @@ public class LocalLab {
         l42.setSite("");
         l42.setLatitude(-8.0257900);
         l42.setLongitude(-34.8644270);
-        l42.setImagem(R.drawable.semfoto);
+        l42.setImagem(R.drawable.fortim_sao_francisco);
         mLocais.add(l42);
 
 
