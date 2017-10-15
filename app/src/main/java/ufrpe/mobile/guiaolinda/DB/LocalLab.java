@@ -1058,7 +1058,7 @@ public class LocalLab {
         l79.setImagem(R.drawable.ruinas_do_senado);
         mLocais.add(l79);
 
-//------------------------------------------------------------------------------------------------//
+
 
         Local l81 = new Local();
         l81.set_nome_local("Pousada dos Quatro Cantos");
@@ -1068,7 +1068,7 @@ public class LocalLab {
         l81.setTelefone("(81) 3429.0220");
         l81.setSite("www.pousada4cantos.com.br");
         l81.setEmail("hotel@pousada4cantos.com.br");
-        l81.setImagem(R.drawable.semfoto);
+        l81.setImagem(R.drawable.pousada_dos_quatro_cantos);
         l81.setLatitude(-8.0155582);
         l81.setLongitude(-34.8523396);
         mLocais.add(l81);
@@ -1081,7 +1081,7 @@ public class LocalLab {
         l82.setTelefone("(81) 9226.6853 / 9444.0107");
         l82.setSite("www.pousadaduartecoelho.com.br");
         l82.setEmail("contato@pousadaduartecoelho.com.br");
-        l82.setImagem(R.drawable.semfoto);
+        l82.setImagem(R.drawable.pousada_duarte_coelho);
         l82.setLatitude(-8.0155582);
         l82.setLongitude(-34.8523396);
         mLocais.add(l82);
@@ -1094,7 +1094,7 @@ public class LocalLab {
         l83.setTelefone("(81) 3429.1532 /  3493.1556 / 8773.8803");
         l83.setSite("www.pousadamarindoscaetes.com.br");
         l83.setEmail("contato@pousadamarindoscaetes.com.br");
-        l83.setImagem(R.drawable.semfoto);
+        l83.setImagem(R.drawable.pousada_marin_dos_caetes);
         l83.setLatitude(-8.0155582);
         l83.setLongitude(-34.8523396);
         mLocais.add(l83);
@@ -1107,7 +1107,7 @@ public class LocalLab {
         l84.setTelefone("(81) 3494.2559 / 3493.6011");
         l84.setSite("www.pousadadolinda.com.br");
         l84.setEmail("sbai@pousadadolinda.com.br");
-        l84.setImagem(R.drawable.semfoto);
+        l84.setImagem(R.drawable.pousada_d_olinda);
         l84.setLatitude(-8.0155582);
         l84.setLongitude(-34.8523396);
         mLocais.add(l84);
@@ -1120,7 +1120,7 @@ public class LocalLab {
         l85.setTelefone("(81) 3439.9546");
         l85.setSite("www.pousadapedro.com");
         l85.setEmail("arantes@pousadapedro.com");
-        l85.setImagem(R.drawable.semfoto);
+        l85.setImagem(R.drawable.pousada_sao_pedro);
         l85.setLatitude(-8.0155582);
         l85.setLongitude(-34.8523396);
         mLocais.add(l85);
@@ -1132,7 +1132,7 @@ public class LocalLab {
         l86.setHorario("");
         l86.setTelefone("(81) 3439.1163");
         l86.setEmail("pousadadolindavaradouro@hotmail.com");
-        l86.setImagem(R.drawable.semfoto);
+        l86.setImagem(R.drawable.pousada_de_olinda_varadouro);
         l86.setLatitude(-8.0155582);
         l86.setLongitude(-34.8523396);
         mLocais.add(l86);
@@ -1144,7 +1144,7 @@ public class LocalLab {
         l87.setEndereco("Avenida José Augusto Moreira, 2200 – Casa Caiada");
         l87.setHorario("");
         l87.setTelefone("(81) 3087.8100");
-        l87.setImagem(R.drawable.semfoto);
+        l87.setImagem(R.drawable.flat_quatro_rodas_de_olinda);
         l87.setLatitude(-8.0155582);
         l87.setLongitude(-34.8523396);
         mLocais.add(l87);
@@ -1157,7 +1157,7 @@ public class LocalLab {
         l88.setTelefone("(81) 3429.1347");
         l88.setSite("www.hotel5sois.com.br");
         l88.setEmail("hotel5sois@hotmail.com");
-        l88.setImagem(R.drawable.semfoto);
+        l88.setImagem(R.drawable.hotel_cinco_sois);
         l88.setLatitude(-8.0155582);
         l88.setLongitude(-34.8523396);
         mLocais.add(l88);
@@ -1170,7 +1170,7 @@ public class LocalLab {
         l89.setTelefone("(81) 3429.4877");
         l89.setSite("www.costeiro.com.br");
         l89.setEmail("costeiro@costeiro.com.br");
-        l89.setImagem(R.drawable.semfoto);
+        l89.setImagem(R.drawable.hotel_costeiro_olinda);
         l89.setLatitude(-8.0155582);
         l89.setLongitude(-34.8523396);
         mLocais.add(l89);
@@ -1181,7 +1181,7 @@ public class LocalLab {
         l90.setTelefone("(81) 3437.2205");
         l90.setSite("www.lazerpiabadeouro.com");
         l90.setEmail("lazerpiabadeouro@bol.com.br");
-        l90.setImagem(R.drawable.semfoto);
+        l90.setImagem(R.drawable.hotel_piaba_ouro);
         l90.setLatitude(-8.0155582);
         l90.setLongitude(-34.8523396);
         mLocais.add(l90);
@@ -1194,22 +1194,10 @@ public class LocalLab {
         l91.setTelefone("(81) 3429.3466 / 3429 3077");
         l91.setSite("www.samburahotel.com.br");
         l91.setEmail("hotelsambura@bol.com.br");
-        l91.setImagem(R.drawable.semfoto);
+        l91.setImagem(R.drawable.hotel_sambura);
         l91.setLatitude(-8.0155582);
         l91.setLongitude(-34.8523396);
         mLocais.add(l91);
-
-        Local l92 = new Local();
-        l92.set_nome_local("Pousada Bairro Novo");
-        l92.setTipo("Hospedagem");
-        l92.setEndereco("Rua Eugênio Luciano de Melo, 61 – Bairro Novo");
-        l92.setHorario("");
-        l92.setTelefone("(81) 3429-4674  / 3429.3145");
-        l92.setEmail("reservas@pousadabairronovo.com.br");
-        l92.setImagem(R.drawable.semfoto);
-        l92.setLatitude(-8.0155582);
-        l92.setLongitude(-34.8523396);
-        mLocais.add(l92);
 
         Local l93 = new Local();
         l93.set_nome_local("Pousada do Turista");
@@ -1218,13 +1206,10 @@ public class LocalLab {
         l93.setHorario("");
         l93.setTelefone("(81) 3439.3717");
         l93.setEmail("pousadadoturista1964@oi.com.br");
-        l93.setImagem(R.drawable.semfoto);
+        l93.setImagem(R.drawable.pousada_do_turista);
         l93.setLatitude(-8.0155582);
         l93.setLongitude(-34.8523396);
         mLocais.add(l93);
-
-//------------------------------------------------------------------------------------------------//
-
 
         Local l94 = new Local();
         l94.set_nome_local("Hotel Castelo Real");
@@ -1233,31 +1218,19 @@ public class LocalLab {
         l94.setHorario("");
         l94.setTelefone("(81) 3429 2765");
         l94.setEmail("");
-        l94.setImagem(R.drawable.semfoto);
+        l94.setImagem(R.drawable.hotel_castelo_real);
         l94.setLatitude(-8.0155582);
         l94.setLongitude(-34.8523396);
         mLocais.add(l94);
 
-        Local l95 = new Local();
-        l95.set_nome_local("Hotel Malice");
-        l95.setTipo("Hospedagem");
-        l95.setEndereco("Avenida Bultrins, 491 – Bultrins / Olinda");
-        l95.setHorario("");
-        l95.setTelefone("(81) 3429 3061");
-        l95.setEmail("");
-        l95.setImagem(R.drawable.semfoto);
-        l95.setLatitude(-8.0155582);
-        l95.setLongitude(-34.8523396);
-        mLocais.add(l95);
-
         Local l96 = new Local();
-        l96.set_nome_local("Hotel Praia Norte");
+        l96.set_nome_local("Hotel Novo Praia Norte");
         l96.setTipo("Hospedagem");
         l96.setEndereco("Rua Inglaterra, 137 – Salgadinho / Olinda");
         l96.setHorario("");
         l96.setTelefone("(81) 3241 2720 / 3241 1674");
         l96.setEmail("");
-        l96.setImagem(R.drawable.semfoto);
+        l96.setImagem(R.drawable.motel_praia_norte);
         l96.setLatitude(-8.0155582);
         l96.setLongitude(-34.8523396);
         mLocais.add(l96);
@@ -1269,7 +1242,7 @@ public class LocalLab {
         l97.setHorario("");
         l97.setTelefone("(81) 3439 2044");
         l97.setEmail("");
-        l97.setImagem(R.drawable.semfoto);
+        l97.setImagem(R.drawable.motel_seichelles);
         l97.setLatitude(-8.0155582);
         l97.setLongitude(-34.8523396);
         mLocais.add(l97);
@@ -1281,157 +1254,10 @@ public class LocalLab {
         l98.setHorario("");
         l98.setTelefone("(81) 3429 0550");
         l98.setEmail("");
-        l98.setImagem(R.drawable.semfoto);
+        l98.setImagem(R.drawable.status_hotel);
         l98.setLatitude(-8.0155582);
         l98.setLongitude(-34.8523396);
         mLocais.add(l98);
-
-        Local l99 = new Local();
-        l99.set_nome_local("Sweeting’s Hotel");
-        l99.setTipo("Hospedagem");
-        l99.setEndereco("Avenida Bultrins, 167 – Bultrins / Olinda");
-        l99.setHorario("");
-        l99.setTelefone("(81) 3429 4962");
-        l99.setEmail("");
-        l99.setImagem(R.drawable.semfoto);
-        l99.setLatitude(-8.0155582);
-        l99.setLongitude(-34.8523396);
-        mLocais.add(l99);
-
-        Local m00 = new Local();
-        m00.set_nome_local("Bar do Déo");
-        m00.setTipo("Gastronomia");
-        m00.setEndereco("Rua São João, 345 – Carmo");
-        m00.setTelefone("(81) 9999.4722");
-        m00.setHorario("Funcionamento: dom, a partir das 14h");
-        m00.setEmail("e-mail: sol_rayasilva@hotmail.com");
-        m00.setImagem(R.drawable.semfoto);
-        m00.setSite("");
-        m00.setLatitude(-8.0155582);
-        m00.setLongitude(-34.8523396);
-        mLocais.add(m00);
-
-        Local m01 = new Local();
-        m01.set_nome_local("Beijupirá");
-        m01.setEmail("");
-        m01.setTipo("Gastronomia");
-        m01.setEndereco("Rua Saldanha Marinho, s/n (ao lado da Igreja da Msericórdia) – Amparo");
-        m01.setTelefone("(81) 3439.6691 / 9734.1144");
-        m01.setHorario("Funcionamento: qua a seg");
-        m01.setImagem(R.drawable.semfoto);
-        m01.setSite("");
-        m01.setLatitude(-8.0155582);
-        m01.setLongitude(-34.8523396);
-        mLocais.add(m01);
-
-        Local m02 = new Local();
-        m02.set_nome_local("Blues Bar Restaurante e Pizzaria");
-        m02.setTipo("Gastronomia");
-        m02.setEndereco("Rua do Bonfim, 66 – Carmo");
-        m02.setTelefone("(81) 3429.8272");
-        m02.setHorario("Funcionamento: ter a dom, das 18h às 1h");
-        m02.setSite("www.bluespizzaria.com.br");
-        m02.setEmail("e-mail: bluesbar@hotmail.com");
-        m02.setImagem(R.drawable.semfoto);
-        m02.setSite("");
-        m02.setLatitude(-8.0155582);
-        m02.setLongitude(-34.8523396);
-        mLocais.add(m02);
-
-        Local m03 = new Local();
-        m03.set_nome_local("Bodega de Véio");
-        m03.setEmail("");
-        m03.setTipo("Gastronomia");
-        m03.setEndereco("Rua do Amparo, 212 – Amparo");
-        m03.setTelefone("(81) 3429.0185");
-        m03.setHorario("Funcionamento: todos os dias, das 9h às 23h");
-        m03.setImagem(R.drawable.semfoto);
-        m03.setSite("");
-        m03.setLatitude(-8.0155582);
-        m03.setLongitude(-34.8523396);
-        mLocais.add(m03);
-
-        Local m04 = new Local();
-        m04.set_nome_local("Café do Carmo");
-        m04.setTipo("Gastronomia");
-        m04.setEmail("");
-        m04.setEndereco("Praça do Carmo, loja 5A");
-        m04.setTelefone("(81) 3439.7449");
-        m04.setHorario("Funcionamento: todos os dias, das 8h às 20h");
-        m04.setImagem(R.drawable.semfoto);
-        m04.setSite("");
-        m04.setLatitude(-8.0155582);
-        m04.setLongitude(-34.8523396);
-        mLocais.add(m04);
-
-        Local m05 = new Local();
-        m05.set_nome_local("Cantinho da Sé");
-        m05.setTipo("Gastronomia");
-        m05.setEmail("");
-        m05.setEndereco("Ladeira da Sé, 305 – Alto da Sé");
-        m05.setTelefone("(81): 3439.8815");
-        m05.setHorario("Funcionamento: todos os dias, das 11h até o último clien");
-        m05.setImagem(R.drawable.semfoto);
-        m05.setSite("");
-        m05.setLatitude(-8.0155582);
-        m05.setLongitude(-34.8523396);
-        mLocais.add(m05);
-
-        Local m06 = new Local();
-        m06.set_nome_local("Casa de Noca");
-        m06.setTipo("Gastronomia");
-        m06.setEndereco("Rua Bertioga, 243 – Cidade Alta");
-        m06.setTelefone("(81) 3439.1040");
-        m06.setHorario("Funcionamento: todos os dias, das 11h às 0h");
-        m06.setEmail("e-mail: casadenoca@terra.com.br");
-        m06.setImagem(R.drawable.semfoto);
-        m06.setSite("");
-        m06.setLatitude(-8.0155582);
-        m06.setLongitude(-34.8523396);
-        mLocais.add(m06);
-
-        Local m07 = new Local();
-        m07.set_nome_local("Casa Maloca");
-        m07.setTipo("Gastronomia");
-        m07.setEndereco("Rua do Amparo, 183 – Amparo");
-        m07.setTelefone("(81) 3429.7811;");
-        m07.setHorario("Funcionamento: todos os dias, das 8h às 23h");
-        m07.setSite("www.casamaloca.com.br");
-        m07.setEmail("e-mail: casamaloca@casamaloca.com.br");
-        m07.setImagem(R.drawable.semfoto);
-        m07.setSite("");
-        m07.setLatitude(-8.0155582);
-        m07.setLongitude(-34.8523396);
-        mLocais.add(m07);
-
-        Local m08 = new Local();
-        m08.set_nome_local("Creperia de Olinda");
-        m08.setTipo("Gastronomia");
-        m08.setEndereco("Praça Conselheiro João Alfredo, 168 – Carmo");
-        m08.setTelefone("(81) 3429.2935");
-        m08.setHorario("Funcionamento: todos os dias, das 11h às 23h");
-        m08.setEmail("e-mail: leonardosleal@hotmail.com");
-        m08.setImagem(R.drawable.semfoto);
-        m08.setSite("");
-        m08.setLatitude(-8.0155582);
-        m08.setLongitude(-34.8523396);
-        mLocais.add(m08);
-
-        Local m09 = new Local();
-        m09.set_nome_local("Due");
-        m09.setTipo("Gastronomia");
-        m09.setEndereco("Rua Manoel Borba, 350 – Varadouro");
-        m09.setTelefone("(81) 3429.2956");
-        m09.setHorario("Funcionamento: ter a qui,; das 12h30 às 16h;");
-        m09.setHorario("sex e sáb 12h30 às 16h e 19h30 às 0h / dom, das 12h às 01");
-        m09.setSite("www.restaurantedue.com.br");
-        m09.setEmail("e-mail: kamillarangel@hotmail.com ou claudia@restaurantedue.com.br");
-        m09.setImagem(R.drawable.semfoto);
-        m09.setSite("");
-        m09.setLatitude(-8.0155582);
-        m09.setLongitude(-34.8523396);
-        mLocais.add(m09);
-
 
         Local m13 = new Local();
         m13.set_nome_local("Le Monde");
@@ -1454,7 +1280,7 @@ public class LocalLab {
         m14.setEndereco("Rua 13 de Maio, 3 – Carmo");
         m14.setTelefone("(81) 3439.6248");
         m14.setHorario("Funcionamento: ter, qui e sáb, das 16h às 21h / sex, 17h às 0h");
-        m14.setImagem(R.drawable.semfoto);
+        m14.setImagem(R.drawable.licoteria_noctivagos);
         m14.setSite("");
         m14.setLatitude(-8.0155582);
         m14.setLongitude(-34.8523396);
@@ -1469,7 +1295,7 @@ public class LocalLab {
         m15.setHorario("qua a dom, das 12h às 16h e das 18h às 0h");
         m15.setSite("www.maisondobomfim.com.br");
         m15.setEmail("e-mail: lujeffmaison@hotmail.com");
-        m15.setImagem(R.drawable.semfoto);
+        m15.setImagem(R.drawable.maison_do_bonfim);
         m15.setSite("");
         m15.setLatitude(-8.0155582);
         m15.setLongitude(-34.8523396);
@@ -1495,7 +1321,7 @@ public class LocalLab {
         m17.setEndereco("Praça Conselheiro João Alfredo, 7 – Carmo");
         m17.setTelefone("(81) 3429.1390");
         m17.setHorario("Funcionamento: todos os dias, das 12h às 15h");
-        m17.setImagem(R.drawable.semfoto);
+        m17.setImagem(R.drawable.mourisco_restaurante);
         m17.setSite("");
         m17.setLatitude(-8.0155582);
         m17.setLongitude(-34.8523396);
@@ -1509,7 +1335,7 @@ public class LocalLab {
         m18.setTelefone("(81)3429.3331");
         m18.setHorario("Funcionamento: ter a Sab, das 12h às 16h  e das 18h às 0dom, das 12h às 17h");
         m18.setSite("www.oficinadosabor.com");
-        m18.setImagem(R.drawable.semfoto);
+        m18.setImagem(R.drawable.oficina_do_sabor);
         m18.setSite("");
         m18.setLatitude(-8.0155582);
         m18.setLongitude(-34.8523396);
@@ -1522,7 +1348,7 @@ public class LocalLab {
         m19.setEndereco("Rua Bispo Coutinho, 35 – Carmo");
         m19.setTelefone("(81) 3429.9406");
         m19.setHorario("Funcionamento: ter a dom, das 12h às 23h");
-        m19.setImagem(R.drawable.semfoto);
+        m19.setImagem(R.drawable.olinda_art_grill);
         m19.setSite("");
         m19.setLatitude(-8.0155582);
         m19.setLongitude(-34.8523396);
@@ -1536,7 +1362,7 @@ public class LocalLab {
         m20.setHorario("Funcionamento: ter a sáb, das 11h30 às 23h e dom, das às 16h");
         m20.setSite("www.olindasitiodasartes.com.br");
         m20.setEmail("e-mail: olindasitiodasartes@bol.com.br");
-        m20.setImagem(R.drawable.semfoto);
+        m20.setImagem(R.drawable.sitio_das_artes);
         m20.setSite("");
         m20.setLatitude(-8.0155582);
         m20.setLongitude(-34.8523396);
@@ -1549,7 +1375,7 @@ public class LocalLab {
         m21.setEndereco("Rua Henrique Dias – Varadouro");
         m21.setTelefone("(81) 8867.1521");
         m21.setHorario("Funcionamento: qua a dom, das 19h às 23h");
-        m21.setImagem(R.drawable.semfoto);
+        m21.setImagem(R.drawable.restaurante_panela_cheia);
         m21.setSite("");
         m21.setLatitude(-8.0155582);
         m21.setLongitude(-34.8523396);
@@ -1563,7 +1389,7 @@ public class LocalLab {
         m22.setHorario("Funcionamento: qua a dom, das 12h às 16h e das 19h às 23");
         m22.setSite("www.restaurantepatua.com");
         m22.setEmail("e-mail: chefe@restaurantepatua.com");
-        m22.setImagem(R.drawable.semfoto);
+        m22.setImagem(R.drawable.patua);
         m22.setSite("");
         m22.setLatitude(-8.0155582);
         m22.setLongitude(-34.8523396);
@@ -1576,7 +1402,7 @@ public class LocalLab {
         m23.setTelefone("(81) 3429.3852");
         m23.setHorario("Funcionamento: seg a sex, das 11h às 15h e das 18h30 às 23h sáb, das 18h30 às 0h");
         m23.setEmail("e-mail: donfrancescotrattoria@uol.com.br");
-        m23.setImagem(R.drawable.semfoto);
+        m23.setImagem(R.drawable.trattoria_don_francesco);
         m23.setSite("");
         m23.setLatitude(-8.0155582);
         m23.setLongitude(-34.8523396);
@@ -1589,7 +1415,7 @@ public class LocalLab {
         m24.setEndereco("Rua de São Bento, 210 – Varadouro");
         m24.setTelefone("(81) 3439.1577");
         m24.setHorario("Funcionamento: ter a dom, das 11h às 16h e de 18h às 23h");
-        m24.setImagem(R.drawable.semfoto);
+        m24.setImagem(R.drawable.tribuna_sabores_ibericos);
         m24.setSite("");
         m24.setLatitude(-8.0155582);
         m24.setLongitude(-34.8523396);
@@ -1602,7 +1428,7 @@ public class LocalLab {
         m25.setEndereco("Praça do Carmo, 742 – Carmo");
         m25.setTelefone("(81) 8634.3330");
         m25.setHorario("Funcionamento: ter a dom, a partir das 18h até o último cliente");
-        m25.setImagem(R.drawable.semfoto);
+        m25.setImagem(R.drawable.xixim_da_baiana);
         m25.setSite("");
         m25.setLatitude(-8.0155582);
         m25.setLongitude(-34.8523396);
@@ -1617,7 +1443,7 @@ public class LocalLab {
         m26.setHorario("Funcionamento: ter a sex, ;a partir das 17h até o último cliente");
         m26.setHorario("sab, a partir das 10h / dom, das 10h às 21h");
         m26.setSite("www.caldinhododogao.com.br");
-        m26.setImagem(R.drawable.semfoto);
+        m26.setImagem(R.drawable.caldinho_do_dogao);
         m26.setSite("");
         m26.setLatitude(-8.0155582);
         m26.setLongitude(-34.8523396);
@@ -1631,7 +1457,7 @@ public class LocalLab {
         m27.setHorario("Funcionamento: seg, das 16h às 0h / ter a qua, das 10h às 0h");
         m27.setHorario("qui a sáb, das 10h às 2h / dom, das 10h às 20h");
         m27.setEmail("marola.bar@terra.com.br / bkawe@hotmail.com");
-        m27.setImagem(R.drawable.semfoto);
+        m27.setImagem(R.drawable.marola_bar_restaurante);
         m27.setSite("");
         m27.setLatitude(-8.0155582);
         m27.setLongitude(-34.8523396);
@@ -1644,23 +1470,11 @@ public class LocalLab {
         m28.setTelefone("(81) 3429.8970");
         m28.setHorario("Funcionamento: seg a qui, a partir das 18h / sex a dom a partir das 12h");
         m28.setEmail("e-mail: capitaniaforneriaemar@uol.com.br");
-        m28.setImagem(R.drawable.semfoto);
+        m28.setImagem(R.drawable.capitania_forneria_mar1);
         m28.setSite("");
         m28.setLatitude(-8.0155582);
         m28.setLongitude(-34.8523396);
         mLocais.add(m28);
-
-        Local m29 = new Local();
-        m29.set_nome_local("Cumbuca de Barro");
-        m29.setTipo("Gastronomia");
-        m29.setEmail("");
-        m29.setEndereco("Av. Ministro Marcos Freire, 173, Bairro Novo");
-        m29.setTelefone("(81) 3429.2368");
-        m29.setImagem(R.drawable.semfoto);
-        m29.setSite("");
-        m29.setLatitude(-8.0155582);
-        m29.setLongitude(-34.8523396);
-        mLocais.add(m29);
 
         Local m30 = new Local();
         m30.set_nome_local("Marisqueira");
@@ -1669,7 +1483,7 @@ public class LocalLab {
         m30.setTelefone("(81) 3429.4432");
         m30.setHorario("Funcionamento: seg a qua, das 10h às 0h / qui a dom, as 10h às 3h");
         m30.setEmail("e-mail: marisqueiraolinda@gmail.com");
-        m30.setImagem(R.drawable.semfoto);
+        m30.setImagem(R.drawable.restaurante_marisqueira);
         m30.setSite("");
         m30.setLatitude(-8.0155582);
         m30.setLongitude(-34.8523396);
@@ -1682,7 +1496,7 @@ public class LocalLab {
         m31.setTelefone("(81) 3493.1395 ou 3439.7030");
         m31.setHorario("Funcionamento: dom a qui, das 9h às 1h / sex e sáb a partir das 9h");
         m31.setEmail("e-mail: espiagao@orladeolinda.com.br");
-        m31.setImagem(R.drawable.semfoto);
+        m31.setImagem(R.drawable.restaurante_espigao);
         m31.setSite("");
         m31.setLatitude(-8.0155582);
         m31.setLongitude(-34.8523396);
@@ -1695,25 +1509,11 @@ public class LocalLab {
         m32.setEndereco("Av. Ministro Marcos Freire, 729 – Bairro Novo");
         m32.setTelefone("(81) 3439.5515");
         m32.setHorario("Funcionamento: ter. à dom., das 11h até o último cliente");
-        m32.setImagem(R.drawable.semfoto);
+        m32.setImagem(R.drawable.bagacinho);
         m32.setSite("");
         m32.setLatitude(-8.0155582);
         m32.setLongitude(-34.8523396);
         mLocais.add(m32);
-
-        Local m33 = new Local();
-        m33.set_nome_local("Porto da Picanha");
-        m33.setTipo("Gastronomia");
-        m33.setEndereco("Av. Ministro Marcos Freire, 739 – Bairro Novo");
-        m33.setTelefone("(81) 3493.2809");
-        m33.setHorario("Funcionamento: ter a qui, das 9h às 0h");
-        m33.setHorario("sex e sáb, das 9h às 2h / dom, das 9h às 19h");
-        m33.setEmail("e-mail: portodapicanha@hotmail.com");
-        m33.setImagem(R.drawable.semfoto);
-        m33.setSite("");
-        m33.setLatitude(-8.0155582);
-        m33.setLongitude(-34.8523396);
-        mLocais.add(m33);
 
         Local m34 = new Local();
         m34.set_nome_local("Itapoã");
@@ -1722,24 +1522,11 @@ public class LocalLab {
         m34.setEndereco("Av. Ministro Marcos Freire, 847 – Bairro Novo");
         m34.setTelefone("(81) 3429.1713 / 3429.8874");
         m34.setHorario("Funcionamento: todos os dias, das 8h às 1h");
-        m34.setImagem(R.drawable.semfoto);
+        m34.setImagem(R.drawable.restaurante_itapoa);
         m34.setSite("");
         m34.setLatitude(-8.0155582);
         m34.setLongitude(-34.8523396);
         mLocais.add(m34);
-
-        Local m35 = new Local();
-        m35.set_nome_local("Recanto do Lemu’s");
-        m35.setTipo("Gastronomia");
-        m35.setEndereco("Av. Ministro Marcos Freire, 94;1 – Bairro Novo");
-        m35.setTelefone("(81) 3439.5217");
-        m35.setSite("www.recantodolemus.blogspot.com");
-        m35.setEmail("e-mail: recantodolemus@hotmail.com");
-        m35.setImagem(R.drawable.semfoto);
-        m35.setSite("");
-        m35.setLatitude(-8.0155582);
-        m35.setLongitude(-34.8523396);
-        mLocais.add(m35);
 
         Local m36 = new Local();
         m36.set_nome_local("Bar do Guaiamum");
@@ -1748,7 +1535,7 @@ public class LocalLab {
         m36.setTelefone("(81) 3429.3383");
         m36.setHorario("Funcionamento: todos os dias, das 9h às 0h");
         m36.setEmail("e-mail: liac_veronica@yahoo.com.br");
-        m36.setImagem(R.drawable.semfoto);
+        m36.setImagem(R.drawable.bar_do_guaiamum);
         m36.setSite("");
         m36.setLatitude(-8.0155582);
         m36.setLongitude(-34.8523396);
@@ -1761,7 +1548,7 @@ public class LocalLab {
         m37.setEndereco("Av. Ministro Marcos Freire, 1161 – Bairro Novo");
         m37.setTelefone("(81) 3439.4479");
         m37.setHorario("Funcionamento: Seg a Sab, das 11h30 às 15h, reabre às 18 dom, a partir das 11h");
-        m37.setImagem(R.drawable.semfoto);
+        m37.setImagem(R.drawable.restaurante_taipei);
         m37.setSite("");
         m37.setLatitude(-8.0155582);
         m37.setLongitude(-34.8523396);
@@ -1774,37 +1561,24 @@ public class LocalLab {
         m38.setEndereco("Av. Ministro Marcos Freire, 1255 – Bairro Novo");
         m38.setTelefone("(81) 3493. 0028");
         m38.setHorario("Funcionamento: todos os dias, das 11h às 0h");
-        m38.setImagem(R.drawable.semfoto);
+        m38.setImagem(R.drawable.bar_e_restaurante_tia_deta);
         m38.setSite("");
         m38.setLatitude(-8.0155582);
         m38.setLongitude(-34.8523396);
         mLocais.add(m38);
 
         Local m39 = new Local();
-        m39.set_nome_local("Divino Sabor");
+        m39.set_nome_local("Portal de Olinda");
         m39.setTipo("Gastronomia");
         m39.setEndereco("Av. Ministro Marcos Freire, 1333 – Bairro Novo");
         m39.setTelefone("(81) 3429.2941");
         m39.setHorario("Funcionamento: todos os dias, das 11h às 2h");
         m39.setEmail("e-mail: anaejairo@hotmail.com");
-        m39.setImagem(R.drawable.semfoto);
+        m39.setImagem(R.drawable.portal_de_olinda);
         m39.setSite("");
         m39.setLatitude(-8.0155582);
         m39.setLongitude(-34.8523396);
         mLocais.add(m39);
-
-        Local m40 = new Local();
-        m40.set_nome_local("QG da Praia");
-        m40.setTipo("Gastronomia");
-        m40.setEmail("");
-        m40.setEndereco("Av. Ministro Marcos Freire, 1473 – Bairro Novo");
-        m40.setTelefone("(81) 3439.4448");
-        m40.setHorario("Funcionamento: ter a qui, das 11h às 0h / sex a dom, das 11h às 2h");
-        m40.setImagem(R.drawable.semfoto);
-        m40.setSite("");
-        m40.setLatitude(-8.0155582);
-        m40.setLongitude(-34.8523396);
-        mLocais.add(m40);
 
         Local m41 = new Local();
         m41.set_nome_local("Samburá");
@@ -1814,24 +1588,11 @@ public class LocalLab {
         m41.setHorario("Funcionamento: seg a dom, das 11h30 às 23h");
         m41.setSite("www.hotelsambura.com.br");
         m41.setEmail("e-mail: hotelsambura@bol.com.br");
-        m41.setImagem(R.drawable.semfoto);
+        m41.setImagem(R.drawable.sambura_olinda);
         m41.setSite("");
         m41.setLatitude(-8.0155582);
         m41.setLongitude(-34.8523396);
         mLocais.add(m41);
-
-        Local m42 = new Local();
-        m42.set_nome_local("Styllu’s");
-        m42.setTipo("Gastronomia");
-        m42.setEndereco("Av. Ministro Marcos Freire, 1571 – Bairro Novo");
-        m42.setTelefone("(81) 3429.9593");
-        m42.setHorario("Funcionamento: seg à qui, das 11h30 às 0h");
-        m42.setEmail("e-mail: restaurante.stillus@yahoo.com.br");
-        m42.setImagem(R.drawable.semfoto);
-        m42.setSite("");
-        m42.setLatitude(-8.0155582);
-        m42.setLongitude(-34.8523396);
-        mLocais.add(m42);
 
         Local m43 = new Local();
         m43.set_nome_local("Estrela do Mar");
@@ -1841,7 +1602,7 @@ public class LocalLab {
         m43.setHorario("Funcionamento: seg à qui, das 11h às 1h / sex e Sab, das 11h às 3h / dom, das 11h às 0h");
         m43.setSite("www.estreladomar-pe.com.br");
         m43.setEmail("e-mail: atendimento@estreladomar-pe.com.br");
-        m43.setImagem(R.drawable.semfoto);
+        m43.setImagem(R.drawable.estrela_do_mar);
         m43.setSite("");
         m43.setLatitude(-8.0155582);
         m43.setLongitude(-34.8523396);
@@ -1855,7 +1616,7 @@ public class LocalLab {
         m44.setHorario("Funcionamento: todos os dias, das 9h às 0h");
         m44.setSite("www.gameleiraregional.com.br");
         m44.setEmail("e-mail: gameleiraregional@hotmail.com");
-        m44.setImagem(R.drawable.semfoto);
+        m44.setImagem(R.drawable.bar_e_restaurante_gameleira);
         m44.setSite("");
         m44.setLatitude(-8.0155582);
         m44.setLongitude(-34.8523396);
