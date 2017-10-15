@@ -1633,11 +1633,12 @@ public class LocalLab {
         return null;
     }
 
-    public void createEvent(int imagem, String nome,  String local, String horario, String atracoes){
+    public void createEvent(String imagem, String nome, String data,  String local, String horario, String atracoes){
 
         Evento evento = new Evento();
         evento.setImagem(imagem);
         evento.setNomeEvento(nome);
+        evento.setData(data);
         evento.setLocal(local);
         evento.setHorário(horario);
         evento.setAtracoes(atracoes);

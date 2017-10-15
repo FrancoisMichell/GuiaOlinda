@@ -2,17 +2,18 @@ package ufrpe.mobile.guiaolinda.Services;
 
 public class Evento {
 
-    private int imagem;
+    private String imagem;
     private String nomeEvento;
     private String local;
+    private String data;
     private String horário;
     private String atracoes;
 
-    public int getImagem() {
+    public String getImagem() {
         return imagem;
     }
 
-    public void setImagem(int imagem) {
+    public void setImagem(String imagem) {
         this.imagem = imagem;
     }
 
@@ -48,4 +49,11 @@ public class Evento {
         this.atracoes = atracoes;
     }
 
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
 }

@@ -22,6 +22,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -109,7 +110,7 @@ public class EventListFragment extends Fragment {
                     for (int i = 0; i < ds.getChildrenCount(); i++) {
                         aux.add(ds.child(Integer.toString(i)).getValue().toString());
                     }
-                    localLab.createEvent(R.drawable.prefeitura_olinda, aux.get(0), aux.get(1), aux.get(2), aux.get(3));
+                    localLab.createEvent(aux.get(0), aux.get(1), aux.get(2), aux.get(3), aux.get(4),aux.get(5));
                 }
             }
 
@@ -139,6 +140,7 @@ public class EventListFragment extends Fragment {
         private ImageView mLocalImageView;
         private TextView mNomeTextView;
         private TextView mLocalTextView;
+        private TextView mDataTextView;
         private TextView mHorarioTextView;
         private TextView mAtracoesTextView;
 
@@ -151,17 +153,23 @@ public class EventListFragment extends Fragment {
             mLocalImageView = (ImageView) itemView.findViewById(R.id.imagem_evento);
             mNomeTextView = (TextView) itemView.findViewById(R.id.nome_evento);
             mLocalTextView = (TextView) itemView.findViewById(R.id.local_evento);
+            mDataTextView = (TextView) itemView.findViewById(R.id.data_evento);
             mHorarioTextView = (TextView) itemView.findViewById(R.id.horario_evento);
             mAtracoesTextView = (TextView) itemView.findViewById(R.id.atracoes_evento);
         }
 
         void bind(Evento evento){
             mEvento = evento;
+            Picasso.with(getContext()).load(mEvento.getImagem()).into(mLocalImageView);
             mNomeTextView.setText(mEvento.getNomeEvento());
             mLocalTextView.setText(mEvento.getLocal());
+            mDataTextView.setText(mEvento.getData());
             mHorarioTextView.setText(mEvento.getHorário());
             mAtracoesTextView.setText(mEvento.getAtracoes());
-            mLocalImageView.setImageResource(mEvento.getImagem());
+
+            //mLocalImageView.setImageResource(mEvento.getImagem());
+
+
         }
 
         @Override

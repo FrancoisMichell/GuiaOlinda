@@ -106,11 +106,11 @@ public class LocalListFragment extends Fragment {
         }
     }
 
+    public String getCategoria() { return categoria;}
+
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
-
-    public String getCategoria() { return categoria;}
 
     private class LocalHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
@@ -131,7 +131,7 @@ public class LocalListFragment extends Fragment {
 
         void bind(Local local){
             mLocal = local;
-            mNomeTextView.setText(mLocal.get_nome_local());
+            mNomeTextView.setText(mLocal.get_nome_local().toLowerCase());
             mFoneTextView.setText(mLocal.getTelefone());
             mLocalImageView.setImageResource(mLocal.getImagem());
         }

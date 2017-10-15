@@ -73,7 +73,7 @@ public class LocalFragment extends Fragment {
 
         TextView mNameField = (TextView) v.findViewById(R.id.local_name);
         if(!mLocal.get_nome_local().equals("")){
-            mNameField.setText(mLocal.get_nome_local());
+            mNameField.setText(mLocal.get_nome_local().toLowerCase());
         }else {
             mNameField.setVisibility(View.GONE);
         }
