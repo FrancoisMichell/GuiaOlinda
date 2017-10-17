@@ -8,6 +8,9 @@ public class Evento {
     private String data;
     private String horário;
     private String atracoes;
+    private String info;
+    private String valor;
+    private int id;
 
     public String getImagem() {
         return imagem;
@@ -55,5 +58,29 @@ public class Evento {
 
     public void setData(String data) {
         this.data = data;
+    }
+
+    public String getValor() {
+        return valor;
+    }
+
+    public void setValor(String valor) {
+        this.valor = valor;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

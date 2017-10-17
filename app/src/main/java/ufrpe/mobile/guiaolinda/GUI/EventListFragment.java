@@ -61,11 +61,11 @@ public class EventListFragment extends Fragment {
             handler.postDelayed(new Runnable() {
                 public void run() {
                     updateUI();
-                    updateUI();
                     dialog.dismiss();
                 }
             }, 5000);
         }
+        updateUI();
         return view;
     }
 
@@ -81,9 +81,15 @@ public class EventListFragment extends Fragment {
     }
 
     public boolean onOptionsItemSelected(MenuItem item){
+        Intent intent;
         switch(item.getItemId()){
+            case R.id.mapa:
+                intent = new Intent(getActivity(), MapsActivity.class);
+                startActivity(intent);
+                return true;
+
             case R.id.sobre:
-                Intent intent = new Intent(getActivity(), SobreActivity.class);
+                intent = new Intent(getActivity(), SobreActivity.class);
                 startActivity(intent);
                 return true;
             default:
@@ -105,12 +111,13 @@ public class EventListFragment extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 localLab.flushEvents();
+                int id = 0;
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     ArrayList<String> aux = new ArrayList<>();
                     for (int i = 0; i < ds.getChildrenCount(); i++) {
                         aux.add(ds.child(Integer.toString(i)).getValue().toString());
                     }
-                    localLab.createEvent(aux.get(0), aux.get(1), aux.get(2), aux.get(3), aux.get(4),aux.get(5));
+                    localLab.createEvent(id++, aux.get(0), aux.get(1), aux.get(2), aux.get(3), aux.get(4),aux.get(5), aux.get(6), aux.get(7));
                 }
             }
 
@@ -122,11 +129,8 @@ public class EventListFragment extends Fragment {
     }
 
     private void updateUI() {
-        //geraEventos();
         List<Evento> eventos;
-
         eventos = localLab.getEventos();
-
         if (mAdapter == null) {
             mAdapter = new EventAdapter(eventos);
             mEventRecyclerView.setAdapter(mAdapter);
@@ -142,7 +146,6 @@ public class EventListFragment extends Fragment {
         private TextView mLocalTextView;
         private TextView mDataTextView;
         private TextView mHorarioTextView;
-        private TextView mAtracoesTextView;
 
         private Evento mEvento;
 
@@ -155,7 +158,6 @@ public class EventListFragment extends Fragment {
             mLocalTextView = (TextView) itemView.findViewById(R.id.local_evento);
             mDataTextView = (TextView) itemView.findViewById(R.id.data_evento);
             mHorarioTextView = (TextView) itemView.findViewById(R.id.horario_evento);
-            mAtracoesTextView = (TextView) itemView.findViewById(R.id.atracoes_evento);
         }
 
         void bind(Evento evento){
@@ -165,17 +167,13 @@ public class EventListFragment extends Fragment {
             mLocalTextView.setText(mEvento.getLocal());
             mDataTextView.setText(mEvento.getData());
             mHorarioTextView.setText(mEvento.getHorário());
-            mAtracoesTextView.setText(mEvento.getAtracoes());
-
-            //mLocalImageView.setImageResource(mEvento.getImagem());
-
-
         }
 
         @Override
         public void onClick(View view) {
-           // Intent intent = LocalPagerActivity.newIntent(getActivity(), mLocal.getId(), getCategoria());
-            //startActivity(intent);
+            Intent intent = new Intent(getActivity(), EventActivity.class);
+            intent.putExtra("mopa",mEvento.getId());
+            startActivity(intent);
         }
     }
 

@@ -27,12 +27,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private UUID localId;
+    private boolean hasExtra;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-        localId = (UUID) getIntent().getSerializableExtra(ARG_LOCAL_ID);
+
+        if(getIntent().hasExtra(ARG_LOCAL_ID)){
+            hasExtra = true;
+            localId = (UUID) getIntent().getSerializableExtra(ARG_LOCAL_ID);
+        }
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -62,15 +67,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             LatLng newLocal = new LatLng(local.getLatitude(),local.getLongitude());
             mMap.addMarker(new MarkerOptions().position(newLocal).title(local.get_nome_local())
                     .icon(BitmapDescriptorFactory.defaultMarker(getColor(local))));
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(newLocal));
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(newLocal));
         }
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(localLab.getLocal(localId).getLatitude(),
-                localLab.getLocal(localId).getLongitude()),20.0f));
+
+        if(hasExtra) {
+
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(localLab.getLocal(localId).getLatitude(),
+                    localLab.getLocal(localId).getLongitude()),20.0f));
+        }else {
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(-7.9908060,-34.8416290), 13.0f));
+        }
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
             mMap.setMyLocationEnabled(true);
         }
+
     }
 
     private float getColor(Local local) {

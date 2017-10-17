@@ -59,9 +59,15 @@ public class LocalListFragment extends Fragment {
     }
 
     public boolean onOptionsItemSelected(MenuItem item){
+        Intent intent;
         switch(item.getItemId()){
+            case R.id.mapa:
+                intent = new Intent(getActivity(), MapsActivity.class);
+                startActivity(intent);
+                return true;
+
             case R.id.sobre:
-                Intent intent = new Intent(getActivity(), SobreActivity.class);
+                intent = new Intent(getActivity(), SobreActivity.class);
                 startActivity(intent);
                 return true;
             default:
