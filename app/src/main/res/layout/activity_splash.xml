@@ -12,7 +12,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:contentDescription="@string/imglogo"
-        android:src="@drawable/apresentacao" />
+        android:src="@drawable/olinda_turismo" />
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"

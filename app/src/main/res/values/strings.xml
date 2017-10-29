@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">Guia Olinda</string>
+    <string name="app_name" translatable="false">Guia de Olinda</string>
     <string name="local_name_hint">Nome</string>
     <string name="local_title">Locais</string>
     <string name="title_activity_maps">Maps</string>
