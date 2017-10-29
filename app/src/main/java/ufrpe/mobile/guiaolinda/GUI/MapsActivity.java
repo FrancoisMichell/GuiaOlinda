@@ -25,7 +25,8 @@ import static ufrpe.mobile.guiaolinda.Services.LocalFragment.ARG_LOCAL_ID;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback{
 
-    private GoogleMap mMap;
+    LocalLab localLab = LocalLab.get();
+    ArrayList<Local> locais = localLab.getLocais();
     private UUID localId;
     private boolean hasExtra;
 
@@ -45,7 +46,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
     }
 
-
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -57,32 +57,31 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        LocalLab localLab = LocalLab.get();
-        ArrayList<Local> locais = localLab.getLocais();
+
 
         for (int i = 0; i < locais.size(); i++){
             Local local = locais.get(i);
-            mMap = googleMap;
+
             // Add a marker in newLocal and move the camera
             LatLng newLocal = new LatLng(local.getLatitude(),local.getLongitude());
-            mMap.addMarker(new MarkerOptions().position(newLocal).title(local.get_nome_local())
+
+            googleMap.addMarker(new MarkerOptions().position(newLocal).title(local.get_nome_local())
                     .icon(BitmapDescriptorFactory.defaultMarker(getColor(local))));
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(newLocal));
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(newLocal));
         }
 
         if(hasExtra) {
 
-            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(localLab.getLocal(localId).getLatitude(),
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(localLab.getLocal(localId).getLatitude(),
                     localLab.getLocal(localId).getLongitude()),20.0f));
         }else {
-            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(-7.9908060,-34.8416290), 13.0f));
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(-7.9908060, -34.8416290), 13.0f));
         }
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
-            mMap.setMyLocationEnabled(true);
+            googleMap.setMyLocationEnabled(true);
         }
-
     }
 
     private float getColor(Local local) {

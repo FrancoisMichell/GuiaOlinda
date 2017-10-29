@@ -33,6 +33,7 @@ import ufrpe.mobile.guiaolinda.Services.Evento;
 
 @SuppressLint("ValidFragment")
 public class EventListFragment extends Fragment {
+    public final String EVENT_ID = "EVENT_ID";
     private RecyclerView mEventRecyclerView;
     private EventAdapter mAdapter;
     private LocalLab localLab;
@@ -172,7 +173,7 @@ public class EventListFragment extends Fragment {
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(getActivity(), EventActivity.class);
-            intent.putExtra("mopa",mEvento.getId());
+            intent.putExtra(EVENT_ID, mEvento.getId());
             startActivity(intent);
         }
     }
