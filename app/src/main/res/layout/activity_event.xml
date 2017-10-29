@@ -86,7 +86,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:text="Informações do evento"
-                android:textSize="15sp" />
+                android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/data_evento"
@@ -95,7 +95,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:text="@string/Data_do_evento"
-                android:textSize="15sp" />
+                android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/local_evento"
@@ -104,7 +104,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:text="@string/Local_do_evento"
-                android:textSize="15dp" />
+                android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/horario_evento"
@@ -113,7 +113,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:text="@string/horario_evento"
-                android:textSize="15dp" />
+                android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/valor_evento"
@@ -122,7 +122,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:text="@string/valor_evento"
-                android:textSize="15dp" />
+                android:textSize="17sp" />
 
             <TextView
                 android:id="@+id/atracoes_evento"
@@ -131,7 +131,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:text="@string/atracoes_evento"
-                android:textSize="15dp" />
+                android:textSize="17sp" />
 
         </LinearLayout>
     </ScrollView>

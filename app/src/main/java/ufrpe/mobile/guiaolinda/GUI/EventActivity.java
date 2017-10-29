@@ -48,7 +48,7 @@ public class EventActivity extends AppCompatActivity{
         mInfoTextView.setText(String.format("    %s", mEvento.getInfo()));
 
         mDataTextView = (TextView)findViewById(R.id.data_evento);
-        mDataTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.time,0,0,0);
+        mDataTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.calendarg,0,0,0);
         mDataTextView.setText(String.format("    %s", mEvento.getData()));
 
         mLocalTextView = (TextView)findViewById(R.id.local_evento);
@@ -64,6 +64,7 @@ public class EventActivity extends AppCompatActivity{
         mHorarioTextView.setText(String.format("    %s", mEvento.getHorário()));
 
         mAtracoesTextView = (TextView)findViewById(R.id.atracoes_evento);
+        mHorarioTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.starg,0,0,0);
         mAtracoesTextView.setText(String.format("    %s", mEvento.getAtracoes()));
     }
 }
