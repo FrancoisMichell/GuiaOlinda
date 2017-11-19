@@ -11,6 +11,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
+        android:name=".Tools.GlobalVariables"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -18,14 +19,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".GUI.SplashActivity"
+            android:name=".GUI.activities.SplashActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GUI.Inicio" />
+        <activity android:name=".GUI.activities.Inicio" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -38,13 +39,25 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".Tools.LocalListActivity" />
-        <activity android:name=".GUI.LocalPagerActivity" />
         <activity
-            android:name=".GUI.MapsActivity"
+            android:name=".Tools.ItemsListActivity"
+            android:parentActivityName=".GUI.activities.Inicio" />
+
+        <activity
+            android:name=".GUI.activities.LocalPagerActivity"
+            android:parentActivityName=".Tools.ItemsListActivity" />
+
+        <activity
+            android:name=".GUI.activities.MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".GUI.SobreActivity" />
-        <activity android:name=".GUI.EventActivity" />
+
+        <activity
+            android:name=".GUI.activities.SobreActivity"
+            android:parentActivityName=".Tools.ItemsListActivity" />
+
+        <activity
+            android:name=".GUI.activities.EventActivity"
+            android:parentActivityName=".Tools.ItemsListActivity" />
     </application>
 
 </manifest>

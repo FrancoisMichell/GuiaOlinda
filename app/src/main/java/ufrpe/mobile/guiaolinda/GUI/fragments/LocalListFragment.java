@@ -1,4 +1,4 @@
-package ufrpe.mobile.guiaolinda.GUI;
+package ufrpe.mobile.guiaolinda.GUI.fragments;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -18,6 +18,9 @@ import android.widget.TextView;
 import java.util.List;
 
 import ufrpe.mobile.guiaolinda.DB.LocalLab;
+import ufrpe.mobile.guiaolinda.GUI.activities.LocalPagerActivity;
+import ufrpe.mobile.guiaolinda.GUI.activities.MapsActivity;
+import ufrpe.mobile.guiaolinda.GUI.activities.SobreActivity;
 import ufrpe.mobile.guiaolinda.R;
 import ufrpe.mobile.guiaolinda.Services.Local;
 
@@ -73,14 +76,12 @@ public class LocalListFragment extends Fragment {
             default:
                 return super.onOptionsItemSelected(item);
         }
-
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
-
     }
 
     private void updateUI() {

@@ -1,4 +1,4 @@
-package ufrpe.mobile.guiaolinda.GUI;
+package ufrpe.mobile.guiaolinda.GUI.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,22 +7,25 @@ import android.view.View;
 import android.widget.Button;
 
 import ufrpe.mobile.guiaolinda.R;
-import ufrpe.mobile.guiaolinda.Tools.LocalListActivity;
+import ufrpe.mobile.guiaolinda.Tools.GlobalVariables;
+import ufrpe.mobile.guiaolinda.Tools.ItemsListActivity;
 
 public class Inicio extends Activity {
 
     private static final String CATEGORIA_ITENS = "categoria";
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        final GlobalVariables globalVariables = (GlobalVariables) getApplicationContext();
+
         setContentView(R.layout.tela_inicio);
 
         Button bt_gastronomia = (Button) findViewById(R.id.bt_gastronomia);
         bt_gastronomia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                criaIntent("Gastronomia");
+                criaIntent("Gastronomia", globalVariables);
             }
         });
 
@@ -30,7 +33,7 @@ public class Inicio extends Activity {
         bt_hotelaria.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                criaIntent("Hospedagem");
+                criaIntent("Hospedagem", globalVariables);
             }
         });
 
@@ -38,7 +41,7 @@ public class Inicio extends Activity {
         bt_igrejas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                criaIntent("Igrejas");
+                criaIntent("Igrejas", globalVariables);
             }
         });
 
@@ -46,7 +49,7 @@ public class Inicio extends Activity {
         bt_monumentos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                criaIntent("Monumentos");
+                criaIntent("Monumentos", globalVariables);
             }
         });
 
@@ -54,14 +57,15 @@ public class Inicio extends Activity {
         bt_eventos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                criaIntent("Eventos");
+                criaIntent("Eventos", globalVariables);
             }
         });
     }
 
-    private void criaIntent(String tipoLocal){
-        Intent intent = new Intent(Inicio.this, LocalListActivity.class);
+    private void criaIntent(String tipoLocal, GlobalVariables globalVariables) {
+        Intent intent = new Intent(Inicio.this, ItemsListActivity.class);
         intent.putExtra(CATEGORIA_ITENS, tipoLocal);
+        globalVariables.setCategoria(tipoLocal);
         startActivity(intent);
     }
 }

@@ -1,4 +1,4 @@
-package ufrpe.mobile.guiaolinda.GUI;
+package ufrpe.mobile.guiaolinda.GUI.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

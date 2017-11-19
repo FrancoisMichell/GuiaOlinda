@@ -22,7 +22,7 @@ import android.widget.TextView;
 import java.util.UUID;
 
 import ufrpe.mobile.guiaolinda.DB.LocalLab;
-import ufrpe.mobile.guiaolinda.GUI.MapsActivity;
+import ufrpe.mobile.guiaolinda.GUI.activities.MapsActivity;
 import ufrpe.mobile.guiaolinda.R;
 
 public class LocalFragment extends Fragment {

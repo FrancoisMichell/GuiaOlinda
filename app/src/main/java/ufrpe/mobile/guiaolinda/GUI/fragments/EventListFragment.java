@@ -1,4 +1,4 @@
-package ufrpe.mobile.guiaolinda.GUI;
+package ufrpe.mobile.guiaolinda.GUI.fragments;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
@@ -28,6 +28,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ufrpe.mobile.guiaolinda.DB.LocalLab;
+import ufrpe.mobile.guiaolinda.GUI.activities.EventActivity;
+import ufrpe.mobile.guiaolinda.GUI.activities.MapsActivity;
+import ufrpe.mobile.guiaolinda.GUI.activities.SobreActivity;
 import ufrpe.mobile.guiaolinda.R;
 import ufrpe.mobile.guiaolinda.Services.Evento;
 
@@ -78,7 +81,7 @@ public class EventListFragment extends Fragment {
 
     public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater){
         super.onCreateOptionsMenu(menu, menuInflater);
-        menuInflater.inflate(R.menu.fragment_event_list, menu);
+        menuInflater.inflate(R.menu.fragment_local_list, menu);
     }
 
     public boolean onOptionsItemSelected(MenuItem item){

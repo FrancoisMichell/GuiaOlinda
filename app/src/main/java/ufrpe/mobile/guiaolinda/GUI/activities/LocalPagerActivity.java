@@ -1,4 +1,4 @@
-package ufrpe.mobile.guiaolinda.GUI;
+package ufrpe.mobile.guiaolinda.GUI.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -23,16 +23,15 @@ public class LocalPagerActivity extends AppCompatActivity {
     private List<Local> mLocais;
     private String categoria;
 
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
-
     public static Intent newIntent(Context packageContext, UUID localId, String categoria){
         Intent intent = new Intent(packageContext, LocalPagerActivity.class);
         intent.putExtra(EXTRA_LOCAL_ID, localId);
         intent.putExtra(CATEGORIA_ITENS, categoria);
         return intent;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     @Override
@@ -59,8 +58,6 @@ public class LocalPagerActivity extends AppCompatActivity {
             case "Monumentos":
                 mLocais = LocalLab.get().getMonumentos();
                 break;
-            case "Eventos":
-                mLocais = LocalLab.get().getLocais();
             default:
                 mLocais = LocalLab.get().getLocais();
                 break;
@@ -85,4 +82,5 @@ public class LocalPagerActivity extends AppCompatActivity {
             }
         }
     }
+
 }
