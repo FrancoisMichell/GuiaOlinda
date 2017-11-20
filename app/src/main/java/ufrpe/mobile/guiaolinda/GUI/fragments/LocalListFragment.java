@@ -3,6 +3,7 @@ package ufrpe.mobile.guiaolinda.GUI.fragments;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -45,8 +46,17 @@ public class LocalListFragment extends Fragment {
         mLocalRecyclerView = (RecyclerView) view.findViewById(R.id.local_recycler_view);
         mLocalRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        updateUI();
 
+        FloatingActionButton buttonTopo = (FloatingActionButton) view.findViewById(R.id.botaoLocalTopo);
+        buttonTopo.setOnClickListener (new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                LinearLayoutManager lManager = (LinearLayoutManager) mLocalRecyclerView.getLayoutManager();
+                lManager.scrollToPositionWithOffset(0, 0);
+            }
+        });
+
+        updateUI();
         return view;
     }
 

@@ -22,9 +22,22 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/local_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="470dp">
 
     </android.support.v7.widget.RecyclerView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/botaoLocalTopo"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="5dp"
+        android:elevation="4dp"
+        android:src="@drawable/topo"
+        app:backgroundTint="@color/botaoTopo" />
 
 </LinearLayout>
 

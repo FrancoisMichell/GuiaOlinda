@@ -3,4 +3,6 @@
     <color name="colorPrimary">#ffa500</color>
     <color name="colorPrimaryDark">#ff8c00</color>
     <color name="colorAccent">#fff701</color>
+
+    <color name="botaoTopo">#0fa4b8</color>
 </resources>

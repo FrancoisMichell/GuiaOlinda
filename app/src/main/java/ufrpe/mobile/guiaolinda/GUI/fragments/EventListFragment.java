@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +15,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -55,6 +57,15 @@ public class EventListFragment extends Fragment {
 
         mEventRecyclerView = (RecyclerView) view.findViewById(R.id.event_recycler_view);
         mEventRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        FloatingActionButton buttonTopo = (FloatingActionButton) view.findViewById(R.id.botaoTopo);
+        buttonTopo.setOnClickListener (new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                LinearLayoutManager lManager = (LinearLayoutManager) mEventRecyclerView.getLayoutManager();
+                lManager.scrollToPositionWithOffset(0, 0);
+            }
+        });
 
         if(localLab.getEventos().size() == 0) {
             geraEventos();
