@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -24,13 +25,15 @@ import java.util.UUID;
 import ufrpe.mobile.guiaolinda.DB.LocalLab;
 import ufrpe.mobile.guiaolinda.R;
 import ufrpe.mobile.guiaolinda.Services.Local;
+import ufrpe.mobile.guiaolinda.Tools.GlobalVariables;
 
 import static ufrpe.mobile.guiaolinda.Services.LocalFragment.ARG_LOCAL_ID;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     LocalLab localLab = LocalLab.get();
-    ArrayList<Local> locais = localLab.getLocais();
+    ArrayList<Local> locais;
+    GlobalVariables globalVariables;
     private UUID localId;
     private boolean hasExtra;
 
@@ -39,7 +42,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
-        if(getIntent().hasExtra(ARG_LOCAL_ID)){
+        globalVariables = (GlobalVariables) getApplicationContext();
+        locais = getListLocais(globalVariables.getMapa_filtrado());
+
+        if (getIntent().hasExtra(ARG_LOCAL_ID)) {
             hasExtra = true;
             localId = (UUID) getIntent().getSerializableExtra(ARG_LOCAL_ID);
         }
@@ -50,6 +56,29 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mapFragment.getMapAsync(this);
     }
 
+    private ArrayList<Local> getListLocais(String filtro) {
+        ArrayList<Local> locals;
+
+        switch (filtro) {
+            case "1":
+                locals = localLab.getGastronomicos();
+                break;
+            case "2":
+                locals = localLab.getHospedagens();
+                break;
+            case "3":
+                locals = localLab.getIgrejas();
+                break;
+            case "4":
+                locals = localLab.getMonumentos();
+                break;
+            default:
+                locals = localLab.getLocais();
+                break;
+        }
+        return locals;
+    }
+
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         setTitle("Guia de Olinda");
@@ -58,20 +87,41 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
+
         Intent intent;
         switch (item.getItemId()) {
-            case R.id.mapa:
-                intent = new Intent(this, MapsActivity.class);
-                startActivity(intent);
-                return true;
-
-            case R.id.sobre:
-                intent = new Intent(this, SobreActivity.class);
-                startActivity(intent);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+            case R.id.home:
+                startActivity(getParentActivityIntent());
+                break;
+            case R.id.mapa_gastronomia:
+                globalVariables.setMapa_filtrado("1");
+                break;
+            case R.id.mapa_hospedagem:
+                globalVariables.setMapa_filtrado("2");
+                break;
+            case R.id.mapa_igrejas:
+                globalVariables.setMapa_filtrado("3");
+                break;
+            case R.id.mapa_monumentos:
+                globalVariables.setMapa_filtrado("4");
+                break;
+            case R.id.mapa_todos:
+                globalVariables.setMapa_filtrado("0");
+                break;
         }
+        intent = new Intent(getApplicationContext(), MapsActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        finish();
+        startActivity(intent);
+        return true;
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
+            globalVariables.setMapa_filtrado("0");
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     /**
@@ -85,24 +135,22 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-
-
-        for (int i = 0; i < locais.size(); i++){
+        for (int i = 0; i < locais.size(); i++) {
             Local local = locais.get(i);
 
             // Add a marker in newLocal and move the camera
-            LatLng newLocal = new LatLng(local.getLatitude(),local.getLongitude());
+            LatLng newLocal = new LatLng(local.getLatitude(), local.getLongitude());
 
             googleMap.addMarker(new MarkerOptions().position(newLocal).title(local.get_nome_local())
                     .icon(BitmapDescriptorFactory.defaultMarker(getColor(local))));
             googleMap.moveCamera(CameraUpdateFactory.newLatLng(newLocal));
         }
 
-        if(hasExtra) {
+        if (hasExtra) {
 
             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(localLab.getLocal(localId).getLatitude(),
-                    localLab.getLocal(localId).getLongitude()),20.0f));
-        }else {
+                    localLab.getLocal(localId).getLongitude()), 20.0f));
+        } else {
             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(-7.9908060, -34.8416290), 13.0f));
         }
 
@@ -114,7 +162,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private float getColor(Local local) {
         float color = 0;
-        switch (local.getTipo()){
+        switch (local.getTipo()) {
             case "Gastronomia":
                 color = BitmapDescriptorFactory.HUE_ORANGE;
                 break;

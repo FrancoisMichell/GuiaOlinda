@@ -5,40 +5,32 @@
     tools:context=".GUI.activities.Inicio">
 
     <item
-        android:id="@+id/filtros"
-        android:title="Filtrar">
+        android:id="@+id/mapa_gastronomia"
+        android:orderInCategory="100"
+        android:title="Gastronomia"
+        app:showAsAction="never" />
 
-        <menu>
-            <item
-                android:id="@+id/mapa_gastronomia"
-                android:orderInCategory="100"
-                android:title="Gastronomia"
-                app:showAsAction="never" />
+    <item
+        android:id="@+id/mapa_hospedagem"
+        android:orderInCategory="100"
+        android:title="Hospedagem"
+        app:showAsAction="never" />
 
-            <item
-                android:id="@+id/mapa_hospedagem"
-                android:orderInCategory="100"
-                android:title="Hospedagem"
-                app:showAsAction="never" />
+    <item
+        android:id="@+id/mapa_igrejas"
+        android:orderInCategory="100"
+        android:title="Igrejas"
+        app:showAsAction="never" />
 
-            <item
-                android:id="@+id/mapa_igrejas"
-                android:orderInCategory="100"
-                android:title="Igrejas"
-                app:showAsAction="never" />
+    <item
+        android:id="@+id/mapa_monumentos"
+        android:orderInCategory="100"
+        android:title="Monumentos"
+        app:showAsAction="never" />
 
-            <item
-                android:id="@+id/mapa_monumentos"
-                android:orderInCategory="100"
-                android:title="Monumentos"
-                app:showAsAction="never" />
-
-            <item
-                android:id="@+id/mapa_todos"
-                android:orderInCategory="100"
-                android:title="Ver todos"
-                app:showAsAction="never" />
-
-        </menu>
-    </item>
+    <item
+        android:id="@+id/mapa_todos"
+        android:orderInCategory="100"
+        android:title="Ver todos"
+        app:showAsAction="never" />
 </menu>

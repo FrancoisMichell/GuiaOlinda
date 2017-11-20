@@ -52,10 +52,14 @@
             android:parentActivityName=".Tools.ItemsListActivity"
             android:screenOrientation="portrait"/>
 
+<<<<<<< HEAD
         <activity
             android:name=".GUI.activities.MapsActivity"
             android:label="@string/title_activity_maps"
             android:screenOrientation="portrait"/>
+=======
+        <activity android:name=".GUI.activities.MapsActivity" />
+>>>>>>> 6e64e67f0fb430ae099defaa98aee1e3903d380a
 
         <activity
             android:name=".GUI.activities.SobreActivity"

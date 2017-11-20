@@ -66,14 +66,14 @@ public class LocalListFragment extends Fragment {
         updateUI();
     }
 
-   public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater){
+    public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
         super.onCreateOptionsMenu(menu, menuInflater);
         menuInflater.inflate(R.menu.fragment_local_list, menu);
     }
 
-    public boolean onOptionsItemSelected(MenuItem item){
+    public boolean onOptionsItemSelected(MenuItem item) {
         Intent intent;
-        switch(item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.mapa:
                 intent = new Intent(getActivity(), MapsActivity.class);
                 startActivity(intent);
@@ -123,7 +123,9 @@ public class LocalListFragment extends Fragment {
         }
     }
 
-    public String getCategoria() { return categoria;}
+    public String getCategoria() {
+        return categoria;
+    }
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;
@@ -137,7 +139,7 @@ public class LocalListFragment extends Fragment {
 
         private Local mLocal;
 
-        LocalHolder(LayoutInflater inflater, ViewGroup parent){
+        LocalHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.list_item_local, parent, false));
             itemView.setOnClickListener(this);
 
@@ -146,7 +148,7 @@ public class LocalListFragment extends Fragment {
             mLocalImageView = (ImageView) itemView.findViewById(R.id.imagem_lugar);
         }
 
-        void bind(Local local){
+        void bind(Local local) {
             mLocal = local;
             mNomeTextView.setText(mLocal.get_nome_local().toLowerCase());
             mFoneTextView.setText(mLocal.getTelefone());
@@ -163,7 +165,7 @@ public class LocalListFragment extends Fragment {
     private class LocalAdapter extends RecyclerView.Adapter<LocalHolder> {
         private List<Local> mLocais;
 
-        LocalAdapter(List<Local> locais){
+        LocalAdapter(List<Local> locais) {
             mLocais = locais;
         }
 

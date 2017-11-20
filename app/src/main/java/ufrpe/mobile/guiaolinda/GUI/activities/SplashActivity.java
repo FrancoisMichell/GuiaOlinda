@@ -18,11 +18,13 @@ public class SplashActivity extends Activity {
         Handler handle = new Handler();
         handle.postDelayed(new Runnable() {
             @Override
-            public void run(){
+            public void run() {
                 mostraInicio();
-        }}, 2000);
+            }
+        }, 2000);
     }
-    public void mostraInicio(){
+
+    public void mostraInicio() {
         Intent intent = new Intent(SplashActivity.this, Inicio.class);
         startActivity(intent);
         finish();

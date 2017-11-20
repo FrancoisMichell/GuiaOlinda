@@ -17,14 +17,14 @@ public class LocalLab {
         createLocais();
     }
 
-    public static LocalLab get(){
-        if(sLocalLab == null) {
+    public static LocalLab get() {
+        if (sLocalLab == null) {
             sLocalLab = new LocalLab();
         }
         return sLocalLab;
     }
 
-    public ArrayList<Local> getLocais(){
+    public ArrayList<Local> getLocais() {
         return mLocais;
     }
 
@@ -321,7 +321,7 @@ public class LocalLab {
         Local l24 = new Local();
         l24.setEmail("kamillarangel@hotmail.com ");
         l24.setHorario("ter a qui, das 12h30 às 16h;" +
-            "sex e sáb 12h30 às 16h e 19h30 às 0h / dom, das 12h às 17h");
+                "sex e sáb 12h30 às 16h e 19h30 às 0h / dom, das 12h às 17h");
         l24.set_nome_local("Due");
         l24.setTipo("Gastronomia");
         l24.setEndereco("Rua Manoel Borba, 350 – Varadouro");
@@ -335,7 +335,7 @@ public class LocalLab {
         Local l25 = new Local();
         l25.setEmail("galeria@estacao4cantos.com.br");
         l25.setHorario("seg a qui, das 11h às 21h;" +
-            "sex e sáb, das 11h às 22h / dom, das 15h às 20h");
+                "sex e sáb, das 11h às 22h / dom, das 15h às 20h");
         l25.set_nome_local("Estação Quatro Cantos (Café)");
         l25.setTipo("Gastronomia");
         l25.setEndereco("Rua Prudente de Morais, 440 – Carmo");
@@ -458,7 +458,7 @@ public class LocalLab {
         l34.setEndereco("Rua do sol s/n carmo.");
         l34.setTelefone("(81)3429.3156");
         l34.setSite("");
-        l34.setLatitude(-8.0148504  );
+        l34.setLatitude(-8.0148504);
         l34.setLongitude(-34.8458823);
         l34.setImagem(R.drawable.igreja_sao_jose_pescadores_ribamar);
         mLocais.add(l34);
@@ -567,7 +567,6 @@ public class LocalLab {
         l42.setLongitude(-34.8644270);
         l42.setImagem(R.drawable.fortim_sao_francisco);
         mLocais.add(l42);
-
 
 
         Local l43 = new Local();
@@ -905,7 +904,7 @@ public class LocalLab {
         l69.setImagem(R.drawable.passo_quatro_cantos);
         mLocais.add(l69);
 
-        Local l70= new Local();
+        Local l70 = new Local();
         l70.setEmail("");
         l70.setHorario("");
         l70.setPreco("");
@@ -1584,9 +1583,9 @@ public class LocalLab {
 
     public ArrayList<Local> getGastronomicos() {
         ArrayList<Local> gastronomicos = new ArrayList<>();
-        for (Local local: mLocais) {
+        for (Local local : mLocais) {
             if (Objects.equals(local.getTipo(), "Gastronomia")) {
-                gastronomicos.add( local );
+                gastronomicos.add(local);
             }
         }
         return gastronomicos;
@@ -1597,7 +1596,7 @@ public class LocalLab {
         for (int i = 0; i < mLocais.size(); i++) {
             new Local();
             if (Objects.equals(mLocais.get(i).getTipo(), "Hospedagem")) {
-                hospedagens.add( mLocais.get(i) );
+                hospedagens.add(mLocais.get(i));
             }
         }
         return hospedagens;
@@ -1608,7 +1607,7 @@ public class LocalLab {
         for (int i = 0; i < mLocais.size(); i++) {
             new Local();
             if (Objects.equals(mLocais.get(i).getTipo(), "Igreja")) {
-                Igrejas.add( mLocais.get(i) );
+                Igrejas.add(mLocais.get(i));
             }
         }
         return Igrejas;
@@ -1619,22 +1618,22 @@ public class LocalLab {
         for (int i = 0; i < mLocais.size(); i++) {
             new Local();
             if (Objects.equals(mLocais.get(i).getTipo(), "Monumento")) {
-                Monumentos.add( mLocais.get(i) );
+                Monumentos.add(mLocais.get(i));
             }
         }
         return Monumentos;
     }
 
     public Local getLocal(UUID id) {
-        for (Local l : mLocais){
-            if(l.getId().equals(id))
+        for (Local l : mLocais) {
+            if (l.getId().equals(id))
                 return l;
         }
         return null;
     }
 
     public void createEvent(int event_id, String imagem, String nome, String informacoes, String data,
-                            String local, String valor, String horario, String atracoes){
+                            String local, String valor, String horario, String atracoes) {
 
         Evento evento = new Evento();
         evento.setId(event_id);
@@ -1649,11 +1648,11 @@ public class LocalLab {
         mEventos.add(evento);
     }
 
-    public ArrayList<Evento> getEventos(){
+    public ArrayList<Evento> getEventos() {
         return mEventos;
     }
 
-    public void flushEvents(){
+    public void flushEvents() {
         this.mEventos.clear();
     }
 }
