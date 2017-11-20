@@ -23,7 +23,7 @@ public class LocalPagerActivity extends AppCompatActivity {
     private List<Local> mLocais;
     private String categoria;
 
-    public static Intent newIntent(Context packageContext, UUID localId, String categoria){
+    public static Intent newIntent(Context packageContext, UUID localId, String categoria) {
         Intent intent = new Intent(packageContext, LocalPagerActivity.class);
         intent.putExtra(EXTRA_LOCAL_ID, localId);
         intent.putExtra(CATEGORIA_ITENS, categoria);
@@ -67,7 +67,7 @@ public class LocalPagerActivity extends AppCompatActivity {
             @Override
             public Fragment getItem(int position) {
                 Local local = mLocais.get(position);
-                    return LocalFragment.newInstance(local.getId());
+                return LocalFragment.newInstance(local.getId());
             }
 
             @Override

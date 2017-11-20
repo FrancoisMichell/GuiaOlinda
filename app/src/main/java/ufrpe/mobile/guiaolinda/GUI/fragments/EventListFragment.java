@@ -44,7 +44,8 @@ public class EventListFragment extends Fragment {
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference myRef = database.getReference("masterSheet");
 
-    public EventListFragment() {}
+    public EventListFragment() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -56,7 +57,7 @@ public class EventListFragment extends Fragment {
         mEventRecyclerView = (RecyclerView) view.findViewById(R.id.event_recycler_view);
         mEventRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        if(localLab.getEventos().size() == 0) {
+        if (localLab.getEventos().size() == 0) {
             geraEventos();
             final ProgressDialog dialog = ProgressDialog.show(getContext(), "",
                     "Loading...", true);
@@ -79,14 +80,14 @@ public class EventListFragment extends Fragment {
         updateUI();
     }
 
-    public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater){
+    public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
         super.onCreateOptionsMenu(menu, menuInflater);
         menuInflater.inflate(R.menu.fragment_local_list, menu);
     }
 
-    public boolean onOptionsItemSelected(MenuItem item){
+    public boolean onOptionsItemSelected(MenuItem item) {
         Intent intent;
-        switch(item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.mapa:
                 intent = new Intent(getActivity(), MapsActivity.class);
                 startActivity(intent);
@@ -121,7 +122,7 @@ public class EventListFragment extends Fragment {
                     for (int i = 0; i < ds.getChildrenCount(); i++) {
                         aux.add(ds.child(Integer.toString(i)).getValue().toString());
                     }
-                    localLab.createEvent(id++, aux.get(0), aux.get(1), aux.get(2), aux.get(3), aux.get(4),aux.get(5), aux.get(6), aux.get(7));
+                    localLab.createEvent(id++, aux.get(0), aux.get(1), aux.get(2), aux.get(3), aux.get(4), aux.get(5), aux.get(6), aux.get(7));
                 }
             }
 
@@ -153,7 +154,7 @@ public class EventListFragment extends Fragment {
 
         private Evento mEvento;
 
-        EventHolder(LayoutInflater inflater, ViewGroup parent){
+        EventHolder(LayoutInflater inflater, ViewGroup parent) {
             super(inflater.inflate(R.layout.list_item_evento, parent, false));
             itemView.setOnClickListener(this);
 
@@ -164,7 +165,7 @@ public class EventListFragment extends Fragment {
             mHorarioTextView = (TextView) itemView.findViewById(R.id.horario_evento);
         }
 
-        void bind(Evento evento){
+        void bind(Evento evento) {
             mEvento = evento;
             Picasso.with(getContext()).load(mEvento.getImagem()).into(mLocalImageView);
             mNomeTextView.setText(mEvento.getNomeEvento());
@@ -184,7 +185,7 @@ public class EventListFragment extends Fragment {
     private class EventAdapter extends RecyclerView.Adapter<EventHolder> {
         private List<Evento> mEventos;
 
-        EventAdapter(List<Evento> eventos){
+        EventAdapter(List<Evento> eventos) {
             mEventos = eventos;
         }
 

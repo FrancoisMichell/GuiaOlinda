@@ -47,9 +47,7 @@
             android:name=".GUI.activities.LocalPagerActivity"
             android:parentActivityName=".Tools.ItemsListActivity" />
 
-        <activity
-            android:name=".GUI.activities.MapsActivity"
-            android:parentActivityName=".Tools.ItemsListActivity" />
+        <activity android:name=".GUI.activities.MapsActivity" />
 
         <activity
             android:name=".GUI.activities.SobreActivity"

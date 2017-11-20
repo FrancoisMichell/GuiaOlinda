@@ -13,6 +13,7 @@ import ufrpe.mobile.guiaolinda.Tools.ItemsListActivity;
 public class Inicio extends Activity {
 
     private static final String CATEGORIA_ITENS = "categoria";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

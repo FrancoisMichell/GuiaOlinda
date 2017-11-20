@@ -15,6 +15,11 @@ public class Local {
     private String site;
     private double latitude;
     private double longitude;
+    private String preco;
+
+    public Local() {
+        mId = (UUID.randomUUID());
+    }
 
     String getPreco() {
         return preco;
@@ -23,8 +28,6 @@ public class Local {
     public void setPreco(String preco) {
         this.preco = preco;
     }
-
-    private String preco;
 
     public double getLatitude() {
         return latitude;
@@ -48,11 +51,6 @@ public class Local {
 
     public void setImagem(int imagem) {
         this.imagem = imagem;
-    }
-
-
-    public Local(){
-        mId = (UUID.randomUUID());
     }
 
     String getSite() {

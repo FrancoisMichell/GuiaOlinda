@@ -56,9 +56,9 @@ public class LocalFragment extends Fragment {
         final View v = inflater.inflate(R.layout.fragment_local, container, false);
 
         if (mLocal.getImagem() != R.drawable.semfoto) {
-            mImgLocal = (ImageButton)v.findViewById(R.id.local_image);
+            mImgLocal = (ImageButton) v.findViewById(R.id.local_image);
             mImgLocal.setImageResource(mLocal.getImagem());
-            mImgLocal.setOnClickListener(new View.OnClickListener(){
+            mImgLocal.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     zoomImageFromThumb(v, mImgLocal, mLocal.getImagem());
@@ -69,12 +69,12 @@ public class LocalFragment extends Fragment {
             mLocalImgWrapper.setVisibility(View.GONE);
         }
 
-        mShortAnimationDuration = getResources().getInteger( android.R.integer.config_shortAnimTime );
+        mShortAnimationDuration = getResources().getInteger(android.R.integer.config_shortAnimTime);
 
         TextView mNameField = (TextView) v.findViewById(R.id.local_name);
-        if(!mLocal.get_nome_local().equals("")){
+        if (!mLocal.get_nome_local().equals("")) {
             mNameField.setText(mLocal.get_nome_local().toLowerCase());
-        }else {
+        } else {
             mNameField.setVisibility(View.GONE);
         }
 
@@ -86,50 +86,50 @@ public class LocalFragment extends Fragment {
         }*/
 
         TextView mAddressField = (TextView) v.findViewById(R.id.local_endereco);
-        if(!mLocal.getEndereco().equals("")){
+        if (!mLocal.getEndereco().equals("")) {
             mAddressField.setText(String.format("     %s", mLocal.getEndereco()));
-            mAddressField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.address,0,0,0);
-        }else {
+            mAddressField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.address, 0, 0, 0);
+        } else {
             mAddressField.setVisibility(View.GONE);
         }
 
         TextView mTaxField = (TextView) v.findViewById(R.id.local_entrada);
-        mTaxField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.cash,0,0,0);
-        if(mLocal.getPreco() == null || mLocal.getPreco().equals("")){
+        mTaxField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.cash, 0, 0, 0);
+        if (mLocal.getPreco() == null || mLocal.getPreco().equals("")) {
             mTaxField.setText("     Gratuito");
-        }else{
+        } else {
             mTaxField.setText(String.format("     %s", mLocal.getPreco()));
         }
 
         TextView mFoneField = (TextView) v.findViewById(R.id.local_fone);
-        if(!mLocal.getTelefone().equals("")){
+        if (!mLocal.getTelefone().equals("")) {
             mFoneField.setText(String.format("    %s", mLocal.getTelefone()));
-            mFoneField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.phone,0,0,0);
-        }else {
+            mFoneField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.phone, 0, 0, 0);
+        } else {
             mFoneField.setVisibility(View.GONE);
         }
 
         TextView mFaxField = (TextView) v.findViewById(R.id.local_funcionamento);
-        if(!mLocal.getHorario().equals("")){
+        if (!mLocal.getHorario().equals("")) {
             mFaxField.setText(String.format("    %s", mLocal.getHorario()));
-            mFaxField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.time,0,0,0);
-        }else {
+            mFaxField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.time, 0, 0, 0);
+        } else {
             mFaxField.setVisibility(View.GONE);
         }
 
         TextView mSiteField = (TextView) v.findViewById(R.id.local_site);
-        if (!mLocal.getSite().equals("")){
+        if (!mLocal.getSite().equals("")) {
             mSiteField.setText(String.format("    %s", mLocal.getSite()));
-            mSiteField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.site,0,0,0);
-        }else {
+            mSiteField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.site, 0, 0, 0);
+        } else {
             mSiteField.setVisibility(View.GONE);
         }
 
         TextView mEmailField = (TextView) v.findViewById(R.id.local_email);
-        if(!mLocal.getEmail().equals("")){
+        if (!mLocal.getEmail().equals("")) {
             mEmailField.setText(String.format("   %s", mLocal.getEmail()));
-            mEmailField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.email,0,0,0);
-        }else {
+            mEmailField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.email, 0, 0, 0);
+        } else {
             mEmailField.setVisibility(View.GONE);
         }
 
@@ -143,11 +143,13 @@ public class LocalFragment extends Fragment {
             }
         });
 
-        return  v;
+        return v;
     }
 
     private void zoomImageFromThumb(View v, final ImageButton mImgLocal, int imagem) {
-        if (mCurrentAnimator != null) { mCurrentAnimator.cancel(); }
+        if (mCurrentAnimator != null) {
+            mCurrentAnimator.cancel();
+        }
         final ImageView expandedImageView = (ImageView) v.findViewById(R.id.expanded_image);
         expandedImageView.setImageResource(imagem);
 
@@ -156,9 +158,9 @@ public class LocalFragment extends Fragment {
         final Point globalOffset = new Point();
 
         mImgLocal.getGlobalVisibleRect(startBounds);
-        v.getGlobalVisibleRect(finalBounds,globalOffset);
-        startBounds.offset(-globalOffset.x,-globalOffset.y);
-        finalBounds.offset(-globalOffset.x,-globalOffset.y);
+        v.getGlobalVisibleRect(finalBounds, globalOffset);
+        startBounds.offset(-globalOffset.x, -globalOffset.y);
+        finalBounds.offset(-globalOffset.x, -globalOffset.y);
 
         float startScale;
         if ((float) finalBounds.width() / finalBounds.height()
@@ -224,7 +226,7 @@ public class LocalFragment extends Fragment {
                         .ofFloat(expandedImageView, View.X, startBounds.left))
                         .with(ObjectAnimator
                                 .ofFloat(expandedImageView,
-                                        View.Y,startBounds.top))
+                                        View.Y, startBounds.top))
                         .with(ObjectAnimator
                                 .ofFloat(expandedImageView,
                                         View.SCALE_X, startScaleFinal))

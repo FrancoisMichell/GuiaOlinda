@@ -45,7 +45,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         globalVariables = (GlobalVariables) getApplicationContext();
         locais = getListLocais(globalVariables.getMapa_filtrado());
 
-        if(getIntent().hasExtra(ARG_LOCAL_ID)){
+        if (getIntent().hasExtra(ARG_LOCAL_ID)) {
             hasExtra = true;
             localId = (UUID) getIntent().getSerializableExtra(ARG_LOCAL_ID);
         }
@@ -135,22 +135,22 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        for (int i = 0; i < locais.size(); i++){
+        for (int i = 0; i < locais.size(); i++) {
             Local local = locais.get(i);
 
             // Add a marker in newLocal and move the camera
-            LatLng newLocal = new LatLng(local.getLatitude(),local.getLongitude());
+            LatLng newLocal = new LatLng(local.getLatitude(), local.getLongitude());
 
             googleMap.addMarker(new MarkerOptions().position(newLocal).title(local.get_nome_local())
                     .icon(BitmapDescriptorFactory.defaultMarker(getColor(local))));
             googleMap.moveCamera(CameraUpdateFactory.newLatLng(newLocal));
         }
 
-        if(hasExtra) {
+        if (hasExtra) {
 
             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(localLab.getLocal(localId).getLatitude(),
-                    localLab.getLocal(localId).getLongitude()),20.0f));
-        }else {
+                    localLab.getLocal(localId).getLongitude()), 20.0f));
+        } else {
             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(-7.9908060, -34.8416290), 13.0f));
         }
 
@@ -162,7 +162,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     private float getColor(Local local) {
         float color = 0;
-        switch (local.getTipo()){
+        switch (local.getTipo()) {
             case "Gastronomia":
                 color = BitmapDescriptorFactory.HUE_ORANGE;
                 break;
