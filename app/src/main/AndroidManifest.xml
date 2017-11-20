@@ -18,6 +18,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".GUI.activities.SplashActivity"
             android:label="@string/app_name">
@@ -26,7 +27,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GUI.activities.Inicio" />
+        <activity
+            android:name=".GUI.activities.Inicio"
+            android:screenOrientation="portrait"/>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -41,23 +44,28 @@
 
         <activity
             android:name=".Tools.ItemsListActivity"
-            android:parentActivityName=".GUI.activities.Inicio" />
+            android:parentActivityName=".GUI.activities.Inicio"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".GUI.activities.LocalPagerActivity"
-            android:parentActivityName=".Tools.ItemsListActivity" />
+            android:parentActivityName=".Tools.ItemsListActivity"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".GUI.activities.MapsActivity"
-            android:label="@string/title_activity_maps" />
+            android:label="@string/title_activity_maps"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".GUI.activities.SobreActivity"
-            android:parentActivityName=".Tools.ItemsListActivity" />
+            android:parentActivityName=".Tools.ItemsListActivity"
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".GUI.activities.EventActivity"
-            android:parentActivityName=".Tools.ItemsListActivity" />
+            android:parentActivityName=".Tools.ItemsListActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
