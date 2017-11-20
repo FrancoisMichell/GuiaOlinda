@@ -59,7 +59,7 @@ public class EventListFragment extends Fragment {
         mEventRecyclerView = (RecyclerView) view.findViewById(R.id.event_recycler_view);
         mEventRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-<<<<<<< HEAD
+
         FloatingActionButton buttonTopo = (FloatingActionButton) view.findViewById(R.id.botaoTopo);
         buttonTopo.setOnClickListener (new View.OnClickListener(){
             @Override
@@ -70,9 +70,7 @@ public class EventListFragment extends Fragment {
         });
 
         if(localLab.getEventos().size() == 0) {
-=======
-        if (localLab.getEventos().size() == 0) {
->>>>>>> 6e64e67f0fb430ae099defaa98aee1e3903d380a
+
             geraEventos();
             final ProgressDialog dialog = ProgressDialog.show(getContext(), "",
                     "Loading...", true);
