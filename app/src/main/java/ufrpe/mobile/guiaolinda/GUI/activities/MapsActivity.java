@@ -60,6 +60,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         ArrayList<Local> locals;
 
         switch (filtro) {
+
             case "1":
                 locals = localLab.getGastronomicos();
                 break;

@@ -31,6 +31,7 @@ import java.util.List;
 
 import ufrpe.mobile.guiaolinda.DB.LocalLab;
 import ufrpe.mobile.guiaolinda.GUI.activities.EventActivity;
+import ufrpe.mobile.guiaolinda.GUI.activities.Inicio;
 import ufrpe.mobile.guiaolinda.GUI.activities.MapsActivity;
 import ufrpe.mobile.guiaolinda.GUI.activities.SobreActivity;
 import ufrpe.mobile.guiaolinda.R;
@@ -60,7 +61,7 @@ public class EventListFragment extends Fragment {
         mEventRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 
-        FloatingActionButton buttonTopo = (FloatingActionButton) view.findViewById(R.id.botaoTopo);
+        FloatingActionButton buttonTopo = (FloatingActionButton) view.findViewById(R.id.botaoEventoTopo);
         buttonTopo.setOnClickListener (new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -101,6 +102,11 @@ public class EventListFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent intent;
         switch (item.getItemId()) {
+            case R.id.home:
+                intent = new Intent(getActivity(), Inicio.class);
+                startActivity(intent);
+                return true;
+
             case R.id.mapa:
                 intent = new Intent(getActivity(), MapsActivity.class);
                 startActivity(intent);

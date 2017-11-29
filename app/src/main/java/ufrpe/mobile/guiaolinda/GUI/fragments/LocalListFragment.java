@@ -19,6 +19,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import ufrpe.mobile.guiaolinda.DB.LocalLab;
+import ufrpe.mobile.guiaolinda.GUI.activities.Inicio;
 import ufrpe.mobile.guiaolinda.GUI.activities.LocalPagerActivity;
 import ufrpe.mobile.guiaolinda.GUI.activities.MapsActivity;
 import ufrpe.mobile.guiaolinda.GUI.activities.SobreActivity;
@@ -38,6 +39,7 @@ public class LocalListFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_local_list, container, false);
 
         TextView v = (TextView) view.findViewById(R.id.categoria);
@@ -74,6 +76,10 @@ public class LocalListFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent intent;
         switch (item.getItemId()) {
+            case R.id.home:
+                intent = new Intent(getActivity(), Inicio.class);
+                startActivity(intent);
+                return true;
             case R.id.mapa:
                 intent = new Intent(getActivity(), MapsActivity.class);
                 startActivity(intent);
@@ -92,6 +98,8 @@ public class LocalListFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+
+
     }
 
     private void updateUI() {
