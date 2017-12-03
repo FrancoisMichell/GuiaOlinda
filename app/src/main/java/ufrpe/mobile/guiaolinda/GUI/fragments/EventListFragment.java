@@ -2,6 +2,7 @@ package ufrpe.mobile.guiaolinda.GUI.fragments;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,13 +10,13 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,6 +27,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,22 +77,34 @@ public class EventListFragment extends Fragment {
             }
         });
 
-        if(localLab.getEventos().size() == 0) {
-
-            geraEventos();
-            final ProgressDialog dialog = ProgressDialog.show(getContext(), "",
-                    "Loading...", true);
-            dialog.show();
-            Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                public void run() {
-                    updateUI();
-                    dialog.dismiss();
+        if (readFromFile().isEmpty() || readFromFile().equals("")) {
+            gerarEventos();
+        } else {
+            int id = 0;
+            String[] aux = String.valueOf(readFromFile()).split("/n");
+            if (localLab.getEventos().size() == 0) {
+                for (String anAux : aux) {
+                    String[] aux2 = anAux.split("#");
+                    localLab.createEvent(id++, aux2[0], aux2[1], aux2[2], aux2[3], aux2[4], aux2[5], aux2[6], aux2[7]);
                 }
-            }, 5000);
+            }
         }
         updateUI();
         return view;
+    }
+
+    private void gerarEventos() {
+        final ProgressDialog dialog = ProgressDialog.show(getContext(), "",
+                "Loading...", true);
+        dialog.show();
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                geraEventos();
+                updateUI();
+                dialog.dismiss();
+            }
+        }, 5000);
     }
 
     @Override
@@ -96,7 +115,7 @@ public class EventListFragment extends Fragment {
 
     public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
         super.onCreateOptionsMenu(menu, menuInflater);
-        menuInflater.inflate(R.menu.fragment_local_list, menu);
+        menuInflater.inflate(R.menu.menu_eventos, menu);
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -115,6 +134,10 @@ public class EventListFragment extends Fragment {
             case R.id.sobre:
                 intent = new Intent(getActivity(), SobreActivity.class);
                 startActivity(intent);
+                return true;
+
+            case R.id.atualizar:
+                gerarEventos();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -136,20 +159,66 @@ public class EventListFragment extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 localLab.flushEvents();
                 int id = 0;
+                ArrayList<String> aux;
+                StringBuilder str = new StringBuilder();
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    ArrayList<String> aux = new ArrayList<>();
+                    aux = new ArrayList<>();
                     for (int i = 0; i < ds.getChildrenCount(); i++) {
                         aux.add(ds.child(Integer.toString(i)).getValue().toString());
+                        str.append(ds.child(Integer.toString(i)).getValue().toString()).append('#');
                     }
+                    str.append("/n");
                     localLab.createEvent(id++, aux.get(0), aux.get(1), aux.get(2), aux.get(3), aux.get(4), aux.get(5), aux.get(6), aux.get(7));
+                    aux.clear();
                 }
+                mAdapter.notifyDataSetChanged();
+                writeToFile(str.toString(), getContext());
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
             }
         });
+    }
+
+    private void writeToFile(String data, Context context) {
+        try {
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput("teste.txt", Context.MODE_PRIVATE));
+            outputStreamWriter.write(data);
+            outputStreamWriter.close();
+        } catch (IOException e) {
+            Log.e("Exception", "File write failed: " + e.toString());
+        }
+    }
+
+    private String readFromFile() {
+
+        String ret = "";
+
+        try {
+            InputStream inputStream = getContext().openFileInput("teste.txt");
+
+            if (inputStream != null) {
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                String receiveString;
+                StringBuilder stringBuilder = new StringBuilder();
+
+                while ((receiveString = bufferedReader.readLine()) != null) {
+                    stringBuilder.append(receiveString);
+                }
+
+                inputStream.close();
+                ret = stringBuilder.toString();
+
+            }
+        } catch (FileNotFoundException e) {
+            Log.e("login activity", "File not found: " + e.toString());
+        } catch (IOException e) {
+            Log.e("login activity", "Can not read file: " + e.toString());
+        }
+
+        return ret;
     }
 
     private void updateUI() {

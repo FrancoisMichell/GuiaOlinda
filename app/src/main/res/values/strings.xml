@@ -36,4 +36,7 @@
     <string name="txt_carregando">Carregando</string>
     <string name="Data_do_evento">Data</string>
     <string name="valor_evento">valor_entrada</string>
+    <string name="atualizar">Atualizar</string>
+    <string name="ver_mapa">Ver mapa</string>
+    <string name="home">Home</string>
 </resources>
