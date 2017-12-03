@@ -26,6 +26,7 @@ public class Inicio extends Activity {
         bt_gastronomia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 criaIntent("Gastronomia", globalVariables);
             }
         });
@@ -58,10 +59,12 @@ public class Inicio extends Activity {
         bt_eventos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 criaIntent("Eventos", globalVariables);
             }
         });
     }
+
 
     private void criaIntent(String tipoLocal, GlobalVariables globalVariables) {
         Intent intent = new Intent(Inicio.this, ItemsListActivity.class);
