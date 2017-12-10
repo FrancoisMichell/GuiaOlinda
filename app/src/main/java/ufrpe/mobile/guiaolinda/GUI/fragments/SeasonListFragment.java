@@ -16,7 +16,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -24,7 +23,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.squareup.picasso.Picasso;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -41,33 +39,29 @@ import ufrpe.mobile.guiaolinda.GUI.activities.Inicio;
 import ufrpe.mobile.guiaolinda.GUI.activities.MapsActivity;
 import ufrpe.mobile.guiaolinda.GUI.activities.SobreActivity;
 import ufrpe.mobile.guiaolinda.R;
-import ufrpe.mobile.guiaolinda.Services.Evento;
+import ufrpe.mobile.guiaolinda.Services.Carnaval;
 
-public class EventListFragment extends Fragment {
+public class SeasonListFragment extends Fragment {
     public final String EVENT_ID = "EVENT_ID";
     private RecyclerView mEventRecyclerView;
     private EventAdapter mAdapter;
     private LocalLab localLab;
-
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
-    private DatabaseReference myRef = database.getReference("masterSheet");
-
-    public EventListFragment() {
-    }
+    private DatabaseReference myRef = database.getReference("carnaval");
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_event_list, container, false);
 
         TextView v = view.findViewById(R.id.categoria_evento);
-        v.setText("Eventos");
+        v.setText("Blocos");
 
         mEventRecyclerView = view.findViewById(R.id.event_recycler_view);
         mEventRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 
         FloatingActionButton buttonTopo = view.findViewById(R.id.botaoEventoTopo);
-        buttonTopo.setOnClickListener (new View.OnClickListener(){
+        buttonTopo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 LinearLayoutManager lManager = (LinearLayoutManager) mEventRecyclerView.getLayoutManager();
@@ -76,14 +70,14 @@ public class EventListFragment extends Fragment {
         });
 
         if (readFromFile().isEmpty() || readFromFile().equals("")) {
-            gerarEventos();
+            gerarBlocos();
         } else {
             int id = 0;
             String[] aux = String.valueOf(readFromFile()).split("/n");
-            if (localLab.getEventos().size() == 0) {
+            if (localLab.getCarnavais().size() == 0) {
                 for (String anAux : aux) {
                     String[] aux2 = anAux.split("#");
-                    localLab.createEvent(id++, aux2[0], aux2[1], aux2[2], aux2[3], aux2[4], aux2[5], aux2[6], aux2[7]);
+                    localLab.createCarnaval(id++, aux2[0], aux2[1], aux2[2], aux2[3]);
                 }
             }
         }
@@ -91,14 +85,14 @@ public class EventListFragment extends Fragment {
         return view;
     }
 
-    private void gerarEventos() {
+    private void gerarBlocos() {
         final ProgressDialog dialog = ProgressDialog.show(getContext(), "",
                 "Loading...", true);
         dialog.show();
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             public void run() {
-                geraEventos();
+                geraBlocos();
                 updateUI();
                 dialog.dismiss();
             }
@@ -135,7 +129,7 @@ public class EventListFragment extends Fragment {
                 return true;
 
             case R.id.atualizar:
-                gerarEventos();
+                gerarBlocos();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -150,12 +144,12 @@ public class EventListFragment extends Fragment {
         setHasOptionsMenu(true);
     }
 
-    public void geraEventos() {
+    public void geraBlocos() {
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                localLab.flushEvents();
+                localLab.flushCarnavais();
                 int id = 0;
                 ArrayList<String> aux;
                 StringBuilder str = new StringBuilder();
@@ -166,12 +160,13 @@ public class EventListFragment extends Fragment {
                         str.append(ds.child(Integer.toString(i)).getValue().toString()).append('#');
                     }
                     str.append("/n");
-                    localLab.createEvent(id++, aux.get(0), aux.get(1), aux.get(2), aux.get(3), aux.get(4), aux.get(5), aux.get(6), aux.get(7));
+                    localLab.createCarnaval(id++, aux.get(0), aux.get(1), aux.get(2), aux.get(3));
                     aux.clear();
                 }
                 mAdapter.notifyDataSetChanged();
                 writeToFile(str.toString(), getContext());
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
@@ -181,7 +176,7 @@ public class EventListFragment extends Fragment {
 
     private void writeToFile(String data, Context context) {
         try {
-            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput("teste.txt", Context.MODE_PRIVATE));
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput("carnaval.txt", Context.MODE_PRIVATE));
             outputStreamWriter.write(data);
             outputStreamWriter.close();
         } catch (IOException e) {
@@ -194,7 +189,7 @@ public class EventListFragment extends Fragment {
         String ret = "";
 
         try {
-            InputStream inputStream = getContext().openFileInput("teste.txt");
+            InputStream inputStream = getContext().openFileInput("carnaval.txt");
 
             if (inputStream != null) {
                 InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
@@ -220,10 +215,10 @@ public class EventListFragment extends Fragment {
     }
 
     private void updateUI() {
-        List<Evento> eventos;
-        eventos = localLab.getEventos();
+        List<Carnaval> blocos;
+        blocos = localLab.getCarnavais();
         if (mAdapter == null) {
-            mAdapter = new EventAdapter(eventos);
+            mAdapter = new EventAdapter(blocos);
             mEventRecyclerView.setAdapter(mAdapter);
         } else {
             mAdapter.notifyDataSetChanged();
@@ -232,29 +227,28 @@ public class EventListFragment extends Fragment {
 
     private class EventHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        private ImageView mLocalImageView;
         private TextView mNomeTextView;
         private TextView mLocalTextView;
         private TextView mDataTextView;
         private TextView mHorarioTextView;
 
-        private Evento mEvento;
+        private Carnaval mEvento;
 
         EventHolder(LayoutInflater inflater, ViewGroup parent) {
+            //TODO alterar layout
             super(inflater.inflate(R.layout.list_item_evento, parent, false));
             itemView.setOnClickListener(this);
 
-            mLocalImageView = itemView.findViewById(R.id.imagem_evento);
+            //TODO alterar de evento para bloco
             mNomeTextView = itemView.findViewById(R.id.nome_evento);
             mLocalTextView = itemView.findViewById(R.id.local_evento);
             mDataTextView = itemView.findViewById(R.id.data_evento);
             mHorarioTextView = itemView.findViewById(R.id.horario_evento);
         }
 
-        void bind(Evento evento) {
-            mEvento = evento;
-            Picasso.with(getContext()).load(mEvento.getImagem()).into(mLocalImageView);
-            mNomeTextView.setText(mEvento.getNomeEvento());
+        void bind(Carnaval bloco) {
+            mEvento = bloco;
+            mNomeTextView.setText(mEvento.getNome());
             mLocalTextView.setText(mEvento.getLocal());
             mDataTextView.setText(mEvento.getData());
             mHorarioTextView.setText(mEvento.getHorário());
@@ -269,10 +263,10 @@ public class EventListFragment extends Fragment {
     }
 
     private class EventAdapter extends RecyclerView.Adapter<EventHolder> {
-        private List<Evento> mEventos;
+        private List<Carnaval> mblocos;
 
-        EventAdapter(List<Evento> eventos) {
-            mEventos = eventos;
+        EventAdapter(List<Carnaval> blocos) {
+            mblocos = blocos;
         }
 
         @Override
@@ -284,13 +278,13 @@ public class EventListFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(EventHolder holder, int position) {
-            Evento evento = mEventos.get(position);
-            holder.bind(evento);
+            Carnaval bloco = mblocos.get(position);
+            holder.bind(bloco);
         }
 
         @Override
         public int getItemCount() {
-            return mEventos.size();
+            return mblocos.size();
         }
     }
 }

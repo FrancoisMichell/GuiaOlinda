@@ -5,6 +5,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 import ufrpe.mobile.guiaolinda.R;
+import ufrpe.mobile.guiaolinda.Services.Carnaval;
 import ufrpe.mobile.guiaolinda.Services.Evento;
 import ufrpe.mobile.guiaolinda.Services.Local;
 
@@ -12,6 +13,7 @@ public class LocalLab {
     private static LocalLab sLocalLab;
     private ArrayList<Local> mLocais;
     private ArrayList<Evento> mEventos = new ArrayList<>();
+    private ArrayList<Carnaval> mCarnaval = new ArrayList<>();
 
     private LocalLab() {
         createLocais();
@@ -1630,6 +1632,26 @@ public class LocalLab {
                 return l;
         }
         return null;
+    }
+
+    public void createCarnaval(int event_id, String nome, String data,
+                               String horario, String local) {
+
+        Carnaval carnaval = new Carnaval();
+        carnaval.setId(event_id);
+        carnaval.setNome(nome);
+        carnaval.setData(data);
+        carnaval.setHorário(horario);
+        carnaval.setLocal(local);
+        mCarnaval.add(carnaval);
+    }
+
+    public ArrayList<Carnaval> getCarnavais() {
+        return mCarnaval;
+    }
+
+    public void flushCarnavais() {
+        this.mCarnaval.clear();
     }
 
     public void createEvent(int event_id, String imagem, String nome, String informacoes, String data,
