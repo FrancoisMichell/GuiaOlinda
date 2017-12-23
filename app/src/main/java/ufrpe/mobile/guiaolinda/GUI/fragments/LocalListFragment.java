@@ -1,6 +1,5 @@
 package ufrpe.mobile.guiaolinda.GUI.fragments;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -26,7 +25,6 @@ import ufrpe.mobile.guiaolinda.GUI.activities.SobreActivity;
 import ufrpe.mobile.guiaolinda.R;
 import ufrpe.mobile.guiaolinda.Services.Local;
 
-@SuppressLint("ValidFragment")
 public class LocalListFragment extends Fragment {
     private RecyclerView mLocalRecyclerView;
     private LocalAdapter mAdapter;
@@ -42,14 +40,14 @@ public class LocalListFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_local_list, container, false);
 
-        TextView v = (TextView) view.findViewById(R.id.categoria);
+        TextView v = view.findViewById(R.id.categoria);
         v.setText(String.format("%s", getCategoria()));
 
-        mLocalRecyclerView = (RecyclerView) view.findViewById(R.id.local_recycler_view);
+        mLocalRecyclerView = view.findViewById(R.id.local_recycler_view);
         mLocalRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 
-        FloatingActionButton buttonTopo = (FloatingActionButton) view.findViewById(R.id.botaoLocalTopo);
+        FloatingActionButton buttonTopo = view.findViewById(R.id.botaoLocalTopo);
         buttonTopo.setOnClickListener (new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -151,9 +149,9 @@ public class LocalListFragment extends Fragment {
             super(inflater.inflate(R.layout.list_item_local, parent, false));
             itemView.setOnClickListener(this);
 
-            mNomeTextView = (TextView) itemView.findViewById(R.id.nome_lugar);
-            mFoneTextView = (TextView) itemView.findViewById(R.id.fone_lugar);
-            mLocalImageView = (ImageView) itemView.findViewById(R.id.imagem_lugar);
+            mNomeTextView = itemView.findViewById(R.id.nome_lugar);
+            mFoneTextView = itemView.findViewById(R.id.fone_lugar);
+            mLocalImageView = itemView.findViewById(R.id.imagem_lugar);
         }
 
         void bind(Local local) {

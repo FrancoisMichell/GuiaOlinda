@@ -1,57 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <Button
-        android:id="@+id/bt_gastronomia"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.5"
-        android:background="@drawable/gastronomia"
-        android:text="@string/txt_gastronomia"
-        android:textColor="#FFF"
-        android:textSize="30sp" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/bt_hotelaria"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.5"
-        android:background="@drawable/turismoehotelaria"
-        android:text="@string/txt_hotelaria"
-        android:textColor="#FFFFFF"
-        android:textSize="30sp" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="0.5"
+            android:adjustViewBounds="false"
+            android:background="@drawable/top"
+            android:contentDescription="@string/logo"
+            android:cropToPadding="false" />
 
-    <Button
-        android:id="@+id/bt_igrejas"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.5"
-        android:background="@drawable/igrejas"
-        android:text="@string/txt_igrejas"
-        android:textColor="#FFF"
-        android:textSize="30sp" />
+        <Button
+            android:id="@+id/bt_carnaval"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/carnavalhd"
+            android:gravity="bottom|end"
+            android:paddingBottom="10sp"
+            android:paddingEnd="10sp"
+            android:text="Carnaval"
+            android:textAlignment="textEnd"
+            android:textAllCaps="false"
+            android:textColor="#FFF"
+            android:textSize="24sp" />
 
-    <Button
-        android:id="@+id/bt_monumentos"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.5"
-        android:background="@drawable/forte"
-        android:text="@string/txt_monumentos"
-        android:textColor="#FFF"
-        android:textSize="30sp" />
-    <Button
-        android:id="@+id/bt_eventos"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.5"
-        android:text="@string/txt_eventos"
-        android:background="@drawable/eventosimg"
-        android:textColor="#FFF"
-        android:textSize="30sp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.03"
+            android:background="@drawable/barra1" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/bt_gastronomia"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/gastronomihd"
+            android:gravity="bottom|end"
+            android:paddingBottom="10sp"
+            android:paddingEnd="10sp"
+            android:text="@string/txt_gastronomia"
+            android:textAllCaps="false"
+            android:textColor="#FFF"
+            android:textSize="24sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.03"
+            android:background="@drawable/barra2" />
+
+        <Button
+            android:id="@+id/bt_hotelaria"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/hotelariahd"
+            android:gravity="bottom|end"
+            android:paddingBottom="10sp"
+            android:paddingEnd="10sp"
+            android:text="@string/txt_hotelaria"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.03"
+            android:background="@drawable/barra3" />
+
+        <Button
+            android:id="@+id/bt_igrejas"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/igrejashd"
+            android:gravity="bottom|end"
+            android:paddingBottom="10sp"
+            android:paddingEnd="10sp"
+            android:text="@string/txt_igrejas"
+            android:textAllCaps="false"
+            android:textColor="#FFF"
+            android:textSize="24sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.03"
+            android:background="@drawable/barra4" />
+
+        <Button
+            android:id="@+id/bt_monumentos"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/monumentoshd"
+            android:gravity="bottom|end"
+            android:paddingBottom="10sp"
+            android:paddingEnd="10sp"
+            android:text="@string/txt_monumentos"
+            android:textAllCaps="false"
+            android:textColor="#FFF"
+            android:textSize="24sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.03"
+            android:background="@drawable/barra5" />
+
+        <Button
+            android:id="@+id/bt_eventos"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/eventohd"
+            android:gravity="bottom|end"
+            android:paddingBottom="10sp"
+            android:paddingEnd="10sp"
+            android:text="@string/txt_eventos"
+            android:textAllCaps="false"
+            android:textColor="#FFF"
+            android:textSize="24sp" />
+    </LinearLayout>
+</ScrollView>
