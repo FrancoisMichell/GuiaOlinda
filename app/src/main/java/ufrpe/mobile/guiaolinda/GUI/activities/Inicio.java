@@ -22,6 +22,15 @@ public class Inicio extends Activity {
 
         setContentView(R.layout.tela_inicio);
 
+        Button bt_carnaval = findViewById(R.id.bt_carnaval);
+        bt_carnaval.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Inicio.this, Carnaval.class);
+                startActivity(intent);
+            }
+        });
+
         Button bt_gastronomia = findViewById(R.id.bt_gastronomia);
         bt_gastronomia.setOnClickListener(new View.OnClickListener() {
             @Override

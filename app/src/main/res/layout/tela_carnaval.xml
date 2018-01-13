@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="0.2"
+            android:adjustViewBounds="false"
+            android:background="@drawable/top"
+            android:contentDescription="@string/logo"
+            android:cropToPadding="false" />
+
+        <Button
+            android:id="@+id/bt_programacao"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            android:background="@drawable/programacao"
+            android:gravity="bottom|end"
+            android:paddingBottom="10sp"
+            android:paddingEnd="10sp"
+            android:text="Programação"
+            android:textAlignment="textEnd"
+            android:textAllCaps="false"
+            android:textColor="#FFF"
+            android:textSize="24sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".015"
+            android:background="@drawable/barra1" />
+
+        <Button
+            android:id="@+id/bt_agremiacao"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            android:background="@drawable/agremiacoes"
+            android:gravity="bottom|end"
+            android:paddingBottom="10sp"
+            android:paddingEnd="10sp"
+            android:text="Agremiações"
+            android:textAllCaps="false"
+            android:textColor="#FFF"
+            android:textSize="24sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.015"
+            android:background="@drawable/barra2" />
+
+        <Button
+            android:id="@+id/bt_homenageados"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            android:background="@drawable/homenageados"
+            android:gravity="bottom|end"
+            android:paddingBottom="10sp"
+            android:paddingEnd="10sp"
+            android:text="Homenageados"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp" />
+    </LinearLayout>

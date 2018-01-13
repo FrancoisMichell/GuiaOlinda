@@ -7,12 +7,14 @@ import java.util.UUID;
 import ufrpe.mobile.guiaolinda.R;
 import ufrpe.mobile.guiaolinda.Services.Carnaval;
 import ufrpe.mobile.guiaolinda.Services.Evento;
+import ufrpe.mobile.guiaolinda.Services.Homenageados;
 import ufrpe.mobile.guiaolinda.Services.Local;
 
 public class LocalLab {
     private static LocalLab sLocalLab;
     private ArrayList<Local> mLocais;
     private ArrayList<Evento> mEventos = new ArrayList<>();
+    private ArrayList<Homenageados> mHomenageados = new ArrayList<>();
     private ArrayList<Carnaval> mCarnaval = new ArrayList<>();
 
     private LocalLab() {
@@ -1669,9 +1671,21 @@ public class LocalLab {
         evento.setAtracoes(atracoes);
         mEventos.add(evento);
     }
+    public void createHomenageados(int homenageados_Id, String imagem, String nomeHomenageados, String texto) {
+
+        Homenageados homenageados = new Homenageados();
+        homenageados.setHomenageados_Id(homenageados_Id);
+        homenageados.setNomeHomenageados(nomeHomenageados);
+        homenageados.setImagem(imagem);
+        homenageados.setTexto(texto);
+        mHomenageados.add(homenageados);
+    }
 
     public ArrayList<Evento> getEventos() {
         return mEventos;
+    }
+    public ArrayList<Homenageados> getHomenageados() {
+        return mHomenageados;
     }
 
     public void flushEvents() {

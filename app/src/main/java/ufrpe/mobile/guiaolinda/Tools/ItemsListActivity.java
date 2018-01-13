@@ -2,6 +2,7 @@ package ufrpe.mobile.guiaolinda.Tools;
 
 import android.support.v4.app.Fragment;
 
+import ufrpe.mobile.guiaolinda.GUI.fragments.EventListFragment;
 import ufrpe.mobile.guiaolinda.GUI.fragments.LocalListFragment;
 import ufrpe.mobile.guiaolinda.GUI.fragments.SeasonListFragment;
 
@@ -27,7 +28,7 @@ public class ItemsListActivity extends SingleFragmentActivity {
         }
 
         if (tipo != null && tipo.equals("Eventos"))
-            return new SeasonListFragment();
+            return new EventListFragment();
         else
             return new LocalListFragment(tipo);
     }
