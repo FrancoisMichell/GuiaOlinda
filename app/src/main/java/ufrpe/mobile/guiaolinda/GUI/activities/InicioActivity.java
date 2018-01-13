@@ -10,7 +10,7 @@ import ufrpe.mobile.guiaolinda.R;
 import ufrpe.mobile.guiaolinda.Tools.GlobalVariables;
 import ufrpe.mobile.guiaolinda.Tools.ItemsListActivity;
 
-public class Inicio extends Activity {
+public class InicioActivity extends Activity {
 
     private static final String CATEGORIA_ITENS = "categoria";
 
@@ -26,7 +26,8 @@ public class Inicio extends Activity {
         bt_carnaval.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Inicio.this, Carnaval.class);
+                Intent intent = new Intent(InicioActivity.this, CarnavalActivity.class);
+                globalVariables.setCategoria("Carnaval");
                 startActivity(intent);
             }
         });
@@ -73,7 +74,7 @@ public class Inicio extends Activity {
     }
 
     private void criaIntent(String tipoLocal, GlobalVariables globalVariables) {
-        Intent intent = new Intent(Inicio.this, ItemsListActivity.class);
+        Intent intent = new Intent(InicioActivity.this, ItemsListActivity.class);
         intent.putExtra(CATEGORIA_ITENS, tipoLocal);
         globalVariables.setCategoria(tipoLocal);
         startActivity(intent);

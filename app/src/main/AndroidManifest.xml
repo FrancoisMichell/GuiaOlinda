@@ -29,13 +29,24 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".GUI.activities.Carnaval"
+        <activity
+            android:name=".GUI.activities.CarnavalActivity"
+            android:parentActivityName=".GUI.activities.InicioActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".GUI.activities.HomenageadosActivity"
+            android:parentActivityName=".GUI.activities.CarnavalActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".GUI.activities.Inicio"
+            android:name=".GUI.activities.AgremiacaoActivity"
+            android:parentActivityName=".GUI.activities.CarnavalActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".GUI.activities.ProgramacaoActivity"
+            android:parentActivityName=".GUI.activities.CarnavalActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".GUI.activities.InicioActivity"
             android:screenOrientation="portrait"/>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -51,7 +62,7 @@
 
         <activity
             android:name=".Tools.ItemsListActivity"
-            android:parentActivityName=".GUI.activities.Inicio"
+            android:parentActivityName=".GUI.activities.InicioActivity"
             android:screenOrientation="portrait"/>
 
         <activity

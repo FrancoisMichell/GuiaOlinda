@@ -5,17 +5,19 @@ import java.util.Objects;
 import java.util.UUID;
 
 import ufrpe.mobile.guiaolinda.R;
-import ufrpe.mobile.guiaolinda.Services.Carnaval;
+import ufrpe.mobile.guiaolinda.Services.Agremiacao;
 import ufrpe.mobile.guiaolinda.Services.Evento;
 import ufrpe.mobile.guiaolinda.Services.Homenageados;
 import ufrpe.mobile.guiaolinda.Services.Local;
+import ufrpe.mobile.guiaolinda.Services.Programacao;
 
 public class LocalLab {
     private static LocalLab sLocalLab;
     private ArrayList<Local> mLocais;
     private ArrayList<Evento> mEventos = new ArrayList<>();
     private ArrayList<Homenageados> mHomenageados = new ArrayList<>();
-    private ArrayList<Carnaval> mCarnaval = new ArrayList<>();
+    private ArrayList<Programacao> mProgramacao = new ArrayList<>();
+    private ArrayList<Agremiacao> mAgremiacao = new ArrayList<>();
 
     private LocalLab() {
         createLocais();
@@ -1636,26 +1638,6 @@ public class LocalLab {
         return null;
     }
 
-    public void createCarnaval(int event_id, String nome, String data,
-                               String horario, String local) {
-
-        Carnaval carnaval = new Carnaval();
-        carnaval.setId(event_id);
-        carnaval.setNome(nome);
-        carnaval.setData(data);
-        carnaval.setHorário(horario);
-        carnaval.setLocal(local);
-        mCarnaval.add(carnaval);
-    }
-
-    public ArrayList<Carnaval> getCarnavais() {
-        return mCarnaval;
-    }
-
-    public void flushCarnavais() {
-        this.mCarnaval.clear();
-    }
-
     public void createEvent(int event_id, String imagem, String nome, String informacoes, String data,
                             String local, String valor, String horario, String atracoes) {
 
@@ -1671,6 +1653,25 @@ public class LocalLab {
         evento.setAtracoes(atracoes);
         mEventos.add(evento);
     }
+
+    public void createProgramacao(int id, String polo, String atracoes) {
+
+        Programacao programacao = new Programacao();
+        programacao.setId(id);
+        programacao.setPolo(polo);
+        programacao.setAtracoes(atracoes);
+        mProgramacao.add(programacao);
+    }
+
+    public void createAgremiacao(int id, String data, String dados) {
+
+        Agremiacao agremiacao = new Agremiacao();
+        agremiacao.setId(id);
+        agremiacao.setData(data);
+        agremiacao.setData(dados);
+        mAgremiacao.add(agremiacao);
+    }
+
     public void createHomenageados(int homenageados_Id, String imagem, String nomeHomenageados, String texto) {
 
         Homenageados homenageados = new Homenageados();
@@ -1684,12 +1685,29 @@ public class LocalLab {
     public ArrayList<Evento> getEventos() {
         return mEventos;
     }
+
+    public ArrayList<Programacao> getProgramacoes() {
+        return mProgramacao;
+    }
+
+    public ArrayList<Agremiacao> getAgremiacoes() {
+        return mAgremiacao;
+    }
+
     public ArrayList<Homenageados> getHomenageados() {
         return mHomenageados;
     }
 
     public void flushEvents() {
         this.mEventos.clear();
+    }
+
+    public void flushProgramacao() {
+        this.mProgramacao.clear();
+    }
+
+    public void flushAgremiacao() {
+        this.mAgremiacao.clear();
     }
 
     public void flushHomenageados() {

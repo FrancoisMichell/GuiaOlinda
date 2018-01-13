@@ -25,7 +25,7 @@ public class SplashActivity extends Activity {
     }
 
     public void mostraInicio() {
-        Intent intent = new Intent(SplashActivity.this, Inicio.class);
+        Intent intent = new Intent(SplashActivity.this, InicioActivity.class);
         startActivity(intent);
         finish();
     }

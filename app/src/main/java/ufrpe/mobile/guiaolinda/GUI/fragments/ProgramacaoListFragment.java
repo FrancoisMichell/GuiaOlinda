@@ -43,7 +43,7 @@ import ufrpe.mobile.guiaolinda.GUI.activities.SobreActivity;
 import ufrpe.mobile.guiaolinda.R;
 import ufrpe.mobile.guiaolinda.Services.Homenageados;
 
-public class HomenageadosListFragment extends Fragment {
+public class ProgramacaoListFragment extends Fragment {
     public final String HOMENAGEADO_ID = "HOMENAGEADO_ID";
     private RecyclerView mEventRecyclerView;
     private HomenageadosAdapter mAdapter;
@@ -52,7 +52,7 @@ public class HomenageadosListFragment extends Fragment {
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DatabaseReference myRef = database.getReference("Homenageados");
 
-    public HomenageadosListFragment() {
+    public ProgramacaoListFragment() {
     }
 
     @Override
@@ -67,7 +67,7 @@ public class HomenageadosListFragment extends Fragment {
 
 
         FloatingActionButton buttonTopo = view.findViewById(R.id.botaoEventoTopo);
-        buttonTopo.setOnClickListener (new View.OnClickListener(){
+        buttonTopo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 LinearLayoutManager lManager = (LinearLayoutManager) mEventRecyclerView.getLayoutManager();
@@ -172,6 +172,7 @@ public class HomenageadosListFragment extends Fragment {
                 mAdapter.notifyDataSetChanged();
                 writeToFile(str.toString(), getContext());
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
 

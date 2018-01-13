@@ -16,6 +16,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -23,6 +24,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -34,27 +36,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ufrpe.mobile.guiaolinda.DB.LocalLab;
-import ufrpe.mobile.guiaolinda.GUI.activities.EventActivity;
-import ufrpe.mobile.guiaolinda.GUI.activities.Inicio;
+import ufrpe.mobile.guiaolinda.GUI.activities.AgremiacaoActivity;
+import ufrpe.mobile.guiaolinda.GUI.activities.InicioActivity;
 import ufrpe.mobile.guiaolinda.GUI.activities.MapsActivity;
 import ufrpe.mobile.guiaolinda.GUI.activities.SobreActivity;
 import ufrpe.mobile.guiaolinda.R;
-import ufrpe.mobile.guiaolinda.Services.Carnaval;
+import ufrpe.mobile.guiaolinda.Services.Agremiacao;
 
-public class SeasonListFragment extends Fragment {
-    public final String EVENT_ID = "EVENT_ID";
+public class AgremiacaoListFragment extends Fragment {
+    public final String HOMENAGEADO_ID = "AGREMIACAO_ID";
     private RecyclerView mEventRecyclerView;
-    private EventAdapter mAdapter;
+    private AgremiacaoAdapter mAdapter;
     private LocalLab localLab;
+
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
-    private DatabaseReference myRef = database.getReference("carnaval");
+    private DatabaseReference myRef = database.getReference("Agremiacoes");
+
+    public AgremiacaoListFragment() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_event_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_agremiacoes_list, container, false);
 
-        TextView v = view.findViewById(R.id.categoria_evento);
-        v.setText("Blocos");
+        TextView v = view.findViewById(R.id.tela_agremiacoes);
+        v.setText("Agremiações");
 
         mEventRecyclerView = view.findViewById(R.id.event_recycler_view);
         mEventRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -70,14 +76,14 @@ public class SeasonListFragment extends Fragment {
         });
 
         if (readFromFile().isEmpty() || readFromFile().equals("")) {
-            gerarBlocos();
+            gerarAgremiacoes();
         } else {
             int id = 0;
             String[] aux = String.valueOf(readFromFile()).split("/n");
-            if (localLab.getCarnavais().size() == 0) {
+            if (localLab.getProgramacoes().size() == 0) {
                 for (String anAux : aux) {
                     String[] aux2 = anAux.split("#");
-                    localLab.createCarnaval(id++, aux2[0], aux2[1], aux2[2], aux2[3]);
+                    localLab.createAgremiacao(id++, aux2[0], aux2[1]);
                 }
             }
         }
@@ -85,14 +91,14 @@ public class SeasonListFragment extends Fragment {
         return view;
     }
 
-    private void gerarBlocos() {
+    private void gerarAgremiacoes() {
         final ProgressDialog dialog = ProgressDialog.show(getContext(), "",
                 "Loading...", true);
         dialog.show();
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             public void run() {
-                geraBlocos();
+                geraAgremiacoes();
                 updateUI();
                 dialog.dismiss();
             }
@@ -114,7 +120,7 @@ public class SeasonListFragment extends Fragment {
         Intent intent;
         switch (item.getItemId()) {
             case R.id.home:
-                intent = new Intent(getActivity(), Inicio.class);
+                intent = new Intent(getActivity(), InicioActivity.class);
                 startActivity(intent);
                 return true;
 
@@ -129,7 +135,7 @@ public class SeasonListFragment extends Fragment {
                 return true;
 
             case R.id.atualizar:
-                gerarBlocos();
+                gerarAgremiacoes();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -144,12 +150,12 @@ public class SeasonListFragment extends Fragment {
         setHasOptionsMenu(true);
     }
 
-    public void geraBlocos() {
+    public void geraAgremiacoes() {
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                localLab.flushCarnavais();
+                localLab.flushAgremiacao();
                 int id = 0;
                 ArrayList<String> aux;
                 StringBuilder str = new StringBuilder();
@@ -160,7 +166,7 @@ public class SeasonListFragment extends Fragment {
                         str.append(ds.child(Integer.toString(i)).getValue().toString()).append('#');
                     }
                     str.append("/n");
-                    localLab.createCarnaval(id++, aux.get(0), aux.get(1), aux.get(2), aux.get(3));
+                    localLab.createAgremiacao(id++, aux.get(0), aux.get(1));
                     aux.clear();
                 }
                 mAdapter.notifyDataSetChanged();
@@ -176,7 +182,7 @@ public class SeasonListFragment extends Fragment {
 
     private void writeToFile(String data, Context context) {
         try {
-            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput("carnaval.txt", Context.MODE_PRIVATE));
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput("agremiacoes.txt", Context.MODE_PRIVATE));
             outputStreamWriter.write(data);
             outputStreamWriter.close();
         } catch (IOException e) {
@@ -189,7 +195,7 @@ public class SeasonListFragment extends Fragment {
         String ret = "";
 
         try {
-            InputStream inputStream = getContext().openFileInput("carnaval.txt");
+            InputStream inputStream = getContext().openFileInput("agremiacoes.txt");
 
             if (inputStream != null) {
                 InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
@@ -206,85 +212,80 @@ public class SeasonListFragment extends Fragment {
 
             }
         } catch (FileNotFoundException e) {
-            Log.e("login activity", "File not found: " + e.toString());
+            Log.e("Agremiacao activity", "File not found: " + e.toString());
         } catch (IOException e) {
-            Log.e("login activity", "Can not read file: " + e.toString());
+            Log.e("Agremiacao activity", "Can not read file: " + e.toString());
         }
 
         return ret;
     }
 
     private void updateUI() {
-        List<Carnaval> blocos;
-        blocos = localLab.getCarnavais();
+        List<Agremiacao> agremiacao;
+        agremiacao = localLab.getAgremiacoes();
         if (mAdapter == null) {
-            mAdapter = new EventAdapter(blocos);
+            mAdapter = new AgremiacaoAdapter(agremiacao);
             mEventRecyclerView.setAdapter(mAdapter);
         } else {
             mAdapter.notifyDataSetChanged();
         }
     }
 
-    private class EventHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    private class AgremiacaoHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
+        private ImageView mLocalImageView;
         private TextView mNomeTextView;
-        private TextView mLocalTextView;
-        private TextView mDataTextView;
-        private TextView mHorarioTextView;
 
-        private Carnaval mEvento;
+        private Agremiacao mAgremiacao;
 
-        EventHolder(LayoutInflater inflater, ViewGroup parent) {
-            //TODO alterar layout
-            super(inflater.inflate(R.layout.list_item_evento, parent, false));
+        AgremiacaoHolder(LayoutInflater inflater, ViewGroup parent) {
+            super(inflater.inflate(R.layout.list_item_homenageado, parent, false));
             itemView.setOnClickListener(this);
 
-            //TODO alterar de evento para bloco
-            mNomeTextView = itemView.findViewById(R.id.nome_evento);
-            mLocalTextView = itemView.findViewById(R.id.local_evento);
-            mDataTextView = itemView.findViewById(R.id.data_evento);
-            mHorarioTextView = itemView.findViewById(R.id.horario_evento);
+            mLocalImageView = itemView.findViewById(R.id.imagem_homenageado);
+            mNomeTextView = itemView.findViewById(R.id.nome_homenageado);
+
         }
 
-        void bind(Carnaval bloco) {
-            mEvento = bloco;
-            mNomeTextView.setText(mEvento.getNome());
-            mLocalTextView.setText(mEvento.getLocal());
-            mDataTextView.setText(mEvento.getData());
-            mHorarioTextView.setText(mEvento.getHorário());
+        void bind(Agremiacao agremiacao) {
+            mAgremiacao = agremiacao;
+            Picasso.with(getContext()).load(mAgremiacao.getData()).into(mLocalImageView);
+            mNomeTextView.setText(mAgremiacao.getData());
+            mNomeTextView.setText(mAgremiacao.getDadosBloco());
+
         }
 
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent(getActivity(), EventActivity.class);
-            intent.putExtra(EVENT_ID, mEvento.getId());
+            Intent intent = new Intent(getActivity(), AgremiacaoActivity.class);
+            intent.putExtra(HOMENAGEADO_ID, mAgremiacao.getId());
             startActivity(intent);
         }
     }
 
-    private class EventAdapter extends RecyclerView.Adapter<EventHolder> {
-        private List<Carnaval> mblocos;
+    private class AgremiacaoAdapter extends RecyclerView.Adapter<AgremiacaoHolder> {
+        private List<Agremiacao> mAgremiacao;
 
-        EventAdapter(List<Carnaval> blocos) {
-            mblocos = blocos;
+        AgremiacaoAdapter(List<Agremiacao> agremiacao) {
+            mAgremiacao = agremiacao;
         }
 
         @Override
-        public EventHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public AgremiacaoHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
 
-            return new EventHolder(layoutInflater, parent);
+            return new AgremiacaoHolder(layoutInflater, parent);
         }
 
         @Override
-        public void onBindViewHolder(EventHolder holder, int position) {
-            Carnaval bloco = mblocos.get(position);
-            holder.bind(bloco);
+        public void onBindViewHolder(AgremiacaoHolder holder, int position) {
+            Agremiacao agremiacao = mAgremiacao.get(position);
+            holder.bind(agremiacao);
         }
 
         @Override
         public int getItemCount() {
-            return mblocos.size();
+            return mAgremiacao.size();
         }
     }
 }

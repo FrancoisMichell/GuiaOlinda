@@ -37,7 +37,7 @@ import java.util.List;
 
 import ufrpe.mobile.guiaolinda.DB.LocalLab;
 import ufrpe.mobile.guiaolinda.GUI.activities.EventActivity;
-import ufrpe.mobile.guiaolinda.GUI.activities.Inicio;
+import ufrpe.mobile.guiaolinda.GUI.activities.InicioActivity;
 import ufrpe.mobile.guiaolinda.GUI.activities.MapsActivity;
 import ufrpe.mobile.guiaolinda.GUI.activities.SobreActivity;
 import ufrpe.mobile.guiaolinda.R;
@@ -120,7 +120,7 @@ public class EventListFragment extends Fragment {
         Intent intent;
         switch (item.getItemId()) {
             case R.id.home:
-                intent = new Intent(getActivity(), Inicio.class);
+                intent = new Intent(getActivity(), InicioActivity.class);
                 startActivity(intent);
                 return true;
 

@@ -2,9 +2,11 @@ package ufrpe.mobile.guiaolinda.Tools;
 
 import android.support.v4.app.Fragment;
 
+import ufrpe.mobile.guiaolinda.GUI.fragments.AgremiacaoListFragment;
 import ufrpe.mobile.guiaolinda.GUI.fragments.EventListFragment;
 import ufrpe.mobile.guiaolinda.GUI.fragments.HomenageadosListFragment;
 import ufrpe.mobile.guiaolinda.GUI.fragments.LocalListFragment;
+import ufrpe.mobile.guiaolinda.GUI.fragments.ProgramacaoListFragment;
 
 public class ItemsListActivity extends SingleFragmentActivity {
     private static final String CATEGORIA_ITENS = "categoria";
@@ -27,11 +29,17 @@ public class ItemsListActivity extends SingleFragmentActivity {
             tipo = globalVariables.getCategoria();
         }
 
-        if (tipo != null && tipo.equals("Eventos"))
-            return new EventListFragment();
-        else if (tipo != null && tipo.equals("Homenageados"))
-            return new HomenageadosListFragment();
-        else
-            return new LocalListFragment(tipo);
+        switch (tipo) {
+            case "Eventos":
+                return new EventListFragment();
+            case "Programação":
+                return new ProgramacaoListFragment();
+            case "Agremiações":
+                return new AgremiacaoListFragment();
+            case "Homenageados":
+                return new HomenageadosListFragment();
+            default:
+                return new LocalListFragment(tipo);
+        }
     }
 }

@@ -18,7 +18,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import ufrpe.mobile.guiaolinda.DB.LocalLab;
-import ufrpe.mobile.guiaolinda.GUI.activities.Inicio;
+import ufrpe.mobile.guiaolinda.GUI.activities.InicioActivity;
 import ufrpe.mobile.guiaolinda.GUI.activities.LocalPagerActivity;
 import ufrpe.mobile.guiaolinda.GUI.activities.MapsActivity;
 import ufrpe.mobile.guiaolinda.GUI.activities.SobreActivity;
@@ -75,7 +75,7 @@ public class LocalListFragment extends Fragment {
         Intent intent;
         switch (item.getItemId()) {
             case R.id.home:
-                intent = new Intent(getActivity(), Inicio.class);
+                intent = new Intent(getActivity(), InicioActivity.class);
                 startActivity(intent);
                 return true;
             case R.id.mapa:

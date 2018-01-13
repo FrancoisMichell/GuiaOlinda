@@ -2,13 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".GUI.activities.Inicio">
+    tools:context=".GUI.activities.InicioActivity">
 
     <item
         android:id="@+id/home"
+        android:icon="@drawable/ic_home_white"
         android:orderInCategory="100"
         android:title="Home"
-        android:icon="@drawable/ic_home_white"
         app:showAsAction="always" />
 
     <item android:id="@+id/mapa"

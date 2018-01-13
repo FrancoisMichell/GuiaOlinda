@@ -29,15 +29,14 @@
             android:dividerHeight="0dp"
             android:orientation="vertical">
 
-
             <TextView
-                android:id="@+id/nome_agremiacoes"
+                android:id="@+id/data_agremiacao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="#eee"
                 android:padding="5dp"
-                android:text="@string/nome_lugar"
+                android:text="@string/data_agremiacao"
                 android:textAlignment="center"
                 android:textColor="@android:color/holo_orange_dark"
                 android:textSize="25sp" />
