@@ -11,7 +11,6 @@ import java.util.List;
 
 import ufrpe.mobile.guiaolinda.DB.LocalLab;
 import ufrpe.mobile.guiaolinda.R;
-import ufrpe.mobile.guiaolinda.Services.Evento;
 import ufrpe.mobile.guiaolinda.Services.Homenageados;
 
 public class HomenageadosActivity extends AppCompatActivity {
@@ -25,13 +24,13 @@ public class HomenageadosActivity extends AppCompatActivity {
         int homenageadosId = getIntent().getExtras().getInt("HOMENAGEADO_ID");
         Homenageados mHomenageado = mHomenageados.get(homenageadosId);
 
-        ImageView mEventoImageView = (ImageView) findViewById(R.id.homenageados_image);
+        ImageView mEventoImageView = findViewById(R.id.homenageados_image);
         Picasso.with(getBaseContext()).load(mHomenageado.getImagem()).into(mEventoImageView);
 
-        TextView mNomeTextView = (TextView) findViewById(R.id.nome_homenageados);
-        mNomeTextView.setText(mHomenageado.getTexto());
+        TextView mNomeTextView = findViewById(R.id.nome_homenageados);
+        mNomeTextView.setText(mHomenageado.getNomeHomenageados());
 
-        TextView mInfoTextView = (TextView) findViewById(R.id.info_homenageado);
+        TextView mInfoTextView = findViewById(R.id.info_homenageado);
         mInfoTextView.setText(String.format("    %s", mHomenageado.getTexto()));
 
 

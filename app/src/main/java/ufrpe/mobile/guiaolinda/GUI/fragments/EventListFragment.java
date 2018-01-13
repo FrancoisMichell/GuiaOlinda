@@ -181,7 +181,7 @@ public class EventListFragment extends Fragment {
 
     private void writeToFile(String data, Context context) {
         try {
-            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput("teste.txt", Context.MODE_PRIVATE));
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput("eventos.txt", Context.MODE_PRIVATE));
             outputStreamWriter.write(data);
             outputStreamWriter.close();
         } catch (IOException e) {
@@ -194,7 +194,7 @@ public class EventListFragment extends Fragment {
         String ret = "";
 
         try {
-            InputStream inputStream = getContext().openFileInput("teste.txt");
+            InputStream inputStream = getContext().openFileInput("eventos.txt");
 
             if (inputStream != null) {
                 InputStreamReader inputStreamReader = new InputStreamReader(inputStream);

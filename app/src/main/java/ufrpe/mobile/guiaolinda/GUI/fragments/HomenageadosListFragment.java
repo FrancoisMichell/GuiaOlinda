@@ -36,12 +36,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ufrpe.mobile.guiaolinda.DB.LocalLab;
-import ufrpe.mobile.guiaolinda.GUI.activities.EventActivity;
+import ufrpe.mobile.guiaolinda.GUI.activities.HomenageadosActivity;
 import ufrpe.mobile.guiaolinda.GUI.activities.Inicio;
 import ufrpe.mobile.guiaolinda.GUI.activities.MapsActivity;
 import ufrpe.mobile.guiaolinda.GUI.activities.SobreActivity;
 import ufrpe.mobile.guiaolinda.R;
-import ufrpe.mobile.guiaolinda.Services.Evento;
 import ufrpe.mobile.guiaolinda.Services.Homenageados;
 
 public class HomenageadosListFragment extends Fragment {
@@ -99,7 +98,7 @@ public class HomenageadosListFragment extends Fragment {
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             public void run() {
-                gerarHomenageados();
+                geraHomenageados();
                 updateUI();
                 dialog.dismiss();
             }
@@ -156,7 +155,7 @@ public class HomenageadosListFragment extends Fragment {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                localLab.flushEvents();
+                localLab.flushHomenageados();
                 int id = 0;
                 ArrayList<String> aux;
                 StringBuilder str = new StringBuilder();
@@ -182,7 +181,7 @@ public class HomenageadosListFragment extends Fragment {
 
     private void writeToFile(String data, Context context) {
         try {
-            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput("teste.txt", Context.MODE_PRIVATE));
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput("homenageados.txt", Context.MODE_PRIVATE));
             outputStreamWriter.write(data);
             outputStreamWriter.close();
         } catch (IOException e) {
@@ -195,7 +194,7 @@ public class HomenageadosListFragment extends Fragment {
         String ret = "";
 
         try {
-            InputStream inputStream = getContext().openFileInput("teste.txt");
+            InputStream inputStream = getContext().openFileInput("homenageados.txt");
 
             if (inputStream != null) {
                 InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
@@ -212,9 +211,9 @@ public class HomenageadosListFragment extends Fragment {
 
             }
         } catch (FileNotFoundException e) {
-            Log.e("login activity", "File not found: " + e.toString());
+            Log.e("Homenageados activity", "File not found: " + e.toString());
         } catch (IOException e) {
-            Log.e("login activity", "Can not read file: " + e.toString());
+            Log.e("Homenageados activity", "Can not read file: " + e.toString());
         }
 
         return ret;
@@ -239,11 +238,11 @@ public class HomenageadosListFragment extends Fragment {
         private Homenageados mHomenageados;
 
         HomenageadosHolder(LayoutInflater inflater, ViewGroup parent) {
-            super(inflater.inflate(R.layout.list_item_evento, parent, false));
+            super(inflater.inflate(R.layout.list_item_homenageado, parent, false));
             itemView.setOnClickListener(this);
 
-            mLocalImageView = itemView.findViewById(R.id.imagem_evento);
-            mNomeTextView = itemView.findViewById(R.id.nome_evento);
+            mLocalImageView = itemView.findViewById(R.id.imagem_homenageado);
+            mNomeTextView = itemView.findViewById(R.id.nome_homenageado);
 
         }
 
@@ -256,7 +255,7 @@ public class HomenageadosListFragment extends Fragment {
 
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent(getActivity(), EventActivity.class);
+            Intent intent = new Intent(getActivity(), HomenageadosActivity.class);
             intent.putExtra(HOMENAGEADO_ID, mHomenageados.getHomenageados_Id());
             startActivity(intent);
         }

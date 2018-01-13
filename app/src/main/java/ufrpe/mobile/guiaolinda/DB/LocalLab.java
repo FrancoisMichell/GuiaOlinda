@@ -1691,4 +1691,8 @@ public class LocalLab {
     public void flushEvents() {
         this.mEventos.clear();
     }
+
+    public void flushHomenageados() {
+        this.mHomenageados.clear();
+    }
 }

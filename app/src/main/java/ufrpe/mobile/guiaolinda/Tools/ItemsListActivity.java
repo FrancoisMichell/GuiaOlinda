@@ -3,8 +3,8 @@ package ufrpe.mobile.guiaolinda.Tools;
 import android.support.v4.app.Fragment;
 
 import ufrpe.mobile.guiaolinda.GUI.fragments.EventListFragment;
+import ufrpe.mobile.guiaolinda.GUI.fragments.HomenageadosListFragment;
 import ufrpe.mobile.guiaolinda.GUI.fragments.LocalListFragment;
-import ufrpe.mobile.guiaolinda.GUI.fragments.SeasonListFragment;
 
 public class ItemsListActivity extends SingleFragmentActivity {
     private static final String CATEGORIA_ITENS = "categoria";
@@ -29,6 +29,8 @@ public class ItemsListActivity extends SingleFragmentActivity {
 
         if (tipo != null && tipo.equals("Eventos"))
             return new EventListFragment();
+        else if (tipo != null && tipo.equals("Homenageados"))
+            return new HomenageadosListFragment();
         else
             return new LocalListFragment(tipo);
     }

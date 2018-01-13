@@ -30,7 +30,10 @@
 
         </activity>
         <activity android:name=".GUI.activities.Carnaval"
-            android:screenOrientation="portrait"/>/>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".GUI.activities.HomenageadosActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".GUI.activities.Inicio"
             android:screenOrientation="portrait"/>

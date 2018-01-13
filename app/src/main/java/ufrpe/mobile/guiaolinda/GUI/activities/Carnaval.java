@@ -42,7 +42,7 @@ public class Carnaval extends Activity {
         bt_homenageados.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                criaIntent("Igrejas", globalVariables);
+                criaIntent("Homenageados", globalVariables);
             }
         });
 
