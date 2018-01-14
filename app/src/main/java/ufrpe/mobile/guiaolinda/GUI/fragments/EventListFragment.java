@@ -83,7 +83,7 @@ public class EventListFragment extends Fragment {
             if (localLab.getEventos().size() == 0) {
                 for (String anAux : aux) {
                     String[] aux2 = anAux.split("#");
-                    localLab.createEvent(id++, aux2[0], aux2[1], aux2[2], aux2[3], aux2[4], aux2[5], aux2[6], aux2[7]);
+                    localLab.createProgramacao(id++, aux2[0], aux2[1], aux2[2], aux2[3], aux2[4], aux2[5], aux2[6], aux2[7]);
                 }
             }
         }
@@ -166,7 +166,7 @@ public class EventListFragment extends Fragment {
                         str.append(ds.child(Integer.toString(i)).getValue().toString()).append('#');
                     }
                     str.append("/n");
-                    localLab.createEvent(id++, aux.get(0), aux.get(1), aux.get(2), aux.get(3), aux.get(4), aux.get(5), aux.get(6), aux.get(7));
+                    localLab.createProgramacao(id++, aux.get(0), aux.get(1), aux.get(2), aux.get(3), aux.get(4), aux.get(5), aux.get(6), aux.get(7));
                     aux.clear();
                 }
                 mAdapter.notifyDataSetChanged();

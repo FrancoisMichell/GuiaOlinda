@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/tela_programacoes"
+        android:id="@+id/categoria_programacao"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#EEE"
@@ -19,7 +19,7 @@
 
 
     <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/event_recycler_view"
+        android:id="@+id/programacoes_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="470dp">
 
@@ -32,9 +32,6 @@
         android:layout_gravity="bottom|end"
         android:src="@drawable/topo"
         app:backgroundTint="@color/botaoTopo" />
-
-
-
 
 </LinearLayout>
 

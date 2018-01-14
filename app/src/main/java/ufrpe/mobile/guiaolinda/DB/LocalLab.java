@@ -1638,8 +1638,8 @@ public class LocalLab {
         return null;
     }
 
-    public void createEvent(int event_id, String imagem, String nome, String informacoes, String data,
-                            String local, String valor, String horario, String atracoes) {
+    public void createProgramacao(int event_id, String imagem, String nome, String informacoes, String data,
+                                  String local, String valor, String horario, String atracoes) {
 
         Evento evento = new Evento();
         evento.setId(event_id);
@@ -1668,7 +1668,7 @@ public class LocalLab {
         Agremiacao agremiacao = new Agremiacao();
         agremiacao.setId(id);
         agremiacao.setData(data);
-        agremiacao.setData(dados);
+        agremiacao.setDadosBloco(dados);
         mAgremiacao.add(agremiacao);
     }
 

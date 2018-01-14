@@ -44,13 +44,14 @@ import ufrpe.mobile.guiaolinda.R;
 import ufrpe.mobile.guiaolinda.Services.Agremiacao;
 
 public class AgremiacaoListFragment extends Fragment {
-    public final String HOMENAGEADO_ID = "AGREMIACAO_ID";
-    private RecyclerView mEventRecyclerView;
+
+    public final String AGREMIACAO_ID = "AGREMIACAO_ID";
+    private RecyclerView mAgremiacaoRecyclerView;
     private AgremiacaoAdapter mAdapter;
     private LocalLab localLab;
 
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
-    private DatabaseReference myRef = database.getReference("Agremiacoes");
+    private DatabaseReference myRef = database.getReference("Agremiações");
 
     public AgremiacaoListFragment() {
     }
@@ -62,15 +63,15 @@ public class AgremiacaoListFragment extends Fragment {
         TextView v = view.findViewById(R.id.tela_agremiacoes);
         v.setText("Agremiações");
 
-        mEventRecyclerView = view.findViewById(R.id.event_recycler_view);
-        mEventRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mAgremiacaoRecyclerView = view.findViewById(R.id.agremiacoes_recycler_view);
+        mAgremiacaoRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 
         FloatingActionButton buttonTopo = view.findViewById(R.id.botaoEventoTopo);
         buttonTopo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LinearLayoutManager lManager = (LinearLayoutManager) mEventRecyclerView.getLayoutManager();
+                LinearLayoutManager lManager = (LinearLayoutManager) mAgremiacaoRecyclerView.getLayoutManager();
                 lManager.scrollToPositionWithOffset(0, 0);
             }
         });
@@ -80,7 +81,7 @@ public class AgremiacaoListFragment extends Fragment {
         } else {
             int id = 0;
             String[] aux = String.valueOf(readFromFile()).split("/n");
-            if (localLab.getProgramacoes().size() == 0) {
+            if (localLab.getAgremiacoes().size() == 0) {
                 for (String anAux : aux) {
                     String[] aux2 = anAux.split("#");
                     localLab.createAgremiacao(id++, aux2[0], aux2[1]);
@@ -172,7 +173,6 @@ public class AgremiacaoListFragment extends Fragment {
                 mAdapter.notifyDataSetChanged();
                 writeToFile(str.toString(), getContext());
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
@@ -182,7 +182,7 @@ public class AgremiacaoListFragment extends Fragment {
 
     private void writeToFile(String data, Context context) {
         try {
-            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput("agremiacoes.txt", Context.MODE_PRIVATE));
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput("agremiacao.txt", Context.MODE_PRIVATE));
             outputStreamWriter.write(data);
             outputStreamWriter.close();
         } catch (IOException e) {
@@ -195,7 +195,7 @@ public class AgremiacaoListFragment extends Fragment {
         String ret = "";
 
         try {
-            InputStream inputStream = getContext().openFileInput("agremiacoes.txt");
+            InputStream inputStream = getContext().openFileInput("agremiacao.txt");
 
             if (inputStream != null) {
                 InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
@@ -212,20 +212,20 @@ public class AgremiacaoListFragment extends Fragment {
 
             }
         } catch (FileNotFoundException e) {
-            Log.e("Agremiacao activity", "File not found: " + e.toString());
+            Log.e("login activity", "File not found: " + e.toString());
         } catch (IOException e) {
-            Log.e("Agremiacao activity", "Can not read file: " + e.toString());
+            Log.e("login activity", "Can not read file: " + e.toString());
         }
 
         return ret;
     }
 
     private void updateUI() {
-        List<Agremiacao> agremiacao;
-        agremiacao = localLab.getAgremiacoes();
+        List<Agremiacao> agremiacoes;
+        agremiacoes = localLab.getAgremiacoes();
         if (mAdapter == null) {
-            mAdapter = new AgremiacaoAdapter(agremiacao);
-            mEventRecyclerView.setAdapter(mAdapter);
+            mAdapter = new AgremiacaoAdapter(agremiacoes);
+            mAgremiacaoRecyclerView.setAdapter(mAdapter);
         } else {
             mAdapter.notifyDataSetChanged();
         }
@@ -239,35 +239,33 @@ public class AgremiacaoListFragment extends Fragment {
         private Agremiacao mAgremiacao;
 
         AgremiacaoHolder(LayoutInflater inflater, ViewGroup parent) {
-            super(inflater.inflate(R.layout.list_item_homenageado, parent, false));
+            super(inflater.inflate(R.layout.list_item_agremiacoes, parent, false));
             itemView.setOnClickListener(this);
 
-            mLocalImageView = itemView.findViewById(R.id.imagem_homenageado);
-            mNomeTextView = itemView.findViewById(R.id.nome_homenageado);
+            mLocalImageView = itemView.findViewById(R.id.imagem_agremiacoes);
+            mNomeTextView = itemView.findViewById(R.id.nome_agremiacoes);
 
         }
 
         void bind(Agremiacao agremiacao) {
             mAgremiacao = agremiacao;
-            Picasso.with(getContext()).load(mAgremiacao.getData()).into(mLocalImageView);
+            Picasso.with(getContext()).load(R.drawable.olinda_turismo).into(mLocalImageView);
             mNomeTextView.setText(mAgremiacao.getData());
-            mNomeTextView.setText(mAgremiacao.getDadosBloco());
-
         }
 
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(getActivity(), AgremiacaoActivity.class);
-            intent.putExtra(HOMENAGEADO_ID, mAgremiacao.getId());
+            intent.putExtra(AGREMIACAO_ID, mAgremiacao.getId());
             startActivity(intent);
         }
     }
 
     private class AgremiacaoAdapter extends RecyclerView.Adapter<AgremiacaoHolder> {
-        private List<Agremiacao> mAgremiacao;
+        private List<Agremiacao> mAgremiacoes;
 
         AgremiacaoAdapter(List<Agremiacao> agremiacao) {
-            mAgremiacao = agremiacao;
+            mAgremiacoes = agremiacao;
         }
 
         @Override
@@ -279,13 +277,13 @@ public class AgremiacaoListFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(AgremiacaoHolder holder, int position) {
-            Agremiacao agremiacao = mAgremiacao.get(position);
+            Agremiacao agremiacao = mAgremiacoes.get(position);
             holder.bind(agremiacao);
         }
 
         @Override
         public int getItemCount() {
-            return mAgremiacao.size();
+            return mAgremiacoes.size();
         }
     }
 }

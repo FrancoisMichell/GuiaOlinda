@@ -36,54 +36,54 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ufrpe.mobile.guiaolinda.DB.LocalLab;
-import ufrpe.mobile.guiaolinda.GUI.activities.HomenageadosActivity;
 import ufrpe.mobile.guiaolinda.GUI.activities.InicioActivity;
 import ufrpe.mobile.guiaolinda.GUI.activities.MapsActivity;
+import ufrpe.mobile.guiaolinda.GUI.activities.ProgramacaoActivity;
 import ufrpe.mobile.guiaolinda.GUI.activities.SobreActivity;
 import ufrpe.mobile.guiaolinda.R;
-import ufrpe.mobile.guiaolinda.Services.Homenageados;
+import ufrpe.mobile.guiaolinda.Services.Programacao;
 
 public class ProgramacaoListFragment extends Fragment {
-    public final String HOMENAGEADO_ID = "HOMENAGEADO_ID";
-    private RecyclerView mEventRecyclerView;
-    private HomenageadosAdapter mAdapter;
+    public final String PROGRAMACAO_ID = "PROGRAMACAO_ID";
+    private RecyclerView mProgramacaoRecyclerView;
+    private ProgramacaoAdapter mAdapter;
     private LocalLab localLab;
 
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
-    private DatabaseReference myRef = database.getReference("Homenageados");
+    private DatabaseReference myRef = database.getReference("Programação");
 
     public ProgramacaoListFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_homenageados_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_programacoes_list, container, false);
 
-        TextView v = view.findViewById(R.id.tela_homenageados);
-        v.setText("Homenageados");
+        TextView v = view.findViewById(R.id.categoria_programacao);
+        v.setText("Programação");
 
-        mEventRecyclerView = view.findViewById(R.id.event_recycler_view);
-        mEventRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mProgramacaoRecyclerView = view.findViewById(R.id.programacoes_recycler_view);
+        mProgramacaoRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 
         FloatingActionButton buttonTopo = view.findViewById(R.id.botaoEventoTopo);
         buttonTopo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LinearLayoutManager lManager = (LinearLayoutManager) mEventRecyclerView.getLayoutManager();
+                LinearLayoutManager lManager = (LinearLayoutManager) mProgramacaoRecyclerView.getLayoutManager();
                 lManager.scrollToPositionWithOffset(0, 0);
             }
         });
 
         if (readFromFile().isEmpty() || readFromFile().equals("")) {
-            gerarHomenageados();
+            gerarProgramacoes();
         } else {
             int id = 0;
             String[] aux = String.valueOf(readFromFile()).split("/n");
-            if (localLab.getHomenageados().size() == 0) {
+            if (localLab.getProgramacoes().size() == 0) {
                 for (String anAux : aux) {
                     String[] aux2 = anAux.split("#");
-                    localLab.createHomenageados(id++, aux2[0], aux2[1], aux2[2]);
+                    localLab.createProgramacao(id++, aux2[0], aux2[1]);
                 }
             }
         }
@@ -91,14 +91,14 @@ public class ProgramacaoListFragment extends Fragment {
         return view;
     }
 
-    private void gerarHomenageados() {
+    private void gerarProgramacoes() {
         final ProgressDialog dialog = ProgressDialog.show(getContext(), "",
                 "Loading...", true);
         dialog.show();
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             public void run() {
-                geraHomenageados();
+                geraProgramacoes();
                 updateUI();
                 dialog.dismiss();
             }
@@ -135,7 +135,7 @@ public class ProgramacaoListFragment extends Fragment {
                 return true;
 
             case R.id.atualizar:
-                geraHomenageados();
+                gerarProgramacoes();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -150,12 +150,12 @@ public class ProgramacaoListFragment extends Fragment {
         setHasOptionsMenu(true);
     }
 
-    public void geraHomenageados() {
+    public void geraProgramacoes() {
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                localLab.flushHomenageados();
+                localLab.flushProgramacao();
                 int id = 0;
                 ArrayList<String> aux;
                 StringBuilder str = new StringBuilder();
@@ -166,13 +166,12 @@ public class ProgramacaoListFragment extends Fragment {
                         str.append(ds.child(Integer.toString(i)).getValue().toString()).append('#');
                     }
                     str.append("/n");
-                    localLab.createHomenageados(id++, aux.get(0), aux.get(1), aux.get(2));
+                    localLab.createProgramacao(id++, aux.get(0), aux.get(1));
                     aux.clear();
                 }
                 mAdapter.notifyDataSetChanged();
                 writeToFile(str.toString(), getContext());
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
@@ -182,7 +181,7 @@ public class ProgramacaoListFragment extends Fragment {
 
     private void writeToFile(String data, Context context) {
         try {
-            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput("homenageados.txt", Context.MODE_PRIVATE));
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput("programacao.txt", Context.MODE_PRIVATE));
             outputStreamWriter.write(data);
             outputStreamWriter.close();
         } catch (IOException e) {
@@ -195,7 +194,7 @@ public class ProgramacaoListFragment extends Fragment {
         String ret = "";
 
         try {
-            InputStream inputStream = getContext().openFileInput("homenageados.txt");
+            InputStream inputStream = getContext().openFileInput("programacao.txt");
 
             if (inputStream != null) {
                 InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
@@ -212,79 +211,78 @@ public class ProgramacaoListFragment extends Fragment {
 
             }
         } catch (FileNotFoundException e) {
-            Log.e("Homenageados activity", "File not found: " + e.toString());
+            Log.e("login activity", "File not found: " + e.toString());
         } catch (IOException e) {
-            Log.e("Homenageados activity", "Can not read file: " + e.toString());
+            Log.e("login activity", "Can not read file: " + e.toString());
         }
 
         return ret;
     }
 
     private void updateUI() {
-        List<Homenageados> homenageados;
-        homenageados = localLab.getHomenageados();
+        List<Programacao> programacoes;
+        programacoes = localLab.getProgramacoes();
         if (mAdapter == null) {
-            mAdapter = new HomenageadosAdapter(homenageados);
-            mEventRecyclerView.setAdapter(mAdapter);
+            mAdapter = new ProgramacaoAdapter(programacoes);
+            mProgramacaoRecyclerView.setAdapter(mAdapter);
         } else {
             mAdapter.notifyDataSetChanged();
         }
     }
 
-    private class HomenageadosHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    private class ProgramacaoHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        private ImageView mLocalImageView;
-        private TextView mNomeTextView;
+        private ImageView mProgImageView;
+        private TextView mPoloTextView;
 
-        private Homenageados mHomenageados;
+        private Programacao mProgramacao;
 
-        HomenageadosHolder(LayoutInflater inflater, ViewGroup parent) {
-            super(inflater.inflate(R.layout.list_item_homenageado, parent, false));
+        ProgramacaoHolder(LayoutInflater inflater, ViewGroup parent) {
+            super(inflater.inflate(R.layout.list_item_programacoes, parent, false));
             itemView.setOnClickListener(this);
 
-            mLocalImageView = itemView.findViewById(R.id.imagem_homenageado);
-            mNomeTextView = itemView.findViewById(R.id.nome_homenageado);
+            mProgImageView = itemView.findViewById(R.id.imagem_programacao);
+            mPoloTextView = itemView.findViewById(R.id.nome_polo);
 
         }
 
-        void bind(Homenageados homenageados) {
-            mHomenageados = homenageados;
-            Picasso.with(getContext()).load(mHomenageados.getImagem()).into(mLocalImageView);
-            mNomeTextView.setText(mHomenageados.getNomeHomenageados());
-
+        void bind(Programacao programacao) {
+            mProgramacao = programacao;
+            Picasso.with(getContext()).load(R.drawable.olinda_turismo).into(mProgImageView);
+            mPoloTextView.setText(mProgramacao.getPolo());
         }
 
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent(getActivity(), HomenageadosActivity.class);
-            intent.putExtra(HOMENAGEADO_ID, mHomenageados.getHomenageados_Id());
+            Intent intent = new Intent(getActivity(), ProgramacaoActivity.class);
+            intent.putExtra(PROGRAMACAO_ID, mProgramacao.getId());
             startActivity(intent);
         }
     }
 
-    private class HomenageadosAdapter extends RecyclerView.Adapter<HomenageadosHolder> {
-        private List<Homenageados> mHomenageados;
+    private class ProgramacaoAdapter extends RecyclerView.Adapter<ProgramacaoHolder> {
+        private List<Programacao> mProgramacoes;
 
-        HomenageadosAdapter(List<Homenageados> homenageados) {
-            mHomenageados = homenageados;
+        ProgramacaoAdapter(List<Programacao> programacao) {
+            mProgramacoes = programacao;
         }
 
         @Override
-        public HomenageadosHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public ProgramacaoHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
 
-            return new HomenageadosHolder(layoutInflater, parent);
+            return new ProgramacaoHolder(layoutInflater, parent);
         }
 
         @Override
-        public void onBindViewHolder(HomenageadosHolder holder, int position) {
-            Homenageados homenageados = mHomenageados.get(position);
-            holder.bind(homenageados);
+        public void onBindViewHolder(ProgramacaoHolder holder, int position) {
+            Programacao programacao = mProgramacoes.get(position);
+            holder.bind(programacao);
         }
 
         @Override
         public int getItemCount() {
-            return mHomenageados.size();
+            return mProgramacoes.size();
         }
     }
 }
