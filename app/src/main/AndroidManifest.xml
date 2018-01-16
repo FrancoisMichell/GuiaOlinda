@@ -12,7 +12,7 @@
 
     <application
         android:name=".Tools.GlobalVariables"
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcherd"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcherd_round"
@@ -34,16 +34,20 @@
             android:parentActivityName=".GUI.activities.InicioActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".GUI.activities.HomenageadosActivity"
+            android:name=".Tools.CarnavalListActivity"
             android:parentActivityName=".GUI.activities.CarnavalActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".GUI.activities.HomenageadosActivity"
+            android:parentActivityName=".Tools.CarnavalListActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".GUI.activities.AgremiacaoActivity"
-            android:parentActivityName=".GUI.activities.CarnavalActivity"
+            android:parentActivityName=".Tools.CarnavalListActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".GUI.activities.ProgramacaoActivity"
-            android:parentActivityName=".GUI.activities.CarnavalActivity"
+            android:parentActivityName=".Tools.CarnavalListActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".GUI.activities.InicioActivity"

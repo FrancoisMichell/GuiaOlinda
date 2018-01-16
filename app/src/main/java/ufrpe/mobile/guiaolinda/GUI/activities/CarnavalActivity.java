@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.Button;
 
 import ufrpe.mobile.guiaolinda.R;
+import ufrpe.mobile.guiaolinda.Tools.CarnavalListActivity;
 import ufrpe.mobile.guiaolinda.Tools.GlobalVariables;
-import ufrpe.mobile.guiaolinda.Tools.ItemsListActivity;
 
 public class CarnavalActivity extends Activity {
 
@@ -49,7 +49,7 @@ public class CarnavalActivity extends Activity {
     }
 
     private void criaIntent(String tipoLocal, GlobalVariables globalVariables) {
-        Intent intent = new Intent(CarnavalActivity.this, ItemsListActivity.class);
+        Intent intent = new Intent(CarnavalActivity.this, CarnavalListActivity.class);
         intent.putExtra(CATEGORIA_ITENS, tipoLocal);
         globalVariables.setCategoria(tipoLocal);
         startActivity(intent);

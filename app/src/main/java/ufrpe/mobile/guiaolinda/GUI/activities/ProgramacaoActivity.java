@@ -9,13 +9,17 @@ import java.util.ArrayList;
 import ufrpe.mobile.guiaolinda.DB.LocalLab;
 import ufrpe.mobile.guiaolinda.R;
 import ufrpe.mobile.guiaolinda.Services.Programacao;
+import ufrpe.mobile.guiaolinda.Tools.GlobalVariables;
 
 public class ProgramacaoActivity extends AppCompatActivity {
+
+    GlobalVariables globalVariables;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_programacoes);
+        globalVariables = (GlobalVariables) getApplicationContext();
 
         ArrayList<Programacao> mProgramacoes = LocalLab.get().getProgramacoes();
         int progId = getIntent().getExtras().getInt("PROGRAMACAO_ID");

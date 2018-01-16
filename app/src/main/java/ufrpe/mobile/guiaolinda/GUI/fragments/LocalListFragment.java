@@ -82,7 +82,6 @@ public class LocalListFragment extends Fragment {
                 intent = new Intent(getActivity(), MapsActivity.class);
                 startActivity(intent);
                 return true;
-
             case R.id.sobre:
                 intent = new Intent(getActivity(), SobreActivity.class);
                 startActivity(intent);
