@@ -82,6 +82,9 @@ public class ProgramacaoListFragment extends Fragment {
             String[] aux = String.valueOf(readFromFile()).split("/n");
             if (localLab.getProgramacoes().size() == 0) {
                 for (String anAux : aux) {
+                    if(anAux.contains("/%")){
+                        anAux = anAux.replace("/%", "\n");
+                    }
                     String[] aux2 = anAux.split("#");
                     localLab.createProgramacao(id++, aux2[0], aux2[1]);
                 }
@@ -162,10 +165,12 @@ public class ProgramacaoListFragment extends Fragment {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     aux = new ArrayList<>();
                     for (int i = 0; i < ds.getChildrenCount(); i++) {
-                        aux.add(ds.child(Integer.toString(i)).getValue().toString());
-                        str.append(ds.child(Integer.toString(i)).getValue().toString()).append('#');
+                        String data = ds.child(Integer.toString(i)).getValue().toString();
+                        aux.add(data);
+                        str.append(data.replaceAll("\n", "/%")).append('#');
                     }
                     str.append("/n");
+
                     localLab.createProgramacao(id++, aux.get(0), aux.get(1));
                     aux.clear();
                 }
@@ -205,7 +210,6 @@ public class ProgramacaoListFragment extends Fragment {
                 while ((receiveString = bufferedReader.readLine()) != null) {
                     stringBuilder.append(receiveString);
                 }
-
                 inputStream.close();
                 ret = stringBuilder.toString();
 

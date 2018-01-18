@@ -29,7 +29,7 @@ public class ProgramacaoActivity extends AppCompatActivity {
         mPoloTextView.setText(programacao.getPolo());
 
         TextView mProgTextView = findViewById(R.id.info_programacoes);
-        mProgTextView.setText(String.format("    %s", programacao.getAtracoes()));
+        mProgTextView.setText(String.format("%s", programacao.getAtracoes()));
 
     }
 }

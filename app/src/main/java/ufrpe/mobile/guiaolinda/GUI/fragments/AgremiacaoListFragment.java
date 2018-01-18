@@ -83,6 +83,9 @@ public class AgremiacaoListFragment extends Fragment {
             String[] aux = String.valueOf(readFromFile()).split("/n");
             if (localLab.getAgremiacoes().size() == 0) {
                 for (String anAux : aux) {
+                    if(anAux.contains("/%")){
+                        anAux = anAux.replace("/%", "\n");
+                    }
                     String[] aux2 = anAux.split("#");
                     localLab.createAgremiacao(id++, aux2[0], aux2[1]);
                 }
@@ -163,10 +166,11 @@ public class AgremiacaoListFragment extends Fragment {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     aux = new ArrayList<>();
                     for (int i = 0; i < ds.getChildrenCount(); i++) {
-                        aux.add(ds.child(Integer.toString(i)).getValue().toString());
-                        str.append(ds.child(Integer.toString(i)).getValue().toString()).append('#');
+                        String data = ds.child(Integer.toString(i)).getValue().toString();
+                        aux.add(data);
+                        str.append(data.replaceAll("\n", "/%")).append('#');
                     }
-                    str.append("/n");
+                    str.append("*/n");
                     localLab.createAgremiacao(id++, aux.get(0), aux.get(1));
                     aux.clear();
                 }
@@ -206,10 +210,8 @@ public class AgremiacaoListFragment extends Fragment {
                 while ((receiveString = bufferedReader.readLine()) != null) {
                     stringBuilder.append(receiveString);
                 }
-
                 inputStream.close();
                 ret = stringBuilder.toString();
-
             }
         } catch (FileNotFoundException e) {
             Log.e("login activity", "File not found: " + e.toString());

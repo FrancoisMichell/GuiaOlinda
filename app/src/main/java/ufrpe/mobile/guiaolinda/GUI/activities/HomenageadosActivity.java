@@ -31,7 +31,7 @@ public class HomenageadosActivity extends AppCompatActivity {
         mNomeTextView.setText(mHomenageado.getNomeHomenageados());
 
         TextView mInfoTextView = findViewById(R.id.info_homenageado);
-        mInfoTextView.setText(String.format("    %s", mHomenageado.getTexto()));
+        mInfoTextView.setText(String.format("%s", mHomenageado.getTexto()));
 
 
     }

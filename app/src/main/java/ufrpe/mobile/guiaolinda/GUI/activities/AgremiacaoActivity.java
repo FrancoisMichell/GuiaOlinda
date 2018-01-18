@@ -25,7 +25,7 @@ public class AgremiacaoActivity extends AppCompatActivity {
         mNomeTextView.setText(mHomenageado.getData());
 
         TextView mInfoTextView = findViewById(R.id.info_agremiacoes);
-        mInfoTextView.setText(String.format("    %s", mHomenageado.getDadosBloco()));
+        mInfoTextView.setText(String.format("%s", mHomenageado.getDadosBloco()));
 
     }
 }

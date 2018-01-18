@@ -82,6 +82,9 @@ public class HomenageadosListFragment extends Fragment {
             String[] aux = String.valueOf(readFromFile()).split("/n");
             if (localLab.getHomenageados().size() == 0) {
                 for (String anAux : aux) {
+                    if(anAux.contains("/%")){
+                        anAux = anAux.replaceAll("/%", "\n");
+                    }
                     String[] aux2 = anAux.split("#");
                     localLab.createHomenageados(id++, aux2[0], aux2[1], aux2[2]);
                 }
@@ -135,7 +138,7 @@ public class HomenageadosListFragment extends Fragment {
                 return true;
 
             case R.id.atualizar:
-                geraHomenageados();
+                gerarHomenageados();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -162,8 +165,9 @@ public class HomenageadosListFragment extends Fragment {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     aux = new ArrayList<>();
                     for (int i = 0; i < ds.getChildrenCount(); i++) {
-                        aux.add(ds.child(Integer.toString(i)).getValue().toString());
-                        str.append(ds.child(Integer.toString(i)).getValue().toString()).append('#');
+                        String data = ds.child(Integer.toString(i)).getValue().toString();
+                        aux.add(data);
+                        str.append(data.replaceAll("\n", "/%")).append('#');
                     }
                     str.append("/n");
                     localLab.createHomenageados(id++, aux.get(0), aux.get(1), aux.get(2));
