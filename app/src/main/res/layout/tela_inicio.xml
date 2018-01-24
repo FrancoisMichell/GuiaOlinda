@@ -18,8 +18,7 @@
             android:layout_weight="0.5"
             android:adjustViewBounds="false"
             android:background="@drawable/top"
-            android:contentDescription="@string/logo"
-            android:cropToPadding="false" />
+            android:contentDescription="@string/logo" />
 
         <Button
             android:id="@+id/bt_carnaval"
