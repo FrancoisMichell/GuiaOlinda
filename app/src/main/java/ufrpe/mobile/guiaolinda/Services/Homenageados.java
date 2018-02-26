@@ -8,7 +8,7 @@ public class Homenageados {
     private int homenageados_Id;
 
     public void setHomenageados_Id(int id) {
-        this.homenageados_Id = homenageados_Id;
+        this.homenageados_Id = id;
     }
 
     public int getHomenageados_Id() {

@@ -44,7 +44,7 @@ public class LocalPagerActivity extends AppCompatActivity {
 
         setCategoria(getIntent().getExtras().getString(CATEGORIA_ITENS));
 
-        ViewPager mViewPager = (ViewPager) findViewById(R.id.local_view_pager);
+        ViewPager mViewPager = findViewById(R.id.local_view_pager);
         switch (categoria) {
             case "Gastronomia":
                 mLocais = LocalLab.get().getGastronomicos();

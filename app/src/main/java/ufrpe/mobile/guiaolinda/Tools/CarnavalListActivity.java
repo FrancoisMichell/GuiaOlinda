@@ -28,6 +28,7 @@ public class CarnavalListActivity extends SingleFragmentActivity {
             tipo = globalVariables.getCategoria();
         }
 
+        assert tipo != null;
         switch (tipo) {
             case "Programação":
                 return new ProgramacaoListFragment();

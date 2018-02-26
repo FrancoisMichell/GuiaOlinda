@@ -14,6 +14,7 @@ import ufrpe.mobile.guiaolinda.Services.Programacao;
 public class LocalLab {
     private static LocalLab sLocalLab;
     private ArrayList<Local> mLocais;
+    private ArrayList<Local> mLocals = new ArrayList<>();
     private ArrayList<Evento> mEventos = new ArrayList<>();
     private ArrayList<Homenageados> mHomenageados = new ArrayList<>();
     private ArrayList<Programacao> mProgramacao = new ArrayList<>();
@@ -34,7 +35,7 @@ public class LocalLab {
         return mLocais;
     }
 
-    private ArrayList<Local> createLocais() {
+    private void createLocais() {
         mLocais = new ArrayList<>();
 
         Local l1 = new Local();
@@ -1583,8 +1584,6 @@ public class LocalLab {
         m44.setLongitude(-34.8387070);
         mLocais.add(m44);
 
-        return mLocais;
-
     }
 
     public ArrayList<Local> getGastronomicos() {
@@ -1637,6 +1636,20 @@ public class LocalLab {
         }
         return null;
     }
+
+    public void createLocal(int id, String nome, String endereco, String Telefone, String horario, String site) {
+        Local local = new Local();
+        local.setId(id);
+        local.set_nome_local(nome);
+        local.setEndereco(endereco);
+        local.setTelefone(Telefone);
+        local.setHorario(horario);
+        local.setSite(site);
+//        m43.setImagem(imagem);
+        mLocals.add(local);
+    }
+
+    public ArrayList<Local> getmLocals() { return mLocals; }
 
     public void createProgramacao(int event_id, String imagem, String nome, String informacoes, String data,
                                   String local, String valor, String horario, String atracoes) {

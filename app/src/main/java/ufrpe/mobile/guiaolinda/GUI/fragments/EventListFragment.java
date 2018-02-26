@@ -50,7 +50,7 @@ public class EventListFragment extends Fragment {
     private LocalLab localLab;
 
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
-    private DatabaseReference myRef = database.getReference("masterSheet");
+    private DatabaseReference myRef = database.getReference("Gastronomia");
 
     public EventListFragment() {
     }

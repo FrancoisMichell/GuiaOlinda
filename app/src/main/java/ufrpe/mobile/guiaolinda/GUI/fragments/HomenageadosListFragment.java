@@ -63,7 +63,7 @@ public class HomenageadosListFragment extends Fragment {
         TextView v = view.findViewById(R.id.tela_homenageados);
         v.setText("Homenageados");
 
-        mEventRecyclerView = view.findViewById(R.id.event_recycler_view);
+        mEventRecyclerView = view.findViewById(R.id.homenageados_recycler_view);
         mEventRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 

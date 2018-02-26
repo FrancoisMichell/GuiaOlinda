@@ -29,6 +29,7 @@ public class ItemsListActivity extends SingleFragmentActivity {
             tipo = globalVariables.getCategoria();
         }
 
+        assert tipo != null;
         switch (tipo) {
             case "Eventos":
                 return new EventListFragment();

@@ -4,10 +4,10 @@ import java.util.UUID;
 
 public class Local {
     private UUID mId;
+    private Integer id;
     private int imagem;
     private String email;
     private String horario;
-    private String descricao;
     private String nome_local;
     private String tipo;
     private String endereco;
@@ -20,6 +20,10 @@ public class Local {
     public Local() {
         mId = (UUID.randomUUID());
     }
+
+    public Integer getid() { return id; }
+
+    public void setId(Integer id) { this.id = id; }
 
     String getPreco() {
         return preco;

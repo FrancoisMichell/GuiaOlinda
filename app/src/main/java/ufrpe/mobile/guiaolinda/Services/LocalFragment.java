@@ -56,7 +56,7 @@ public class LocalFragment extends Fragment {
         final View v = inflater.inflate(R.layout.fragment_local, container, false);
 
         if (mLocal.getImagem() != R.drawable.semfoto) {
-            mImgLocal = (ImageButton) v.findViewById(R.id.local_image);
+            mImgLocal = v.findViewById(R.id.local_image);
             mImgLocal.setImageResource(mLocal.getImagem());
             mImgLocal.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -65,13 +65,13 @@ public class LocalFragment extends Fragment {
                 }
             });
         } else {
-            LinearLayout mLocalImgWrapper = (LinearLayout) v.findViewById(R.id.local_image_wrapper);
+            LinearLayout mLocalImgWrapper = v.findViewById(R.id.local_image_wrapper);
             mLocalImgWrapper.setVisibility(View.GONE);
         }
 
         mShortAnimationDuration = getResources().getInteger(android.R.integer.config_shortAnimTime);
 
-        TextView mNameField = (TextView) v.findViewById(R.id.local_name);
+        TextView mNameField = v.findViewById(R.id.local_name);
         if (!mLocal.get_nome_local().equals("")) {
             mNameField.setText(mLocal.get_nome_local().toLowerCase());
         } else {
@@ -85,7 +85,7 @@ public class LocalFragment extends Fragment {
             mDescriptionField.setVisibility(View.GONE);
         }*/
 
-        TextView mAddressField = (TextView) v.findViewById(R.id.local_endereco);
+        TextView mAddressField = v.findViewById(R.id.local_endereco);
         if (!mLocal.getEndereco().equals("")) {
             mAddressField.setText(String.format("     %s", mLocal.getEndereco()));
             mAddressField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.address, 0, 0, 0);
@@ -93,7 +93,7 @@ public class LocalFragment extends Fragment {
             mAddressField.setVisibility(View.GONE);
         }
 
-        TextView mTaxField = (TextView) v.findViewById(R.id.local_entrada);
+        TextView mTaxField = v.findViewById(R.id.local_entrada);
         mTaxField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.cash, 0, 0, 0);
         if (mLocal.getPreco() == null || mLocal.getPreco().equals("")) {
             mTaxField.setText("     Gratuito");
@@ -101,7 +101,7 @@ public class LocalFragment extends Fragment {
             mTaxField.setText(String.format("     %s", mLocal.getPreco()));
         }
 
-        TextView mFoneField = (TextView) v.findViewById(R.id.local_fone);
+        TextView mFoneField = v.findViewById(R.id.local_fone);
         if (!mLocal.getTelefone().equals("")) {
             mFoneField.setText(String.format("    %s", mLocal.getTelefone()));
             mFoneField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.phone, 0, 0, 0);
@@ -109,7 +109,7 @@ public class LocalFragment extends Fragment {
             mFoneField.setVisibility(View.GONE);
         }
 
-        TextView mFaxField = (TextView) v.findViewById(R.id.local_funcionamento);
+        TextView mFaxField = v.findViewById(R.id.local_funcionamento);
         if (!mLocal.getHorario().equals("")) {
             mFaxField.setText(String.format("    %s", mLocal.getHorario()));
             mFaxField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.time, 0, 0, 0);
@@ -117,7 +117,7 @@ public class LocalFragment extends Fragment {
             mFaxField.setVisibility(View.GONE);
         }
 
-        TextView mSiteField = (TextView) v.findViewById(R.id.local_site);
+        TextView mSiteField = v.findViewById(R.id.local_site);
         if (!mLocal.getSite().equals("")) {
             mSiteField.setText(String.format("    %s", mLocal.getSite()));
             mSiteField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.site, 0, 0, 0);
@@ -125,7 +125,7 @@ public class LocalFragment extends Fragment {
             mSiteField.setVisibility(View.GONE);
         }
 
-        TextView mEmailField = (TextView) v.findViewById(R.id.local_email);
+        TextView mEmailField = v.findViewById(R.id.local_email);
         if (!mLocal.getEmail().equals("")) {
             mEmailField.setText(String.format("   %s", mLocal.getEmail()));
             mEmailField.setCompoundDrawablesWithIntrinsicBounds(R.drawable.email, 0, 0, 0);
@@ -133,7 +133,7 @@ public class LocalFragment extends Fragment {
             mEmailField.setVisibility(View.GONE);
         }
 
-        Button goToMaps = (Button) v.findViewById(R.id.go_to_maps);
+        Button goToMaps = v.findViewById(R.id.go_to_maps);
         goToMaps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -150,7 +150,7 @@ public class LocalFragment extends Fragment {
         if (mCurrentAnimator != null) {
             mCurrentAnimator.cancel();
         }
-        final ImageView expandedImageView = (ImageView) v.findViewById(R.id.expanded_image);
+        final ImageView expandedImageView = v.findViewById(R.id.expanded_image);
         expandedImageView.setImageResource(imagem);
 
         final Rect startBounds = new Rect();
