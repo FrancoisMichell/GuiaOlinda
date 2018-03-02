@@ -36,54 +36,63 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ufrpe.mobile.guiaolinda.DB.LocalLab;
-import ufrpe.mobile.guiaolinda.GUI.activities.EventActivity;
+import ufrpe.mobile.guiaolinda.GUI.activities.GastronomiaActivity;
 import ufrpe.mobile.guiaolinda.GUI.activities.InicioActivity;
 import ufrpe.mobile.guiaolinda.GUI.activities.MapsActivity;
 import ufrpe.mobile.guiaolinda.GUI.activities.SobreActivity;
 import ufrpe.mobile.guiaolinda.R;
-import ufrpe.mobile.guiaolinda.Services.Evento;
+import ufrpe.mobile.guiaolinda.Services.Local;
 
-public class EventListFragment extends Fragment {
-    public final String EVENT_ID = "EVENT_ID";
-    private RecyclerView mEventRecyclerView;
-    private EventAdapter mAdapter;
+public class GastronomiaListFragment extends Fragment {
+
+    public final String AGREMIACAO_ID = "AGREMIACAO_ID";
+    private RecyclerView mAgremiacaoRecyclerView;
+    private AgremiacaoAdapter mAdapter;
     private LocalLab localLab;
 
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference myRef;
 
+    private String tipo;
 
-    public EventListFragment() {
+    public GastronomiaListFragment(String tipo) {
+        this.tipo = tipo;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_event_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_gastronomia_list, container, false);
 
-        TextView v = view.findViewById(R.id.categoria_evento);
-        v.setText("Eventos");
+        TextView v = view.findViewById(R.id.gastronomia_gastronomia);
+        v.setText(tipo);
 
-        mEventRecyclerView = view.findViewById(R.id.event_recycler_view);
-        mEventRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mAgremiacaoRecyclerView = view.findViewById(R.id.gastronomia_recycler_view);
+        mAgremiacaoRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 
         FloatingActionButton buttonTopo = view.findViewById(R.id.botaoEventoTopo);
-        buttonTopo.setOnClickListener (new View.OnClickListener(){
+        buttonTopo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LinearLayoutManager lManager = (LinearLayoutManager) mEventRecyclerView.getLayoutManager();
+                LinearLayoutManager lManager = (LinearLayoutManager) mAgremiacaoRecyclerView.getLayoutManager();
                 lManager.scrollToPositionWithOffset(0, 0);
             }
         });
 
         if (readFromFile().isEmpty() || readFromFile().equals("")) {
-            gerarEventos();
+            gerarAgremiacoes();
         } else {
             int id = 0;
-            String[] aux = String.valueOf(readFromFile()).split("/n");
-            if (localLab.getEventos().size() == 0) {
+            String mopa = readFromFile();
+            String[] aux = String.valueOf(mopa).split("/n");
+            if (localLab.getLocals(tipo).size() == 0) {
                 for (String anAux : aux) {
+                    if (anAux.contains("/%")) {
+                        anAux = anAux.replace("/%", "\n");
+                    }
                     String[] aux2 = anAux.split("#");
-                    localLab.createProgramacao(id++, aux2[0], aux2[1], aux2[2], aux2[3], aux2[4], aux2[5], aux2[6], aux2[7]);
+                    localLab.createLocal(tipo, id++, aux2[0], aux2[1], aux2[2], aux2[3], aux2[4], aux2[5], aux2[6]);
+
                 }
             }
         }
@@ -91,14 +100,14 @@ public class EventListFragment extends Fragment {
         return view;
     }
 
-    private void gerarEventos() {
+    private void gerarAgremiacoes() {
         final ProgressDialog dialog = ProgressDialog.show(getContext(), "",
                 "Loading...", true);
         dialog.show();
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             public void run() {
-                geraEventos();
+                geraAgremiacoes();
                 updateUI();
                 dialog.dismiss();
             }
@@ -135,7 +144,7 @@ public class EventListFragment extends Fragment {
                 return true;
 
             case R.id.atualizar:
-                gerarEventos();
+                gerarAgremiacoes();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -150,28 +159,32 @@ public class EventListFragment extends Fragment {
         setHasOptionsMenu(true);
     }
 
-    public void geraEventos() {
-        DatabaseReference myRef = database.getReference("Gastronomia");
+    public void geraAgremiacoes() {
+        myRef = database.getReference(tipo);
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                localLab.flushEvents();
+                localLab.flushLocals(tipo);
                 int id = 0;
                 ArrayList<String> aux;
                 StringBuilder str = new StringBuilder();
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     aux = new ArrayList<>();
                     for (int i = 0; i < ds.getChildrenCount(); i++) {
-                        aux.add(ds.child(Integer.toString(i)).getValue().toString());
-                        str.append(ds.child(Integer.toString(i)).getValue().toString()).append('#');
+                        String data = ds.child(Integer.toString(i)).getValue().toString();
+                        aux.add(data);
+                        str.append(data.replaceAll("\n", "/%")).append('#');
                     }
-                    str.append("/n");
-                    localLab.createProgramacao(id++, aux.get(0), aux.get(1), aux.get(2), aux.get(3), aux.get(4), "mopa", "mopa", "mopa");
+                    str.append("*/n");
+                    if (aux.size() == 7) {
+                        localLab.createLocal(tipo, id++, aux.get(0), aux.get(1), aux.get(2), aux.get(3), aux.get(4), aux.get(5), aux.get(6));
+                    }
                     aux.clear();
                 }
                 mAdapter.notifyDataSetChanged();
                 writeToFile(str.toString(), getContext());
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
@@ -181,7 +194,7 @@ public class EventListFragment extends Fragment {
 
     private void writeToFile(String data, Context context) {
         try {
-            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput("eventos.txt", Context.MODE_PRIVATE));
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput((tipo + ".txt"), Context.MODE_PRIVATE));
             outputStreamWriter.write(data);
             outputStreamWriter.close();
         } catch (IOException e) {
@@ -192,9 +205,8 @@ public class EventListFragment extends Fragment {
     private String readFromFile() {
 
         String ret = "";
-
         try {
-            InputStream inputStream = getContext().openFileInput("eventos.txt");
+            InputStream inputStream = getContext().openFileInput((tipo + ".txt"));
 
             if (inputStream != null) {
                 InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
@@ -205,10 +217,8 @@ public class EventListFragment extends Fragment {
                 while ((receiveString = bufferedReader.readLine()) != null) {
                     stringBuilder.append(receiveString);
                 }
-
                 inputStream.close();
                 ret = stringBuilder.toString();
-
             }
         } catch (FileNotFoundException e) {
             Log.e("login activity", "File not found: " + e.toString());
@@ -220,77 +230,76 @@ public class EventListFragment extends Fragment {
     }
 
     private void updateUI() {
-        List<Evento> eventos;
-        eventos = localLab.getEventos();
+        List<Local> agremiacoes;
+        agremiacoes = localLab.getLocals(tipo);
         if (mAdapter == null) {
-            mAdapter = new EventAdapter(eventos);
-            mEventRecyclerView.setAdapter(mAdapter);
+            mAdapter = new AgremiacaoAdapter(agremiacoes);
+            mAgremiacaoRecyclerView.setAdapter(mAdapter);
         } else {
             mAdapter.notifyDataSetChanged();
         }
     }
 
-    private class EventHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    private class AgremiacaoHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        private ImageView mLocalImageView;
         private TextView mNomeTextView;
-        private TextView mLocalTextView;
-        private TextView mDataTextView;
-        private TextView mHorarioTextView;
+        private TextView mFoneTextView;
+        private ImageView mLocalImageView;
 
-        private Evento mEvento;
+        private Local mLocal;
 
-        EventHolder(LayoutInflater inflater, ViewGroup parent) {
-            super(inflater.inflate(R.layout.list_item_evento, parent, false));
+        AgremiacaoHolder(LayoutInflater inflater, ViewGroup parent) {
+            super(inflater.inflate(R.layout.list_item_gastro, parent, false));
             itemView.setOnClickListener(this);
 
-            mLocalImageView = itemView.findViewById(R.id.imagem_evento);
-            mNomeTextView = itemView.findViewById(R.id.nome_evento);
-            mLocalTextView = itemView.findViewById(R.id.local_evento);
-            mDataTextView = itemView.findViewById(R.id.data_evento);
-            mHorarioTextView = itemView.findViewById(R.id.horario_evento);
+            mNomeTextView = itemView.findViewById(R.id.nome_lugar);
+            mFoneTextView = itemView.findViewById(R.id.fone_lugar);
+            mLocalImageView = itemView.findViewById(R.id.imagem_lugar);
         }
 
-        void bind(Evento evento) {
-            mEvento = evento;
-            Picasso.with(getContext()).load(mEvento.getImagem()).into(mLocalImageView);
-            mNomeTextView.setText(mEvento.getNomeEvento());
-            mLocalTextView.setText(mEvento.getLocal());
-            mDataTextView.setText(mEvento.getData());
-            mHorarioTextView.setText(mEvento.getHorário());
+        void bind(Local local) {
+            mLocal = local;
+            mNomeTextView.setText(mLocal.get_nome_local().toLowerCase());
+            mFoneTextView.setText(mLocal.getTelefone());
+            if (mLocal.getImage().equals("-"))
+                Picasso.with(getContext()).load(R.drawable.semfoto).into(mLocalImageView);
+            else {
+                Picasso.with(getContext()).load(mLocal.getImage()).into(mLocalImageView);
+            }
         }
 
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent(getActivity(), EventActivity.class);
-            intent.putExtra(EVENT_ID, mEvento.getId());
+            Intent intent = new Intent(getActivity(), GastronomiaActivity.class);
+            intent.putExtra(AGREMIACAO_ID, mLocal.getid());
+            intent.putExtra("TIPO_LOCAL", tipo);
             startActivity(intent);
         }
     }
 
-    private class EventAdapter extends RecyclerView.Adapter<EventHolder> {
-        private List<Evento> mEventos;
+    private class AgremiacaoAdapter extends RecyclerView.Adapter<AgremiacaoHolder> {
+        private List<Local> mAgremiacoes;
 
-        EventAdapter(List<Evento> eventos) {
-            mEventos = eventos;
+        AgremiacaoAdapter(List<Local> agremiacao) {
+            mAgremiacoes = agremiacao;
         }
 
         @Override
-        public EventHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public AgremiacaoHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
 
-            return new EventHolder(layoutInflater, parent);
+            return new AgremiacaoHolder(layoutInflater, parent);
         }
 
         @Override
-        public void onBindViewHolder(EventHolder holder, int position) {
-            Evento evento = mEventos.get(position);
-            holder.bind(evento);
+        public void onBindViewHolder(AgremiacaoHolder holder, int position) {
+            Local agremiacao = mAgremiacoes.get(position);
+            holder.bind(agremiacao);
         }
 
         @Override
         public int getItemCount() {
-            return mEventos.size();
+            return mAgremiacoes.size();
         }
     }
 }

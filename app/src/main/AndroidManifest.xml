@@ -37,6 +37,11 @@
             android:name=".Tools.CarnavalListActivity"
             android:parentActivityName=".GUI.activities.CarnavalActivity"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".GUI.activities.GastronomiaActivity"
+            android:parentActivityName=".Tools.CarnavalListActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".GUI.activities.HomenageadosActivity"
             android:parentActivityName=".Tools.CarnavalListActivity"

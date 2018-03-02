@@ -1,0 +1,153 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:divider="@null"
+    android:dividerHeight="0dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/local_image_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="5dp"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <ImageButton
+                android:id="@+id/gastronomia_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:adjustViewBounds="false"
+                android:cropToPadding="false"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/semfoto" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/gastronomia_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="#eee"
+            android:padding="5dp"
+            android:text="@string/nome_lugar"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textSize="25sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/gastronomia_endereco"
+            style="?android:listSeparatorTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:text="@string/endereco" />
+
+        <TextView
+            android:id="@+id/gastronomia_fone"
+            style="?android:listSeparatorTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:text="@string/telefone" />
+
+        <TextView
+            android:id="@+id/gastronomia_funcionamento"
+            style="?android:listSeparatorTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:text="@string/funcionamento" />
+
+        <TextView
+            android:id="@+id/gastronomia_entrada"
+            style="?android:listSeparatorTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:text="valor entrada" />
+
+        <TextView
+            android:id="@+id/gastronomia_site"
+            style="?android:listSeparatorTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:text="@string/site" />
+
+        <TextView
+            android:id="@+id/gastronomia_email"
+            style="?android:listSeparatorTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:text="@string/email" />
+
+        <TextView
+            android:id="@+id/textView"
+            style="?android:listSeparatorTextViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:text="@string/confira_no_mapa" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/go_to_maps"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_solved2" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/expanded_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/black"
+        android:visibility="gone" />
+
+</LinearLayout>

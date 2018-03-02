@@ -22,7 +22,7 @@ public class InicioActivity extends Activity {
 
         setContentView(R.layout.tela_inicio);
 
-        Button bt_carnaval = findViewById(R.id.bt_carnaval);
+        /*Button bt_carnaval = findViewById(R.id.bt_carnaval);
         bt_carnaval.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,7 +30,7 @@ public class InicioActivity extends Activity {
                 globalVariables.setCategoria("Carnaval");
                 startActivity(intent);
             }
-        });
+        });*/
 
         Button bt_gastronomia = findViewById(R.id.bt_gastronomia);
         bt_gastronomia.setOnClickListener(new View.OnClickListener() {

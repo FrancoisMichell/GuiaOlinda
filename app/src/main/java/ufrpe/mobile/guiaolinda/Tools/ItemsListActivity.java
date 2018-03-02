@@ -4,9 +4,8 @@ import android.support.v4.app.Fragment;
 
 import ufrpe.mobile.guiaolinda.GUI.fragments.AgremiacaoListFragment;
 import ufrpe.mobile.guiaolinda.GUI.fragments.EventListFragment;
+import ufrpe.mobile.guiaolinda.GUI.fragments.GastronomiaListFragment;
 import ufrpe.mobile.guiaolinda.GUI.fragments.HomenageadosListFragment;
-import ufrpe.mobile.guiaolinda.GUI.fragments.LocalListFragment;
-import ufrpe.mobile.guiaolinda.GUI.fragments.ProgramacaoListFragment;
 
 public class ItemsListActivity extends SingleFragmentActivity {
     private static final String CATEGORIA_ITENS = "categoria";
@@ -32,14 +31,20 @@ public class ItemsListActivity extends SingleFragmentActivity {
         switch (tipo) {
             case "Eventos":
                 return new EventListFragment();
-            case "Programação":
-                return new ProgramacaoListFragment();
+            case "Gastronomia":
+                return new GastronomiaListFragment(tipo);
+            case "Hospedagem":
+                return new GastronomiaListFragment(tipo);
+            case "Igrejas":
+                return new GastronomiaListFragment(tipo);
+            case "Monumentos":
+                return new GastronomiaListFragment(tipo);
             case "Agremiações":
                 return new AgremiacaoListFragment();
             case "Homenageados":
                 return new HomenageadosListFragment();
             default:
-                return new LocalListFragment(tipo);
+                return new GastronomiaListFragment("Gastronomia");
         }
     }
 }

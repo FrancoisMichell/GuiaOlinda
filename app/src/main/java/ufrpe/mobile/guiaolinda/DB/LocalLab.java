@@ -14,10 +14,14 @@ import ufrpe.mobile.guiaolinda.Services.Programacao;
 public class LocalLab {
     private static LocalLab sLocalLab;
     private ArrayList<Local> mLocais;
+    private ArrayList<Local> mHospedagens = new ArrayList<>();
+    private ArrayList<Local> mIgrejas = new ArrayList<>();
+    private ArrayList<Local> mMonumentos = new ArrayList<>();
     private ArrayList<Evento> mEventos = new ArrayList<>();
     private ArrayList<Homenageados> mHomenageados = new ArrayList<>();
     private ArrayList<Programacao> mProgramacao = new ArrayList<>();
     private ArrayList<Agremiacao> mAgremiacao = new ArrayList<>();
+    private ArrayList<Local> mlocal = new ArrayList<>();
 
     private LocalLab() {
         createLocais();
@@ -1653,6 +1657,71 @@ public class LocalLab {
         evento.setAtracoes(atracoes);
         mEventos.add(evento);
     }
+
+    public void createLocal(String tipo, int local_id, String image, String nome, String telefone,
+                            String endereco, String horario, String email, String site) {
+        Local l1 = new Local();
+        l1.setId(local_id);
+        l1.setImage(image);
+        l1.setHorario(horario);
+        l1.set_nome_local(nome);
+        l1.setEndereco(endereco);
+        l1.setTelefone(telefone);
+        l1.setEmail(email);
+        l1.setSite(site);
+
+        switch (tipo) {
+            case ("Gastronomia"):
+                mlocal.add(l1);
+                break;
+            case ("Hospedagem"):
+                mHospedagens.add(l1);
+                break;
+            case ("Igrejas"):
+                mIgrejas.add(l1);
+                break;
+            case ("Monumentos"):
+                mMonumentos.add(l1);
+                break;
+        }
+    }
+
+    public ArrayList<Local> getLocals(String tipo) {
+        ArrayList<Local> aux = new ArrayList<Local>();
+        switch (tipo) {
+            case ("Gastronomia"):
+                aux = mlocal;
+                break;
+            case ("Hospedagem"):
+                aux = mHospedagens;
+                break;
+            case ("Igrejas"):
+                aux = mIgrejas;
+                break;
+            case ("Monumentos"):
+                aux = mMonumentos;
+                break;
+        }
+        return aux;
+    }
+
+    public void flushLocals(String tipo) {
+        switch (tipo) {
+            case ("Gastronomia"):
+                mlocal.clear();
+                break;
+            case ("Hospedagem"):
+                mHospedagens.clear();
+                break;
+            case ("Igrejas"):
+                mIgrejas.clear();
+                break;
+            case ("Monumentos"):
+                mMonumentos.clear();
+                break;
+        }
+    }
+
 
     public void createProgramacao(int id, String polo, String atracoes) {
 

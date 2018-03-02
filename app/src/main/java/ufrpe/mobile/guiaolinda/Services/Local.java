@@ -4,7 +4,9 @@ import java.util.UUID;
 
 public class Local {
     private UUID mId;
+    private int id;
     private int imagem;
+    private String image;
     private String email;
     private String horario;
     private String descricao;
@@ -21,7 +23,19 @@ public class Local {
         mId = (UUID.randomUUID());
     }
 
-    String getPreco() {
+    public String getImage() {
+        return this.image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public int getid() {
+        return this.id;
+    }
+
+    public String getPreco() {
         return preco;
     }
 
@@ -53,7 +67,7 @@ public class Local {
         this.imagem = imagem;
     }
 
-    String getSite() {
+    public String getSite() {
         return site;
     }
 
@@ -61,7 +75,7 @@ public class Local {
         this.site = site;
     }
 
-    String getEmail() {
+    public String getEmail() {
         return email;
     }
 
@@ -73,6 +87,10 @@ public class Local {
         return mId;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String get_nome_local() {
         return nome_local;
     }
@@ -81,7 +99,7 @@ public class Local {
         this.nome_local = nome_local;
     }
 
-    String getEndereco() {
+    public String getEndereco() {
         return endereco;
     }
 
@@ -97,7 +115,7 @@ public class Local {
         this.telefone = telefone;
     }
 
-    String getHorario() {
+    public String getHorario() {
         return horario;
     }
 

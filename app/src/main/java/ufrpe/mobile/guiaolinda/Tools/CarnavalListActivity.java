@@ -3,9 +3,9 @@ package ufrpe.mobile.guiaolinda.Tools;
 import android.support.v4.app.Fragment;
 
 import ufrpe.mobile.guiaolinda.GUI.fragments.AgremiacaoListFragment;
+import ufrpe.mobile.guiaolinda.GUI.fragments.GastronomiaListFragment;
 import ufrpe.mobile.guiaolinda.GUI.fragments.HomenageadosListFragment;
 import ufrpe.mobile.guiaolinda.GUI.fragments.LocalListFragment;
-import ufrpe.mobile.guiaolinda.GUI.fragments.ProgramacaoListFragment;
 
 public class CarnavalListActivity extends SingleFragmentActivity {
     private static final String CATEGORIA_ITENS = "categoria";
@@ -30,7 +30,7 @@ public class CarnavalListActivity extends SingleFragmentActivity {
 
         switch (tipo) {
             case "Programação":
-                return new ProgramacaoListFragment();
+                return new GastronomiaListFragment(tipo);
             case "Agremiações":
                 return new AgremiacaoListFragment();
             case "Homenageados":
