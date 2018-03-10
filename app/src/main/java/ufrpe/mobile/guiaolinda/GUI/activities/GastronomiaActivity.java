@@ -1,5 +1,7 @@
 package ufrpe.mobile.guiaolinda.GUI.activities;
 
+import android.content.Context;
+import android.content.ContextWrapper;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -8,6 +10,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.io.File;
 import java.util.List;
 
 import ufrpe.mobile.guiaolinda.DB.LocalLab;
@@ -30,7 +33,16 @@ public class GastronomiaActivity extends AppCompatActivity {
         if (mLocal.getImage().equals("-"))
             Picasso.with(getBaseContext()).load(R.drawable.semfoto).into(mEventoImageView);
         else {
-            Picasso.with(getBaseContext()).load(mLocal.getImage()).into(mEventoImageView);
+            ContextWrapper cw = new ContextWrapper(getApplicationContext());
+            File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+            File myImageFile = new File(directory, mLocal.get_nome_local() + ".jpeg");
+            Picasso.with(this).load(myImageFile).into(mEventoImageView);
+            if (mEventoImageView.getDrawable() == null) {
+                Picasso.with(this).load(mLocal.getImage()).into(mEventoImageView);
+                if (mEventoImageView.getDrawable() == null) {
+                    Picasso.with(this).load(R.drawable.semfoto).into(mEventoImageView);
+                }
+            }
         }
 
         TextView mNameField = findViewById(R.id.gastronomia_name);

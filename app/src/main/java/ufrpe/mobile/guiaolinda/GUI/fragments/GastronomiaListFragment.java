@@ -2,7 +2,10 @@ package ufrpe.mobile.guiaolinda.GUI.fragments;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
@@ -25,9 +28,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -91,8 +97,9 @@ public class GastronomiaListFragment extends Fragment {
                         anAux = anAux.replace("/%", "\n");
                     }
                     String[] aux2 = anAux.split("#");
-                    localLab.createLocal(tipo, id++, aux2[0], aux2[1], aux2[2], aux2[3], aux2[4], aux2[5], aux2[6]);
-
+                    if (aux2.length >= 6) {
+                        localLab.createLocal(tipo, id++, aux2[0], aux2[1], aux2[2], aux2[3], aux2[4], aux2[5], aux2[6]);
+                    }
                 }
             }
         }
@@ -166,6 +173,7 @@ public class GastronomiaListFragment extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 localLab.flushLocals(tipo);
                 int id = 0;
+                int mp = 0;
                 ArrayList<String> aux;
                 StringBuilder str = new StringBuilder();
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
@@ -176,8 +184,14 @@ public class GastronomiaListFragment extends Fragment {
                         str.append(data.replaceAll("\n", "/%")).append('#');
                     }
                     str.append("*/n");
-                    if (aux.size() == 7) {
+                    if (aux.size() >= 6) {
                         localLab.createLocal(tipo, id++, aux.get(0), aux.get(1), aux.get(2), aux.get(3), aux.get(4), aux.get(5), aux.get(6));
+                        if (!aux.get(1).equals("-")) {
+                            Picasso.with(getContext()).load(aux.get(0)).into(picassoImageTarget(getContext(), "imageDir", aux.get(1) + ".jpeg"));
+                        }
+                    }
+                    if (mp == 0) {
+                        mp++;
                     }
                     aux.clear();
                 }
@@ -240,6 +254,48 @@ public class GastronomiaListFragment extends Fragment {
         }
     }
 
+    private Target picassoImageTarget(Context context, final String imageDir, final String imageName) {
+        Log.d("picassoImageTarget", " picassoImageTarget");
+        ContextWrapper cw = new ContextWrapper(context);
+        final File directory = cw.getDir(imageDir, Context.MODE_PRIVATE); // path to /data/data/yourapp/app_imageDir
+        return new Target() {
+            @Override
+            public void onBitmapLoaded(final Bitmap bitmap, Picasso.LoadedFrom from) {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        final File myImageFile = new File(directory, imageName); // Create image file
+                        FileOutputStream fos = null;
+                        try {
+                            fos = new FileOutputStream(myImageFile);
+                            bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        } finally {
+                            try {
+                                fos.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        Log.i("image", "image saved to >>>" + myImageFile.getAbsolutePath());
+
+                    }
+                }).start();
+            }
+
+            @Override
+            public void onBitmapFailed(Drawable errorDrawable) {
+            }
+
+            @Override
+            public void onPrepareLoad(Drawable placeHolderDrawable) {
+                if (placeHolderDrawable != null) {
+                }
+            }
+        };
+    }
+
     private class AgremiacaoHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private TextView mNomeTextView;
@@ -264,7 +320,16 @@ public class GastronomiaListFragment extends Fragment {
             if (mLocal.getImage().equals("-"))
                 Picasso.with(getContext()).load(R.drawable.semfoto).into(mLocalImageView);
             else {
-                Picasso.with(getContext()).load(mLocal.getImage()).into(mLocalImageView);
+                ContextWrapper cw = new ContextWrapper(getContext());
+                File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+                File myImageFile = new File(directory, mLocal.get_nome_local() + ".jpeg");
+                Picasso.with(getContext()).load(myImageFile).into(mLocalImageView);
+                if (mLocalImageView.getDrawable() == null) {
+                    Picasso.with(getContext()).load(mLocal.getImage()).into(mLocalImageView);
+                    if (mLocalImageView.getDrawable() == null) {
+                        Picasso.with(getContext()).load(R.drawable.semfoto).into(mLocalImageView);
+                    }
+                }
             }
         }
 
