@@ -2,9 +2,11 @@ package ufrpe.mobile.guiaolinda.GUI.activities;
 
 import android.content.Context;
 import android.content.ContextWrapper;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,6 +19,8 @@ import ufrpe.mobile.guiaolinda.DB.LocalLab;
 import ufrpe.mobile.guiaolinda.R;
 import ufrpe.mobile.guiaolinda.Services.Local;
 
+import static ufrpe.mobile.guiaolinda.Services.LocalFragment.ARG_LOCAL_ID;
+
 public class GastronomiaActivity extends AppCompatActivity {
 
     @Override
@@ -27,7 +31,7 @@ public class GastronomiaActivity extends AppCompatActivity {
         String tipo = getIntent().getExtras().getString("TIPO_LOCAL");
 
         List<Local> mLocals = LocalLab.get().getLocals(tipo);
-        Local mLocal = mLocals.get(eventId);
+        final Local mLocal = mLocals.get(eventId);
 
         ImageView mEventoImageView = findViewById(R.id.gastronomia_image);
         if (mLocal.getImage().equals("-"))
@@ -107,14 +111,15 @@ public class GastronomiaActivity extends AppCompatActivity {
         } else {
             mEmailField.setVisibility(View.GONE);
         }
-        /*Button goToMaps = (Button) findViewById(R.id.go_to_maps);
+
+        Button goToMaps = findViewById(R.id.go_to_maps);
         goToMaps.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LocalFragment.this.getActivity(), MapsActivity.class);
-                intent.putExtra(ARG_LOCAL_ID, mLocal.getId());
+                Intent intent = new Intent(GastronomiaActivity.this, MapsActivity.class);
+                intent.putExtra(ARG_LOCAL_ID, mLocal.getid());
                 startActivity(intent);
             }
-        });*/
+        });
     }
 }

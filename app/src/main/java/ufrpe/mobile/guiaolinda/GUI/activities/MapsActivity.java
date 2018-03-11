@@ -20,7 +20,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
-import java.util.UUID;
 
 import ufrpe.mobile.guiaolinda.DB.LocalLab;
 import ufrpe.mobile.guiaolinda.R;
@@ -34,7 +33,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     LocalLab localLab = LocalLab.get();
     ArrayList<Local> locais;
     GlobalVariables globalVariables;
-    private UUID localId;
+    private int localId;
     private boolean hasExtra;
 
     @Override
@@ -47,7 +46,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         if (getIntent().hasExtra(ARG_LOCAL_ID)) {
             hasExtra = true;
-            localId = (UUID) getIntent().getSerializableExtra(ARG_LOCAL_ID);
+            localId = getIntent().getExtras().getInt(ARG_LOCAL_ID);
         }
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -60,18 +59,29 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         ArrayList<Local> locals;
 
         switch (filtro) {
-
             case "1":
-                locals = localLab.getGastronomicos();
+                locals = localLab.getLocals("Gastronomia");
+                if (locals.size() == 0) {
+                    locals = localLab.getGastronomicos();
+                }
                 break;
             case "2":
-                locals = localLab.getHospedagens();
+                locals = localLab.getLocals("Hospedagem");
+                if (locals.size() == 0) {
+                    locals = localLab.getHospedagens();
+                }
                 break;
             case "3":
-                locals = localLab.getIgrejas();
+                locals = localLab.getLocals("Igrejas");
+                if (locals.size() == 0) {
+                    locals = localLab.getIgrejas();
+                }
                 break;
             case "4":
-                locals = localLab.getMonumentos();
+                locals = localLab.getLocals("Monumentos");
+                if (locals.size() == 0) {
+                    locals = localLab.getMonumentos();
+                }
                 break;
             default:
                 locals = localLab.getLocais();
@@ -148,9 +158,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
 
         if (hasExtra) {
-
-            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(localLab.getLocal(localId).getLatitude(),
-                    localLab.getLocal(localId).getLongitude()), 20.0f));
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(locais.get(localId).getLatitude(),
+                    locais.get(localId).getLongitude()), 20.0f));
         } else {
             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(-7.9908060, -34.8416290), 13.0f));
         }

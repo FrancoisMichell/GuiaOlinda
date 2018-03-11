@@ -1659,7 +1659,7 @@ public class LocalLab {
     }
 
     public void createLocal(String tipo, int local_id, String image, String nome, String telefone,
-                            String endereco, String horario, String email, String site) {
+                            String endereco, String horario, String email, String site, double latitude, double longitude) {
         Local l1 = new Local();
         l1.setId(local_id);
         l1.setImage(image);
@@ -1669,6 +1669,9 @@ public class LocalLab {
         l1.setTelefone(telefone);
         l1.setEmail(email);
         l1.setSite(site);
+        l1.setLatitude(latitude);
+        l1.setLongitude(longitude);
+        l1.setTipo(tipo);
 
         switch (tipo) {
             case ("Gastronomia"):

@@ -98,7 +98,8 @@ public class GastronomiaListFragment extends Fragment {
                     }
                     String[] aux2 = anAux.split("#");
                     if (aux2.length >= 6) {
-                        localLab.createLocal(tipo, id++, aux2[0], aux2[1], aux2[2], aux2[3], aux2[4], aux2[5], aux2[6]);
+                        localLab.createLocal(tipo, id++, aux2[0], aux2[1], aux2[2], aux2[3], aux2[4],
+                                aux2[5], aux2[6], Double.parseDouble(aux2[7]), Double.parseDouble(aux2[8]));
                     }
                 }
             }
@@ -185,7 +186,8 @@ public class GastronomiaListFragment extends Fragment {
                     }
                     str.append("*/n");
                     if (aux.size() >= 6) {
-                        localLab.createLocal(tipo, id++, aux.get(0), aux.get(1), aux.get(2), aux.get(3), aux.get(4), aux.get(5), aux.get(6));
+                        localLab.createLocal(tipo, id++, aux.get(0), aux.get(1), aux.get(2), aux.get(3), aux.get(4),
+                                aux.get(5), aux.get(6), Double.parseDouble(aux.get(7)), Double.parseDouble(aux.get(8)));
                         if (!aux.get(1).equals("-")) {
                             Picasso.with(getContext()).load(aux.get(0)).into(picassoImageTarget(getContext(), "imageDir", aux.get(1) + ".jpeg"));
                         }
