@@ -25,7 +25,19 @@ public class EventActivity extends AppCompatActivity {
         Evento mEvento = mEventos.get(eventId);
 
         ImageView mEventoImageView = findViewById(R.id.event_image);
-        Picasso.with(getBaseContext()).load(mEvento.getImagem()).into(mEventoImageView);
+//        Picasso.with(getBaseContext()).load(mEvento.getImagem()).into(mEventoImageView);
+        if (mEvento.getImagem().equals("-"))
+            Picasso.with(getBaseContext()).load(R.drawable.semfoto).into(mEventoImageView);
+        else {
+            if (mEvento.getImagem().isEmpty()) {
+                Picasso.with(getBaseContext()).load(R.drawable.semfoto).into(mEventoImageView);
+            } else {
+                Picasso.with(getBaseContext()).load(mEvento.getImagem()).into(mEventoImageView);
+                if (mEventoImageView.getDrawable() == null) {
+                    Picasso.with(getBaseContext()).load(R.drawable.semfoto).into(mEventoImageView);
+                }
+            }
+        }
 
         TextView mNomeTextView = findViewById(R.id.nome_evento);
         mNomeTextView.setText(mEvento.getNomeEvento());

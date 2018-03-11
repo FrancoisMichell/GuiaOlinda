@@ -35,6 +35,9 @@ public class LocalListFragment extends Fragment {
         setCategoria(tipo);
     }
 
+    public LocalListFragment() {
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 

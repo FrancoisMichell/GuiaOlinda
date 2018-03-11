@@ -50,7 +50,7 @@ public class EventListFragment extends Fragment {
     private LocalLab localLab;
 
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
-
+    private DatabaseReference myRef = database.getReference("Eventos");
 
     public EventListFragment() {
     }
@@ -83,7 +83,9 @@ public class EventListFragment extends Fragment {
             if (localLab.getEventos().size() == 0) {
                 for (String anAux : aux) {
                     String[] aux2 = anAux.split("#");
-                    localLab.createProgramacao(id++, aux2[0], aux2[1], aux2[2], aux2[3], aux2[4], aux2[5], aux2[6], aux2[7]);
+                    if (aux2.length >= 7) {
+                        localLab.createProgramacao(id++, aux2[0], aux2[1], aux2[2], aux2[3], aux2[4], aux2[5], aux2[6], aux2[7]);
+                    }
                 }
             }
         }
@@ -151,7 +153,7 @@ public class EventListFragment extends Fragment {
     }
 
     public void geraEventos() {
-        DatabaseReference myRef = database.getReference("Gastronomia");
+
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -166,7 +168,7 @@ public class EventListFragment extends Fragment {
                         str.append(ds.child(Integer.toString(i)).getValue().toString()).append('#');
                     }
                     str.append("/n");
-                    localLab.createProgramacao(id++, aux.get(0), aux.get(1), aux.get(2), aux.get(3), aux.get(4), "mopa", "mopa", "mopa");
+                    localLab.createProgramacao(id++, aux.get(0), aux.get(1), aux.get(2), aux.get(3), aux.get(4), aux.get(5), aux.get(6), aux.get(7));
                     aux.clear();
                 }
                 mAdapter.notifyDataSetChanged();
@@ -253,7 +255,21 @@ public class EventListFragment extends Fragment {
 
         void bind(Evento evento) {
             mEvento = evento;
-            Picasso.with(getContext()).load(mEvento.getImagem()).into(mLocalImageView);
+//            Picasso.with(getContext()).load(mEvento.getImagem()).into(mLocalImageView);
+            if (mEvento.getImagem().equals("-"))
+                Picasso.with(getContext()).load(R.drawable.semfoto).into(mLocalImageView);
+            else {
+                if (mEvento.getImagem().isEmpty()) {
+                    Picasso.with(getContext()).load(R.drawable.semfoto).into(mLocalImageView);
+                } else {
+                    Picasso.with(getContext()).load(mEvento.getImagem()).into(mLocalImageView);
+                    if (mLocalImageView.getDrawable() == null) {
+                        Picasso.with(getContext()).load(R.drawable.semfoto).into(mLocalImageView);
+                    }
+                }
+            }
+
+
             mNomeTextView.setText(mEvento.getNomeEvento());
             mLocalTextView.setText(mEvento.getLocal());
             mDataTextView.setText(mEvento.getData());

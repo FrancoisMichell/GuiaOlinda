@@ -7,7 +7,7 @@ android {
         applicationId "ufrpe.mobile.guiaolinda"
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode 1
+        versionCode 2
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -16,6 +16,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    lintOptions {
+        checkReleaseBuilds false
     }
 }
 

@@ -9,7 +9,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -27,7 +26,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -190,7 +188,7 @@ public class ProgramacaoListFragment extends Fragment {
             outputStreamWriter.write(data);
             outputStreamWriter.close();
         } catch (IOException e) {
-            Log.e("Exception", "File write failed: " + e.toString());
+            e.printStackTrace();
         }
     }
 
@@ -214,10 +212,8 @@ public class ProgramacaoListFragment extends Fragment {
                 ret = stringBuilder.toString();
 
             }
-        } catch (FileNotFoundException e) {
-            Log.e("login activity", "File not found: " + e.toString());
         } catch (IOException e) {
-            Log.e("login activity", "Can not read file: " + e.toString());
+            e.printStackTrace();
         }
 
         return ret;

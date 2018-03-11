@@ -9,7 +9,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -190,7 +189,6 @@ public class AgremiacaoListFragment extends Fragment {
             outputStreamWriter.write(data);
             outputStreamWriter.close();
         } catch (IOException e) {
-            Log.e("Exception", "File write failed: " + e.toString());
         }
     }
 
@@ -214,9 +212,7 @@ public class AgremiacaoListFragment extends Fragment {
                 ret = stringBuilder.toString();
             }
         } catch (FileNotFoundException e) {
-            Log.e("login activity", "File not found: " + e.toString());
         } catch (IOException e) {
-            Log.e("login activity", "Can not read file: " + e.toString());
         }
 
         return ret;

@@ -9,7 +9,6 @@ public class Local {
     private String image;
     private String email;
     private String horario;
-    private String descricao;
     private String nome_local;
     private String tipo;
     private String endereco;

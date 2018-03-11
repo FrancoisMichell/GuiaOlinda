@@ -38,7 +38,7 @@ public class LocalLab {
         return mLocais;
     }
 
-    private ArrayList<Local> createLocais() {
+    private void createLocais() {
         mLocais = new ArrayList<>();
 
         Local l1 = new Local();
@@ -1587,8 +1587,6 @@ public class LocalLab {
         m44.setLongitude(-34.8387070);
         mLocais.add(m44);
 
-        return mLocais;
-
     }
 
     public ArrayList<Local> getGastronomicos() {
@@ -1690,7 +1688,7 @@ public class LocalLab {
     }
 
     public ArrayList<Local> getLocals(String tipo) {
-        ArrayList<Local> aux = new ArrayList<Local>();
+        ArrayList<Local> aux = new ArrayList<>();
         switch (tipo) {
             case ("Gastronomia"):
                 aux = mlocal;

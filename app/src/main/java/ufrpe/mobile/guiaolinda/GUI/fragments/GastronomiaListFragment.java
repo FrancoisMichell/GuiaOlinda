@@ -12,7 +12,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -52,17 +51,18 @@ import ufrpe.mobile.guiaolinda.Services.Local;
 public class GastronomiaListFragment extends Fragment {
 
     public final String AGREMIACAO_ID = "AGREMIACAO_ID";
+    Bundle args = new Bundle();
     private RecyclerView mAgremiacaoRecyclerView;
     private AgremiacaoAdapter mAdapter;
     private LocalLab localLab;
-
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
-    private DatabaseReference myRef;
-
     private String tipo;
 
     public GastronomiaListFragment(String tipo) {
         this.tipo = tipo;
+    }
+
+    public GastronomiaListFragment() {
     }
 
     @Override
@@ -85,24 +85,33 @@ public class GastronomiaListFragment extends Fragment {
             }
         });
 
-        if (readFromFile().isEmpty() || readFromFile().equals("")) {
-            gerarAgremiacoes();
-        } else {
-            int id = 0;
-            String mopa = readFromFile();
-            String[] aux = String.valueOf(mopa).split("/n");
-            if (localLab.getLocals(tipo).size() == 0) {
-                for (String anAux : aux) {
-                    if (anAux.contains("/%")) {
-                        anAux = anAux.replace("/%", "\n");
-                    }
-                    String[] aux2 = anAux.split("#");
-                    if (aux2.length >= 6) {
-                        localLab.createLocal(tipo, id++, aux2[0], aux2[1], aux2[2], aux2[3], aux2[4],
-                                aux2[5], aux2[6], Double.parseDouble(aux2[7]), Double.parseDouble(aux2[8]));
+        try {
+            if (readFromFile().isEmpty() || readFromFile().equals("")) {
+                gerarAgremiacoes();
+            } else {
+                int id = 0;
+                String mopa = null;
+                try {
+                    mopa = readFromFile();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                String[] aux = String.valueOf(mopa).split("/n");
+                if (localLab.getLocals(tipo).size() == 0) {
+                    for (String anAux : aux) {
+                        if (anAux.contains("/%")) {
+                            anAux = anAux.replace("/%", "\n");
+                        }
+                        String[] aux2 = anAux.split("#");
+                        if (aux2.length >= 8) {
+                            localLab.createLocal(tipo, id++, aux2[0], aux2[1], aux2[2], aux2[3], aux2[4],
+                                    aux2[5], aux2[6], Double.parseDouble(aux2[7]), Double.parseDouble(aux2[8]));
+                        }
                     }
                 }
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         updateUI();
         return view;
@@ -168,7 +177,7 @@ public class GastronomiaListFragment extends Fragment {
     }
 
     public void geraAgremiacoes() {
-        myRef = database.getReference(tipo);
+        DatabaseReference myRef = database.getReference(tipo);
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -185,11 +194,11 @@ public class GastronomiaListFragment extends Fragment {
                         str.append(data.replaceAll("\n", "/%")).append('#');
                     }
                     str.append("*/n");
-                    if (aux.size() >= 6) {
+                    if (aux.size() >= 8) {
                         localLab.createLocal(tipo, id++, aux.get(0), aux.get(1), aux.get(2), aux.get(3), aux.get(4),
                                 aux.get(5), aux.get(6), Double.parseDouble(aux.get(7)), Double.parseDouble(aux.get(8)));
                         if (!aux.get(1).equals("-")) {
-                            Picasso.with(getContext()).load(aux.get(0)).into(picassoImageTarget(getContext(), "imageDir", aux.get(1) + ".jpeg"));
+                            Picasso.with(getContext()).load(aux.get(0)).into(picassoImageTarget(getContext(), aux.get(1) + ".jpeg"));
                         }
                     }
                     if (mp == 0) {
@@ -213,12 +222,11 @@ public class GastronomiaListFragment extends Fragment {
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(context.openFileOutput((tipo + ".txt"), Context.MODE_PRIVATE));
             outputStreamWriter.write(data);
             outputStreamWriter.close();
-        } catch (IOException e) {
-            Log.e("Exception", "File write failed: " + e.toString());
+        } catch (IOException ignored) {
         }
     }
 
-    private String readFromFile() {
+    private String readFromFile() throws IOException {
 
         String ret = "";
         try {
@@ -236,10 +244,7 @@ public class GastronomiaListFragment extends Fragment {
                 inputStream.close();
                 ret = stringBuilder.toString();
             }
-        } catch (FileNotFoundException e) {
-            Log.e("login activity", "File not found: " + e.toString());
-        } catch (IOException e) {
-            Log.e("login activity", "Can not read file: " + e.toString());
+        } catch (FileNotFoundException ignored) {
         }
 
         return ret;
@@ -256,10 +261,9 @@ public class GastronomiaListFragment extends Fragment {
         }
     }
 
-    private Target picassoImageTarget(Context context, final String imageDir, final String imageName) {
-        Log.d("picassoImageTarget", " picassoImageTarget");
+    private Target picassoImageTarget(Context context, final String imageName) {
         ContextWrapper cw = new ContextWrapper(context);
-        final File directory = cw.getDir(imageDir, Context.MODE_PRIVATE); // path to /data/data/yourapp/app_imageDir
+        final File directory = cw.getDir("imageDir", Context.MODE_PRIVATE); // path to /data/data/yourapp/app_imageDir
         return new Target() {
             @Override
             public void onBitmapLoaded(final Bitmap bitmap, Picasso.LoadedFrom from) {
@@ -275,13 +279,12 @@ public class GastronomiaListFragment extends Fragment {
                             e.printStackTrace();
                         } finally {
                             try {
+                                assert fos != null;
                                 fos.close();
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
                         }
-                        Log.i("image", "image saved to >>>" + myImageFile.getAbsolutePath());
-
                     }
                 }).start();
             }
@@ -292,8 +295,6 @@ public class GastronomiaListFragment extends Fragment {
 
             @Override
             public void onPrepareLoad(Drawable placeHolderDrawable) {
-                if (placeHolderDrawable != null) {
-                }
             }
         };
     }

@@ -9,7 +9,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -190,7 +189,7 @@ public class HomenageadosListFragment extends Fragment {
             outputStreamWriter.write(data);
             outputStreamWriter.close();
         } catch (IOException e) {
-            Log.e("Exception", "File write failed: " + e.toString());
+            return;
         }
     }
 
@@ -216,9 +215,7 @@ public class HomenageadosListFragment extends Fragment {
 
             }
         } catch (FileNotFoundException e) {
-            Log.e("Homenageados activity", "File not found: " + e.toString());
         } catch (IOException e) {
-            Log.e("Homenageados activity", "Can not read file: " + e.toString());
         }
 
         return ret;
